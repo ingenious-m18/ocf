@@ -1,0 +1,21 @@
+<docReport>
+	<report module="dn" code="@ocf_cardsizesmall_sql" reportDto="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto"
+	        providerCode="com.multiable.erp.opcq.ireport.provider.cardsizesmall.CardSizeSmallProvider" providerOrder="1" providerMess="CardSizeSmall" 
+	        reportDtoSettingSrc="/view/opcq/dialog/cardSizeSmallPrintSetting.xhtml">   
+		 <format code="@ocf_cardsizesmall_sql" remark="Print Card Size Small" description="Print Card Size Small" 
+		         packageName="com.multiable.opcq.share.data.ireport.resource.report.cardsizesmall" expired="false">
+	        <jrxml name="PrtCardSizeSmall.jrxml" main="true"></jrxml>
+	     </format>
+	</report>
+	<report module="dn" code="@ocf_cardsizelarge_sql" reportDto="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto"
+	        providerCode="com.multiable.erp.opcq.ireport.provider.cardsizelarge.CardSizeLargeProvider" providerOrder="1" providerMess="CardSizeLarge" 
+	        reportDtoSettingSrc="/view/opcq/dialog/cardSizeLargePrintSetting.xhtml">   
+		 <format code="@ocf_cardsizelarge_sql" remark="Print Card Size Large" description="Print Card Size Large" 
+		         packageName="com.multiable.opcq.share.data.ireport.resource.report.cardsizelarge" expired="false">
+	        <jrxml name="PrtCardSizeLarge.jrxml" main="true"></jrxml>
+	     </format>
+	</report>
+	
+	<resetData prCode="com.multiable.opcq.ireport.provider.cardsizesmall.CardSizeSmallProvider" resetClass ="com.multiable.opcq.ireport.provider.cardsizesmall.CardSizeSmallRestData" order="1" />
+	<resetData prCode="com.multiable.opcq.ireport.provider.cardsizelarge.CardSizeLargeProvider" resetClass ="com.multiable.opcq.ireport.provider.cardsizelarge.CardSizeLargeRestData" order="1" />
+</docReport>

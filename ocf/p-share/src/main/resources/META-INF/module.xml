@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<md xmlns="http://www.multiable.com/module" app="ce01_test01">
+	<module name="opcqmessagecontent" mess="ocf.messagecontent" extend="false" mainTable="opcqmessagecontent" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
+		<table name="opcqmessagecontent" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
+		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
+	</module>
+		
+	<module name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" extend="false" mainTable="opcqredemptioncoupon" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
+		<table name="opcqredemptioncoupon" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
+		<table name="opcqredemptioncoupont" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
+	</module>
+	
+	<module name="cus" extend="true">
+		<table name="ocfremcust" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
+		<table name="ocfrccus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
+		<table name="ocfrcdcus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
+	</module>
+	
+	<module name="siso" extend="true">
+		<checker class="com.multiable.erp.opcq.checker.Opcqocfremcus"/>
+	</module>
+	
+	<module name="recReg" extend="true">
+		<checker class="com.multiable.erp.opcq.checker.OpcqocfReceiptRegister"/>
+	</module>
+</md>

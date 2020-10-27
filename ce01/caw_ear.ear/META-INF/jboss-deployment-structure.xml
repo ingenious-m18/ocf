@@ -1,0 +1,103 @@
+
+<jboss-deployment-structure>
+<!-- this should the same as manifest.mf for runtime debug only(temp) -->
+<deployment>
+	<dependencies>
+		
+		<module name="org.jboss.vfs"/>
+		<module name="net.sf.ehcache"/>
+		<module name="javax.api"/>
+		<module name="caw.core.base"/>
+		<module name="org.javassist"/>
+		<module name="org.apache.commons.beanutils"/>
+		<module name="com.alibaba.fastjson"/>
+		<module name="org.apache.httpcomponents"/>
+		
+		<module name="org.reflections" />
+		<module name="com.google.guava"/>
+		
+		<module name="net.coobird.thumbnailator"/>
+		<module name="net.sf.jasperreports"/>
+		<module name="com.lowagie.itext"/>
+		<module name="org.quartz-scheduler"/>
+		<module name="org.apache.poi"/>
+		<module name="org.apache.commons.lang"/>
+		<module name="org.apache.commons.math3"/>
+		<module name="org.apache.pdfbox"/>
+		<module name="org.apache.fontbox"/>
+		<module name="org.apache.commons.logging" />
+		
+		<module name="com.rits.cloning"/>
+		<module name="caw.core.ebi"/>
+		
+		<module name="org.testng"/>
+		
+		<module name="org.jboss.as.webservices"/>
+		
+		<module name="org.jsoup"/>
+		
+		<module name="org.apache.axis"/>
+		<module name="com.opencsv"/>
+		<module name="org.apache.httpcomponents" />
+        <module name="org.opensaml"/>
+        <module name="org.joda.time"/>
+        <module name="org.apache.commons.commons-compress"/>
+		<module name="org.tukaani.xz"/>
+	</dependencies>
+	
+	
+</deployment>
+
+
+<sub-deployment name="core_ejb.jar">
+	<dependencies>
+		<module name="org.jboss.vfs"/>
+		<module name="net.sf.ehcache"/>
+		<module name="javax.api"/>
+		<module name="caw.core.base"/>
+		<module name="org.javassist"/>
+		<module name="org.apache.commons.beanutils"/>
+		<module name="com.alibaba.fastjson"/>
+		
+		<module name="org.reflections" />
+		<module name="com.google.guava"/>
+		
+		<module name="net.coobird.thumbnailator"/>
+		<module name="net.sf.jasperreports"/>
+		<module name="org.eclipse.jdt.ecj"/>
+		<module name="com.lowagie.itext"/>
+		<module name="org.quartz-scheduler"/>
+		<module name="org.apache.poi"/>
+		
+		<module name="org.apache.commons.lang"/>
+		
+		<module name="org.libreoffice" />
+		
+		<module name="caw.core.ebi"/>
+		<module name="org.testng"/>
+		<module name="com.ibm.icu.icu4j"/>
+		<!--<module name="mysql.mysql-connector-java"/>-->
+		<module name="mysql.mysql-connector-java8"/>
+	</dependencies>
+</sub-deployment>
+
+<sub-deployment name="jsf.war">
+	<dependencies>
+		<module name="caw.core.base"/>
+		<module name="org.apache.poi"/>
+		
+		<module name="org.apache.commons.io"/>
+		<module name="org.primefaces" export="true">
+		<imports>
+			<include path="META-INF"/>
+			<include path="META-INF/"/>
+		</imports>  
+		</module>
+	 
+		<module name="caw.core.ebi"/>
+		<module name="org.opensaml"/>
+	</dependencies>
+</sub-deployment>
+
+<!-- caw sign -->
+</jboss-deployment-structure>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.    
+-->
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="com.multiable.core"
+        module="share"
+        status="integration">
+	</info>
+	<dependencies defaultconfmapping="default->master(*), compile(*)">
+	<dependency org="net.sf.ehcache" name="ehcache" rev="2.10.0"/>
+	<dependency org="org.javassist" name="javassist" rev="3.20.0-GA"/>
+	<dependency org="org.jboss.spec.javax.servlet" name="jboss-servlet-api_3.1_spec" rev="1.0.0.Final"/>
+	<dependency org="org.jboss.spec.javax.ejb" name="jboss-ejb-api_3.2_spec" rev="1.0.0.Final"/>
+	<dependency org="org.jboss.spec.javax.websocket" name="jboss-websocket-api_1.0_spec" rev="1.0.0.Final"/>
+	<dependency org="commons-beanutils" name="commons-beanutils" rev="1.9.2"/>
+	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.7"/>
+	<dependency org="caw.core.base" name="caw-base" rev="6.2"/>
+	<dependency org="org.jboss" name="jboss-vfs" rev="3.1.0.Final"/>
+	<dependency org="com.alibaba" name="fastjson" rev="1.2.221"/>
+	<dependency org="org.jboss.resteasy" name="resteasy-jaxrs" rev="3.0.11.Final"/>
+	<dependency org="com.google.zxing" name="core" rev="3.3.0"/>
+	<dependency org="com.google.zxing" name="javase" rev="3.0.0"/>
+	<dependency org="com.google.guava" name="guava" rev="11.0.2"/>
+	<dependency org="org.reflections" name="reflections" rev="0.9.9-RC1"/>
+	
+	<dependency org="org.quartz-scheduler" name="quartz" rev="2.2.1"/>
+	<dependency org="net.sf.jasperreports" name="jasperreports" rev="6.2.4"/>
+	<dependency org="net.sf.jasperreports" name="htmlcomponent" rev="6.2.4"/>
+	<dependency org="org.apache.poi" name="poi" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-ooxml" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-scratchpad" rev="4.0.1"/>
+	
+	<dependency org="uk.com.robust-it" name="cloning" rev="1.9.3"/>
+	
+	<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.1"/>
+	<dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.3"/>
+	
+	<dependency org="org.testng" name="testng" rev="6.9.13.6"/>
+	
+	<dependency org="org.wildfly" name="wildfly-webservices-server-integration" rev="9.0.0.Final"/>
+	
+	<dependency org="net.coobird" name="thumbnailator" rev="0.4.8"/>
+	
+	<dependency org="org.jsoup" name="jsoup" rev="1.7.2"/>
+<dependency org="com.opencsv" name="opencsv" rev="4.2"/>
+	
+	</dependencies>
+	
+</ivy-module>

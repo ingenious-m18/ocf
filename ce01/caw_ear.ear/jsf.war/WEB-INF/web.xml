@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>NJ02 WEB Configuration</display-name>
+	<session-config>
+		<session-timeout>7</session-timeout>
+	</session-config>
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bootstrap</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>/WEB-INF/faces-config.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.numberOfLogicalViews</param-name>
+		<param-value>93</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.generateUniqueServerStateIds</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Production</param-value>
+	</context-param>
+	<!--<context-param>
+		<param-name>caw.syhsDB</param-name>
+		<param-value>true</param-value>
+	</context-param>-->
+	<!-- <context-param> <param-name>testAll</param-name> <param-value>true</param-value> 
+		</context-param>--> 
+	<!--  <context-param>
+		<param-name>testClass</param-name>
+		<param-value>com.multiable.core.ejb.eao.curd.SqlEntityCurdEAOTest</param-value>
+	</context-param>  -->
+	<context-param>
+		<param-name>javax.faces.RESOURCE_EXCLUDES</param-name>
+		<param-value>.class .jsp .jspx .xhtml .groovy</param-value>
+	</context-param>
+	<context-param>
+		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources.application</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.validateXml</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.faces?error=404</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.faces?error=500</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error.faces?error=java_exception</location>
+	</error-page>
+
+	<mime-mapping>
+		<extension>ico</extension>
+		<mime-type>application/x-icon</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>properties</extension>
+		<mime-type>text/x-java-properties</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>woff</extension>
+		<mime-type>application/x-font-woff</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>svg</extension>
+		<mime-type>image/svg+xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>eot</extension>
+		<mime-type>application/vnd.ms-fontobject</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>tff</extension>
+		<mime-type>application/x-font-ttf</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jsp</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>swf</extension>
+		<mime-type>application/x-shockwave-flash</mime-type>
+	</mime-mapping>
+	<filter>
+	    <filter-name>AccessFilter</filter-name>
+	    <filter-class>com.multiable.web.filter.AccessFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+	    <filter-name>AccessFilter</filter-name>
+	    <url-pattern>*</url-pattern>
+  	</filter-mapping>
+  
+	<listener>
+		<listener-class>com.multiable.core.share.server.AppServerListener</listener-class>
+	</listener> 
+	<listener>
+		<listener-class>com.multiable.web.SessionListener</listener-class>
+	</listener>
+	<!--  <listener> <listener-class>com.multiable.core.share.server.TestNGListener</listener-class> 
+		</listener> -->
+	<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+</web-app>

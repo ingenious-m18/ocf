@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.    
+-->
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="com.multiable.core"
+        module="ejb"
+        status="integration">
+	</info>
+	<dependencies defaultconfmapping="default->master(*), compile(*)">
+	
+	<dependency org="net.sf.ehcache" name="ehcache" rev="2.10.0"/>
+	<dependency org="caw.core.base" name="caw-base" rev="6.2"/>
+	<dependency org="org.jboss.spec.javax.ejb" name="jboss-ejb-api_3.2_spec" rev="1.0.0.Final"/>
+	<dependency org="com.alibaba" name="fastjson" rev="1.2.221"/>
+	<dependency org="org.jboss.resteasy" name="resteasy-jaxrs" rev="3.0.11.Final"/>
+	<dependency org="org.jboss.spec.javax.interceptor" name="jboss-interceptors-api_1.2_spec" rev="1.0.0.Final"/>
+	<dependency org="org.jboss.ejb3" name="jboss-ejb3-ext-api" rev="2.1.0"/>
+	
+	<dependency org="net.coobird" name="thumbnailator" rev="0.4.8"/>
+	
+	<!--Added by havid 2015/10/23 Start-->
+	<dependency org="joda-time" name="joda-time" rev="2.5"/>
+	<dependency org="ch.qos.logback" name="logback-classic" rev="1.0.13"/>
+	<dependency org="junit" name="junit" rev="4.11"/>
+	<dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.4.3"/>
+	<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.4.3"/>
+	<dependency org="org.reflections" name="reflections" rev="0.9.9-RC1"/>
+	<dependency org="javax.mail" name="javax.mail-api" rev="1.6.2"/>
+	<dependency org="com.sun.mail" name="javax.mail" rev="1.6.2"/>
+	<dependency org="org.mozilla" name="rhino" rev="1.7R3"/>
+	<dependency org="org.slf4j" name="slf4j-api" rev="1.7.5"/>
+	<!--Added by havid 2015/10/23 End-->
+	
+	<dependency org="com.google.guava" name="guava" rev="11.0.2"/>
+	<dependency org="com.google.zxing" name="core" rev="3.3.0"/>
+	<dependency org="com.google.zxing" name="javase" rev="3.0.0"/>
+		
+	<dependency org="com.zaxxer" name="HikariCP" rev="3.3.1"/>
+		
+	<dependency org="org.quartz-scheduler" name="quartz" rev="2.2.1"/>
+	<dependency org="net.sf.jasperreports" name="jasperreports" rev="6.2.4"/>
+	<dependency org="org.apache.poi" name="poi" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-ooxml" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="4.0.1"/>
+	<dependency org="org.apache.poi" name="poi-scratchpad" rev="4.0.1"/>
+	<dependency org="org.apache.xmlbeans" name="xmlbeans" rev="3.0.2"/>
+	<dependency org="org.apache.pdfbox" name="pdfbox" rev="2.0.3"/>
+	
+	<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.1"/>
+	<dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.3"/>
+	
+	<dependency org="org.testng" name="testng" rev="6.9.13.6"/>
+	
+	<dependency org="com.ibm.icu" name="icu4j" rev="58.2" />
+	<!-- <dependency org="eu.agno3.jcifs" name="jcifs-ng" rev="2.1.2"/> -->
+	<dependency org="com.hierynomus" name="smbj" rev="0.9.1"/>
+	<dependency org="org.tukaani" name="xz" rev="1.8" />
+	</dependencies>
+	
+</ivy-module>

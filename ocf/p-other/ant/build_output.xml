@@ -1,0 +1,132 @@
+<project name="build_output" default="runtime">
+	
+	<property name="base.dir" location="..\.."/>
+	<property name="output.dir" location="${base.dir}\p-other\jar"/>
+	<property name="temp.dir" location="${base.dir}\p-other\ant\temp"/>
+
+	<target name="runtime">
+		
+		<!--**** begin -->
+		<property name="share.dir" location="${base.dir}\p-share"/>
+		<echo message="build jar: ce01_test01_share" />
+		<!--javac share-->
+		<ant antfile="${share.dir}\build.xml" dir="${share.dir}" inheritall="true" inheritrefs="true" />
+		
+		<!-- <delete file="${output.dir}\core-share.jar"/> -->
+		<jar destfile="${output.dir}\ce01_test01_share.jar" 
+			manifest="${share.dir}\src\main\resources\META-INF\MANIFEST.MF" >
+			<fileset dir="${share.dir}\bin" />
+	    </jar>
+		<jar destfile="${output.dir}\src\ce01_test01_share_src.jar" >
+			<fileset dir="${share.dir}\src\main\java" />
+		</jar>
+		<!--**** end -->
+
+
+		<!--**** begin -->
+		<property name="ejb.dir" location="${base.dir}\p-ejb"/>
+		<echo message="build jar: ce01_test01_ejb" />
+		<!--javac share-->
+		<ant antfile="${ejb.dir}\build.xml" dir="${ejb.dir}" inheritall="true" inheritrefs="true" />
+
+		<jar destfile="${output.dir}\ce01_test01_ejb.jar" 
+			manifest="${ejb.dir}\src\main\resources\META-INF\MANIFEST.MF" >
+			<fileset dir="${ejb.dir}\build\classes" />
+	    </jar>
+		<jar destfile="${output.dir}\src\ce01_test01_ejb_src.jar" >
+			<fileset dir="${ejb.dir}\src\main\java" />
+		</jar>
+		<!--**** end -->
+
+
+		<!--**** begin -->
+		<property name="jsf.dir" location="${base.dir}\p-jsf"/>
+		<echo message="build jar: ce01_test01_jsf" />
+		<!--javac share-->
+		<ant antfile="${jsf.dir}\build.xml" dir="${jsf.dir}" inheritall="true" inheritrefs="true" />
+
+		<delete dir="${temp.dir}\core_jsf"/>
+		<mkdir dir="${temp.dir}\core_jsf\META-INF\resources"/>
+
+		<copy todir="${temp.dir}\core_jsf\META-INF">
+			<fileset dir="${jsf.dir}\src\main\WebContent\WEB-INF">
+				<include name="faces-config.xml"/>
+			</fileset>
+		</copy>
+
+    <copy todir="${temp.dir}\core_jsf\META-INF">
+      <fileset dir="${jsf.dir}\src\main\WebContent\META-INF">
+        <include name="faces.xml"/>
+      </fileset>
+    </copy>
+			
+		<copy todir="${temp.dir}\core_jsf\META-INF\resources">
+			<fileset dir="${jsf.dir}\src\main\WebContent\">
+				<exclude name="WEB-INF\**" />
+				<exclude name="resources\**" />
+				<exclude name="META-INF\**" />
+			</fileset>
+		</copy>
+		<!-- todo add js+css build -->
+		<copy todir="${temp.dir}\core_jsf\META-INF\resources">
+			<fileset dir="${jsf.dir}\src\main\WebContent\resources">
+			</fileset>
+		</copy>
+		
+		<jar destfile="${output.dir}\ce01_test01_jsf.jar" > 
+			<fileset dir="${jsf.dir}\build\classes/" >
+			</fileset>
+			<fileset dir="${temp.dir}\core_jsf" >
+			</fileset>
+		</jar>
+		<jar destfile="${output.dir}\src\ce01_test01_jsf_src.jar" >
+			<fileset dir="${jsf.dir}\src\main\java" />
+		</jar>
+		
+		<!-- create caw_ear.ear -->
+		<delete dir="${output.dir}\caw_ear.ear"/>
+		
+		<mkdir dir="${output.dir}\caw_ear.ear"/>
+		
+		<copy todir="${output.dir}\caw_ear.ear">
+			<fileset dir="${output.dir}">
+				<include name="ce01_test01_ejb.jar"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${output.dir}\caw_ear.ear\lib">
+			<fileset dir="${output.dir}">
+				<include name="ce01_test01_share.jar"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${output.dir}\caw_ear.ear\jsf.war\WEB-INF\lib">
+			<fileset dir="${output.dir}">
+				<include name="ce01_test01_jsf.jar"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${output.dir}\caw_ear.ear\jsf.war\WEB-INF">
+			<fileset dir="${base.dir}\p-other\ant">
+				<include name="faces-config.xml"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${output.dir}\caw_ear.ear\jsf.war\WEB-INF">
+			<fileset dir="${jsf.dir}\src\main\WebContent\WEB-INF">
+				<include name="web.xml"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${output.dir}\caw_ear.ear\META-INF">
+			<fileset dir="${base.dir}\p-ear\EarContent\META-INF">
+				<include name="jboss-deployment-structure.xml"/>
+			</fileset>
+		</copy>
+		
+		
+		<!-- **** end -->
+		<echo message="output path: ${output.dir}" />
+	</target>
+
+</project>

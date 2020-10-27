@@ -1,0 +1,32 @@
+caw.ap.debug = 1
+caw.ap.skip.sycnDB=0
+caw.ebi.skipXMLSync=0
+caw.report.skipUploadFormat=0
+
+caw.jboss.cluster=
+
+#caw.ebi.h2mem.only=true
+
+caw.fileData.useByteStream=1
+#caw.ap.debug.JavaScript=0
+
+#caw.ap.debug.checker.create=0
+#caw.ap.debug.checker.save=1
+#caw.ap.debug.checker.read=0
+#caw.ap.debug.checker.delete=0
+#caw.ap.debug.checker.module=
+
+caw.database.printNoUseCol = false
+
+#caw.file.app.path=D:\\temp\\caw4
+caw.database.maximumPoolSize=25
+
+caw.sch.quartz = 0
+#caw.sch.targetUrl = http://192.168.10.92:8080/jsf/rfws/
+
+#��������job,�����������job��ʹ�ã���������������jobֻ�ܱ�����job�ķ���������
+#caw.ap.sch.debugJobName=
+#��������jobGroup,�����������jobGroup��ʹ�ã���������������jobֻ�ܱ�����job�ķ���������
+#caw.ap.sch.debugJobGroup=
+#����job��ã���λ��Сʱ
+#caw.ap.sch.debugTime=

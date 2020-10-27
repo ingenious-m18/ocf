@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module xmlns="urn:jboss:module:1.3" name="net.engio.mbassador">
+    <resources>
+        <resource-root path="mbassador-1.3.0.jar"/>
+    </resources>
+	<dependencies>
+		<module name="javax.api"/>
+        <module name="javax.el.api"/>
+    </dependencies>
+</module>

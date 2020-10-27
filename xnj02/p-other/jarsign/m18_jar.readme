@@ -1,0 +1,6 @@
+--use cmd to jdk/bin
+keytool -genkeypair -alias default -keyalg RSA -sigalg SHA256withRSA -keystore m18_jar.jks -storepass lYYxkjutUB4j -keypass etEiR7KpcLsr -validity 9999
+--Multiable m18 m18 SZ GD CN Y
+
+--public key string
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo0IuUqqNq8lV+d2aMk7MXuIVhIU2ss5Wgz3wO7mm2F2uing+4RRfXgCNcF8XCn+UGFQVFLntCiw5prB8ULU8Kq7xAO67ZB6sV/kcuDKVPekVGv5GP+a/H0Lbq0Av14VBJbxsj5TsBVN92+52kIVFmrVJ+ev4ZJR1rkibeWRUS+wTYBE8N+62vL/WFK0Fp0d2Q4kTclijFwyoPdnRU3zeSvgSYvlOBVCdOSv0WkC4f1TzPe0fcNNDwP8xI3Utn5hx52EyiBAARcQpBIv3S4Pja1Plie/3Cz+Hig8QCbmfw+any7dALl6jDId0aP25RS1spxW434MTYPUxkqyK769wSQIDAQAB

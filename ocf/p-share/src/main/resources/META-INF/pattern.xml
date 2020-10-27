@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<pattern xmlns="http://www.multiable.com/pattern">
+	<record type="options" code="cardsize">
+		<options valueClass="String">
+			<option value="--" label="ocf.csDef" />
+			<option value="Small" label="ocf.csSmall" />
+			<option value="Large" label="ocf.csLarge" />
+		</options>
+	</record>
+	<record code="opcqredemptioncoupon" type="lookup">
+		<lookup searchType="opcqredemptioncoupon"/>
+	</record>
+	<record code="opcqmessagecontent" type="lookup">
+		<lookup searchType="opcqmessagecontent"/>
+	</record>
+</pattern>

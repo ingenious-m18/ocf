@@ -1,0 +1,59 @@
+﻿目前测试服务器使用的Key是默认启用了26个Flag:
+lHM3wNDi8GPArss5o/aJICBbyjG4nQjLCEGid/3fqV83qg8v1reCJ7ptYEQ7mxAkKdTVitEkDeBFLSc/dDVGlgH52h0KLsBfd7NyFTyrS1Z94OGB9jPyydvnkaGapjtfbJdLUDfx0MwLVA1/qc4kOb6VdwZumb46AG334dUMFv3PUabM9sGEdz4xGkgIQkxFFJ42XJ1h6ZaC/uLdU/+N24wvIgELsxmd5utwBLFbQsL2xYqmGHQLv2ZGz1CmfrKVjFNBPszxT2L+eC2wvxMvZ2nnT/KTm6SivpekDoXk/WJDGPyiACxlqUP2fEjqrY7nscWydAqjHfdmymyRmPxK5li5GgE56Vw/7sxSccmO6uzrWj870oVbF3yGo5s1oRWtJgisAaCgjwOuYTJBUqd8oLWfjzmSM3eYmXug7fef6toH/y42omv429KvTPm6xEZd9XZb7A929cWMjLHnlCfKTWayPk3A4CyyIog6v3W5x4XrAMfDDazkT/B7c0haBoVUO9cOKWQTz8/PpznnUMBDE1+CKCd2Zf8Lb069G7bi2EpowAbdPgFwYlTNUBEOdwGIICeAfw2rNhUr0jViwELDaxfGvos4+A2KcuM4qtPIp4GoNjrcmTdFSJ55FadDdltVbpu/gpczFxGng6qTlZuKrQn5CguIK6ehGZvkoSj7FEM=
+
+Flag的使用情况说明：
+
+a:Business Process Configuration
+b:Business Process Setup (Trade)
+c:Physical Stock Configuration
+d:Business Process Setup (Finance)
+e:Voucher Configuration (Finance)
+f:Voucher Configuration (Stock)
+g:Available Quantity Setup
+h:Account Nature Setup
+i:Financial Report Setup
+j:Frozen Period Configuration
+k:Business Rule Configuration
+l:Budget
+m:Instant Cost Sheet
+n:Product Assembly & Disassembly
+o:Flow Thru Setup
+p:QC(Trade)
+q:QC(Production)
+/* Removed by Jerry.li 20181210
+r:Bonus Point Management (POS)
+s:Coupon Management (POS)
+*/
+t:Membership (POS)
+u:Price Management (POS)
+v:Promotion Plan (POS)
+w:APS(Production)
+x:Flow Thru Setup(Finance)
+y:Store Value(POS)
+z:Member Upgrade(POS)
+A: Task:191496 (Support Promotion triggered manually even Price Robot is defined as Auto Trigger)
+B: Task:192175 (Manually input Gift & Exchange)
+C: Task:194113 (Manually Prohibited Promotion)
+D: Task:192567 (Voucher (ext.) Generaetion)
+E: Task:200573 Cash Flow Nature Setup
+F:
+G:
+H:
+I:
+J:
+K:
+L:
+M:
+N:
+O:
+P:
+Q:
+R:
+S:
+T:
+U:
+V:
+W:
+Z:
+Y:
+Z:

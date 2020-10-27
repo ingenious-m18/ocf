@@ -1,0 +1,11 @@
+backup/
+ide/wildfly9/standalone/deployments/caw_ear.ear/
+ide/wildfly9/standalone/log/
+ide/wildfly9/standalone/log_zip/
+ide/wildfly9/standalone/tmp/
+ocf/p-ejb/build/classes/
+ocf/p-jsf/build/classes/
+ocf/p-share/bin/
+mysource/
+AppKey.txt
+AppKey-BusinessProcess.txt

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<dd xmlns="http://www.multiable.com/datadict">
+	<table name="pro" extend="true"> 
+		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
+	</table>
+	<table name="opcqmessagecontent" mess="ocf.messagecontent" pk="id" > 
+		<inherit name="module_fm" />
+		<column name="code" type="varchar" mess="ocf.messageCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="bDesc" type="varchar" mess="ocf.messageDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="desc" type="varchar" mess="ocf.messageContentDesc" length="-1" defPattern="html" batchUpdate="true"/>
+	</table>
+	<table name="remdn" extend="true"> 
+		<column name="ocfrecipient" type="varchar" mess="ocf.dnRecipient" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="ocfsender" type="varchar" mess="ocf.dnSender" defPattern="html" batchUpdate="true"/>
+		<column name="msgcontent" type="varchar" mess="ocf.messagecontent" defPattern="html" batchUpdate="true"/>
+		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
+	</table>
+	<table name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" pk="id" > 
+		<inherit name="module_fm" />
+		<column name="code" type="varchar" mess="ocf.redemptionCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="desc" type="varchar" mess="ocf.redemptionDesc" length="100" defPattern="charDesc" required="true" batchUpdate="true"/>
+	</table>
+	<table name="opcqredemptioncoupont" mess="ocf.redemptionCoupont" pk="id">
+		<inherit name="id_irev" />
+		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="opcqredemptioncoupon" dataImport="false" dataExport="false" buildin="true"/>
+		<column name="eDate" type="datetime" mess="ocf.eDate" defValue="19000101" defPattern="date"/>
+		<column name="redemptionpointneeded" type="decimal" mess="ocf.redemptionPointNeeded" length="6" decimal="2" defPattern="number6_2"/>
+	</table>
+	<table name="chacc" extend="true"> 
+		<column name="redemptioncreditaccount" type="bit" mess="ocf.redemptionCreditAccount" defValue="0" defPattern="check"/>
+	</table>
+	<table name="remcus" extend="true"> 
+		<column name="pointearnedtotal" type="decimal" mess="ocf.pointEarnedTotal" length="6" decimal="2" defPattern="number6_2"/>
+		<column name="pointspenttotal" type="decimal" mess="ocf.pointSpentTotal" length="6" decimal="2" defPattern="number6_2"/>
+		<column name="pointbalance" type="decimal" mess="ocf.pointBalance" length="6" decimal="2" defPattern="number6_2"/>
+	</table>
+	<table name="ocfremcust" mess="ocf.pointEarnedAndSpent" pk="id"> 
+		<inherit name="id_irev" />
+		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="cus" dataImport="false" dataExport="false" buildin="true"/>
+		<column name="date" type="datetime" mess="ce01_core.date" defValue="NOW()" defPattern="datetime"/>
+		<column name="sourcetransactiondate" type="datetime" mess="ocf.sourceTransactionDate" defValue="NOW()" defPattern="datetime"/>		
+		<column name="sourceType" type="varchar" mess="ce01_trdg.proDataSource" length="100" defValue="siso" />
+		<column name="sourceId" type="int_unsigned" mess="ce01_core.sourceTransaction" defValue="0" defPattern="erp_import_id" checkLookupVal="false" multiLookup="sourceType" />
+		<column name="pointearned" type="decimal" mess="ocf.pointEarned" length="6" decimal="2" defPattern="number6_2"/>
+	</table>
+	<table name="ocfrccus" mess="ocf.redemptionCoupon" pk="id"> 
+		<inherit name="id_irev" />
+		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="cus" dataImport="false" dataExport="false" buildin="true"/>
+		<column name="rcdate" type="datetime" mess="ce01_core.date" defValue="19000101" defPattern="date" required="true"/>
+		<column name="rccode" type="int_unsigned" mess="ocf.redemptionCoupon" defPattern="opcqredemptioncoupon" required="true" batchUpdate="false"/>
+		<column name="rcquantity" type="decimal" mess="ocf.quantity" length="4" decimal="0" defPattern="number4_0" required="true"/>
+		<column name="rcpointspent" type="decimal" mess="ocf.pointSpent" length="6" decimal="2" defPattern="number6_2" required="true"/>
+	</table>	
+	<table name="ocfrcdcus" mess="ocf.redemptionCredit" pk="id"> 
+		<inherit name="id_irev" />
+		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="cus" dataImport="false" dataExport="false" buildin="true"/>
+		<column name="rcddate" type="datetime" mess="ocf.rcdDate" defValue="19000101" defPattern="date"/>
+		<column name="rcdsourcetype" type="varchar" mess="" length="100" defValue="" />
+		<column name="rcdsourcetransaction" type="int_unsigned" mess="ocf.rcdSourceTransaction" defValue="0" defPattern="erp_import_id" checkLookupVal="false" multiLookup="sourceType"/>
+		<column name="rcdsourcetransactionamount" type="decimal" mess="ocf.rcdSourceTransactionAmount" length="9" decimal="2" defPattern="number9_2"/>
+		<column name="rcdpointspent" type="decimal" mess="ocf.rcdPointSpent" length="6" decimal="2" defPattern="number6_2" required="true"/>
+	</table>
+</dd>

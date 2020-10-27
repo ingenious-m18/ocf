@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/WildFly 9.x Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.utility"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_45">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=ce01_ocf_share&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_ac_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_consign_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_consignac_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_consignvehd_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_core_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_crm_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_crmtrdg_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_cusrnp_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_fa_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_hkinit_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_mfc_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pexp_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjm_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_prq_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_root_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_sggst_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_trdg_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_trdgac_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vat_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vehd_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_xsho_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_zacvat_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/core_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/mac_dms_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/mac_rnbase_share.jar"/>
+	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/mac_sch_share.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

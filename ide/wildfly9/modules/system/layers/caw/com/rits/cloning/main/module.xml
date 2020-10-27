@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<module xmlns="urn:jboss:module:1.3" name="com.rits.cloning">
+  <resources>
+    <resource-root path="cloning-1.9.3.jar"/>
+	<resource-root path="objenesis-2.1.jar"/>
+        <!-- Insert resources here -->
+  </resources>
+  <dependencies>
+    <module name="javax.api"/>
+    <module name="javax.transaction.api"/>
+  </dependencies>
+</module>

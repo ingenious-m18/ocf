@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="caw_ear">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="ce01_core_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_core_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="core_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/core_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_core_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_core_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsf.war" deploy-path="/" handle="module:/resource/jsf/jsf">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_root_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_root_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_root_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_root_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="core_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/core_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdg_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_trdg_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdg_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_trdg_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pexp_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_pexp_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_sch_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/mac_sch_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_fa_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_fa_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_zacvat_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_zacvat_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pexp_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_pexp_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_sggst_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_sggst_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vehd_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_vehd_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ztrdgvat_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_ztrdgvat_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_sch_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/mac_sch_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdgac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_trdgac_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ocf_share.jar" deploy-path="/lib" handle="module:/resource/ce01_ocf_share/ce01_ocf_share">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_consignac_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_consignac_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_xsho_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_xsho_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_rnbase_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/mac_rnbase_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vat_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_vat_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjmac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_pjmac_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ocf_ejb.jar" deploy-path="/" handle="module:/resource/ce01_ocf_ejb/ce01_ocf_ejb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_prq_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_prq_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vat_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_vat_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignvehd_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_consignvehd_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_fa_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_fa_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_dms_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/mac_dms_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjmac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_ac_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_zacvat_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_zacvat_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_venrnp_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_venrnp_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consign_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_consign_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ztrdgvat_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_xsho_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_xsho_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_cusrnp_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_cusrnp_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_cusrnp_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_cusrnp_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_sggst_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_sggst_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdgac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_trdgac_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_rnbase_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/mac_rnbase_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_dms_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/mac_dms_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjm_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_pjm_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_venrnp_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_prq_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_prq_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjm_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_pjm_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_ac_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vehd_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_vehd_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consign_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_consign_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignvehd_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_consignvehd_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_hkinit_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_hkinit_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crmtrdg_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_crmtrdg_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/commons-logging-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-io-2.6.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/commons-io-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_mfc_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_mfc_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crmtrdg_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_crmtrdg_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crm_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_crm_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ghost4j-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/ghost4j-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lept4j-1.6.4.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/lept4j-1.6.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pdfbox-tools-2.0.9.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/pdfbox-tools-2.0.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_mfc_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_mfc_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.25.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/slf4j-api-1.7.25.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_hkinit_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_hkinit_share.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pdfbox-2.0.9.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/pdfbox-2.0.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jul-to-slf4j-1.7.25.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/jul-to-slf4j-1.7.25.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crm_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_crm_ejb.jar">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jna-4.1.0.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/jna-4.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tess4j-3.4.8.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/tess4j-3.4.8.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jai-imageio-core-1.4.0.jar" deploy-path="/lib" handle="module:/classpath/lib/caw_ear/lib/jai-imageio-core-1.4.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="jsf">
+        <wb-resource deploy-path="/" source-path="/src/main/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <dependent-module archiveName="ce01_root_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_root_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_core_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_core_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="core_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/core_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdg_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_trdg_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vat_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_vat_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_fa_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_fa_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_zacvat_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_zacvat_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_sggst_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_sggst_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_dms_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/mac_dms_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_vehd_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_vehd_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_prq_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_prq_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_rnbase_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/mac_rnbase_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consign_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_consign_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_consignac_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjmac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjmac_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ztrdgvat_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_ztrdgvat_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mac_sch_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/mac_sch_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_trdgac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_trdgac_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_consignvehd_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_consignvehd_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_cusrnp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_cusrnp_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pjm_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjm_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_pexp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pexp_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_ac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_ac_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_xsho_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_xsho_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_venrnp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_venrnp_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crmtrdg_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_crmtrdg_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_mfc_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_mfc_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_hkinit_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_hkinit_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ce01_crm_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_crm_jsf.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="jsf"/>
+        <property name="java-output-path" value="/jsf/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript" src="/jsf/javax.faces.resource/jquery.js.faces?ln=js/main"></script>
+</head>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	if(typeof($) == "undefined"){
+		//alert('Can\'t Access Cloud-At-Work. Press ok to retry. or contact your network admins.');
+		var result = window.confirm('Can\'t Access M18. Press ok to retry. or contact your network admins.');
+
+		if(result == true){
+			window.setTimeout("window.location.reload();", 6421)
+		}
+	}else{
+		window.top.location.href="/jsf/login.faces";
+	}
+}
+</script>
+
+</html>

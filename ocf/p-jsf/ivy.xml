@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.    
+-->
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="com.multiable.core"
+        module="jsf"
+        status="integration">
+	</info>
+	<dependencies defaultconfmapping="default->master(*), compile(*)">
+		<dependency org="com.sun.faces" name="jsf-impl" rev="2.2.11" ></dependency>
+		<dependency org="net.sf.ehcache" name="ehcache" rev="2.10.0"/>
+		<dependency org="org.jboss.spec.javax.faces" name="jboss-jsf-api_2.2_spec" rev="2.2.11"/>
+		<dependency org="org.jboss.spec.javax.el" name="jboss-el-api_3.0_spec" rev="1.0.5.Final"/>
+		<dependency org="org.jboss.spec.javax.ejb" name="jboss-ejb-api_3.2_spec" rev="1.0.0.Final"/>
+		<dependency org="org.jboss.spec.javax.servlet" name="jboss-servlet-api_3.1_spec" rev="1.0.0.Final"/>
+		<dependency org="org.jboss.spec.javax.websocket" name="jboss-websocket-api_1.0_spec" rev="1.0.0.Final"/>		
+		<dependency org="org.primefaces" name="primefaces" rev="5.2"></dependency>
+		<dependency org="caw.core.base" name="caw-base" rev="6.2"/>
+		<dependency org="com.alibaba" name="fastjson" rev="1.2.221"/>
+		<dependency org="org.apache.poi" name="poi" rev="3.16-beta2" />
+		<dependency org="org.apache.poi" name="poi-ooxml" rev="4.0.1"/>
+		<dependency org="org.apache.poi" name="poi-ooxml-schemas" rev="4.0.1"/>
+		<dependency org="commons-io" name="commons-io" rev="2.2"/>
+		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs" rev="3.0.11.Final"/>
+		<dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.1.4"/>
+		<dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.1.4"/>
+		<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.1.4"/>
+		<dependency org="net.sf.jasperreports" name="jasperreports" rev="6.2.4"/>
+		<dependency org="com.google.api-client" name="google-api-client" rev="1.22.0"/>
+		<dependency org="com.google.guava" name="guava-jdk5" rev="17.0"/>
+		<dependency org="com.google.http-client" name="google-http-client" rev="1.22.0"/>
+		<dependency org="com.google.http-client" name="google-http-client-jackson2" rev="1.22.0"/>
+		<dependency org="com.google.oauth-client" name="google-oauth-client" rev="1.22.0"/>
+		<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.1"/>
+		<dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.3"/>
+		<dependency org="com.google.apis" name="google-api-services-calendar" rev="v3-rev205-1.22.0"/>
+	</dependencies>
+</ivy-module>

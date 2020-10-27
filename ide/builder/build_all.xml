@@ -1,0 +1,1181 @@
+<project name="build_output" default="runtime">
+	<tstamp>
+		<format property="build_time" pattern="yyyyMMdd_HHmm" />
+	</tstamp>	
+	<property name="app.version" value="6.034.3"/>
+	<property name="mapp.dir" location="..\..\mapp"/>
+	
+	<target name="runtime">
+		<!--**** begin -->
+				
+		<delete dir="${mapp.dir}"/>		
+		<mkdir dir="${mapp.dir}"/>
+				
+		<antcall target="build_root"/>
+		<antcall target="build_core"/>
+		<antcall target="build_trdg"/>	
+		<antcall target="ce01_ac"/>	
+		<antcall target="ce01_trdgac"/>
+		<antcall target="ce01_bom"/>
+		<antcall target="ce01_consign"/>
+		<antcall target="ce01_consignac"/>
+		<antcall target="ce01_consol"/>
+		<antcall target="ce01_eshop"/>
+		<antcall target="ce01_mfc"/>
+		<antcall target="ce01_pexp"/>	 	         		
+		<antcall target="ce01_vehd"/>
+		<antcall target="ce01_vat"/>
+		<antcall target="ce01_vatic"/>
+		<antcall target="ce01_pdcore"/>
+		<antcall target="ce01_pdcoreac"/>
+		<antcall target="ce01_prod"/>
+		<antcall target="ce01_prodac"/>
+		<antcall target="ce01_prodcost"/>
+		<antcall target="ce01_lockmat"/>		
+		<antcall target="ce01_zacvat"/>
+		<antcall target="ce01_ztrdgvat"/>
+		<antcall target="ce01_zpdcorevat"/>	
+		<antcall target="ce01_zprodvat"/>
+		<antcall target="ce01_zprodcostvat"/>
+		<antcall target="ce01_prq"/>
+		<antcall target="ce01_mrp"/>
+		<antcall target="ce01_crm"/>
+		<antcall target="ce01_crmtrdg"/>
+		<antcall target="ce01_lsp"/>
+		<antcall target="ce01_pzzh"/>
+		<antcall target="ce01_ecom"/>
+		<antcall target="ce01_fa"/>
+		<antcall target="ce01_poscore"/>
+		<antcall target="ce01_pospromo"/>
+		<antcall target="ce01_poscoreac"/>
+		<antcall target="ce01_posfront"/>
+		<antcall target="ce01_catering"/>
+		<antcall target="ce01_possync"/>
+		
+		<!--
+		<antcall target="ce01_pmpcore"/>
+		<antcall target="ce01_cusrnp"/>
+		<antcall target="ce01_venrnp"/>
+		-->		
+		
+		<antcall target="ce01_alipay"/>
+		<antcall target="ce01_stripepay"/>
+		<antcall target="ce01_wechatpay"/>
+		<!--
+		<antcall target="ce01_fps"/>
+		<antcall target="ce01_fpsac"/>
+		<antcall target="ce01_fpstrdg"/>
+		<antcall target="ce01_fpsconsign"/>
+		<antcall target="ce01_fpspos"/>
+		-->	
+		<delete file="${mapp.dir}\app.properties"/>
+	</target>
+
+  <!-- ce01_root begin -->
+  <target name ="build_root">
+    <echo message="build jar: ce01_root" />
+    <property name="base.dir" location="..\..\root"/>
+    <ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+	<echo file="${mapp.dir}\app.properties"># app for ce01_root
+	code=ce01_root
+	desc=ce01_root
+	date=${build_time}
+	version=${app.version}
+	</echo>
+	<zip destfile="${mapp.dir}\ce01_root_${app.version}.mapp">
+		<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_root_ejb.jar" />
+		<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_root_share.jar" />
+		<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_root_jsf.jar" />
+		<zipfileset dir="${mapp.dir}" includes="app.properties" />
+		<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+		<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+	</zip>
+  </target>
+  
+	<!-- ce01_core begin -->
+	<target name ="build_core">
+		<echo message="build jar: ce01_core" />
+		<property name="base.dir" location="..\..\core"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />		
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_core
+		code=ce01_core
+		desc=ce01_core
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_core_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_core_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_core_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_core_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_trdg begin -->
+	<target name ="build_trdg">
+		<echo message="build jar: ce01_trdg" />
+		<property name="base.dir" location="..\..\trading"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />		
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_trdg
+		code=ce01_trdg
+		desc=ce01_trdg
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_trdg_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_trdg_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_trdg_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_trdg_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	
+	<!-- ce01_ac begin -->
+	<target name ="ce01_ac">
+		<echo message="build jar: ce01_ac" />
+		<property name="base.dir" location="..\..\accounting"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_ac
+		code=ce01_ac
+		desc=ce01_ac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_ac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_ac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_ac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_ac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_trdgac begin -->
+	<target name ="ce01_trdgac">
+		<echo message="build jar: ce01_trdgac" />
+		<property name="base.dir" location="..\..\stockaddin"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_trdgac
+		code=ce01_trdgac
+		desc=ce01_trdgac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_trdgac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_trdgac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_trdgac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_trdgac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_bom begin -->
+	<target name ="ce01_bom">
+		<echo message="build jar: ce01_bom" />
+		<property name="base.dir" location="..\..\bom"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_bom
+		code=ce01_bom
+		desc=ce01_bom
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_bom_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_bom_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_bom_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_bom_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_consign begin -->
+	<target name ="ce01_consign">
+		<echo message="build jar: ce01_consign" />
+		<property name="base.dir" location="..\..\consignment"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_consign
+		code=ce01_consign
+		desc=ce01_consign
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_consign_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_consign_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_consign_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_consign_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_consignac begin -->
+	<target name ="ce01_consignac">
+		<echo message="build jar: ce01_consignac" />
+		<property name="base.dir" location="..\..\consignmentac"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_consignac
+		code=ce01_consignac
+		desc=ce01_consignac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_consignac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_consignac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_consignac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_consignac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_consol begin -->
+	<target name ="ce01_consol">
+		<echo message="build jar: ce01_consol" />
+		<property name="base.dir" location="..\..\consolidation"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_consol
+		code=ce01_consol
+		desc=ce01_consol
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_consol_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_consol_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_consol_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_consol_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_eshop begin -->
+	<target name ="ce01_eshop">
+		<echo message="build jar: ce01_eshop" />
+		<property name="base.dir" location="..\..\eshop"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_eshop
+		code=ce01_eshop
+		desc=ce01_eshop
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_eshop_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_eshop_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_eshop_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_eshop_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>		
+		
+	<!-- ce01_mfc begin -->
+	<target name ="ce01_mfc">
+		<echo message="build jar: ce01_mfc" />
+		<property name="base.dir" location="..\..\mfc"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_mfc
+		code=ce01_mfc
+		desc=ce01_mfc
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_mfc_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_mfc_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_mfc_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_mfc_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+				
+	<!-- ce01_pexp begin -->
+	<target name ="ce01_pexp">
+		<echo message="build jar: ce01_pexp" />
+		<property name="base.dir" location="..\..\prepaid"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pexp
+		code=ce01_pexp
+		desc=ce01_pexp
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pexp_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pexp_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pexp_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pexp_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_vehd begin -->
+	<target name ="ce01_vehd">
+		<echo message="build jar: ce01_vehd" />
+		<property name="base.dir" location="..\..\vehd"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_vehd
+		code=ce01_vehd
+		desc=ce01_vehd
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_vehd_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_vehd_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_vehd_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_vehd_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_vat begin -->
+	<target name ="ce01_vat">
+		<echo message="build jar: ce01_vat" />
+		<property name="base.dir" location="..\..\vat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_vat
+		code=ce01_vat
+		desc=ce01_vat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_vat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_vat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_vat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_vat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_zacvat begin -->
+	<target name ="ce01_zacvat">
+		<echo message="build jar: ce01_zacvat" />
+		<property name="base.dir" location="..\..\zacvat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_zacvat
+		code=ce01_zacvat
+		desc=ce01_zacvat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_zacvat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_zacvat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_zacvat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_zacvat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_zacvat begin -->
+	<target name ="ce01_ztrdgvat">
+		<echo message="build jar: ce01_ztrdgvat" />
+		<property name="base.dir" location="..\..\ztrdgvat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_ztrdgvat
+		code=ce01_ztrdgvat
+		desc=ce01_ztrdgvat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_ztrdgvat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_ztrdgvat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_ztrdgvat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_ztrdgvat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_pdcore begin -->
+	<target name ="ce01_pdcore">
+		<echo message="build jar: ce01_pdcore" />
+		<property name="base.dir" location="..\..\pdcore"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pdcore
+		code=ce01_pdcore
+		desc=ce01_pdcore
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pdcore_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pdcore_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pdcore_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pdcore_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_pdcoreac begin -->
+	<target name ="ce01_pdcoreac">
+		<echo message="build jar: ce01_pdcoreac" />
+		<property name="base.dir" location="..\..\pdcoreac"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pdcoreac
+		code=ce01_pdcoreac
+		desc=ce01_pdcoreac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pdcoreac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pdcoreac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pdcoreac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pdcoreac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_prod begin -->
+	<target name ="ce01_prod">
+		<echo message="build jar: ce01_prod" />
+		<property name="base.dir" location="..\..\prod"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_prod
+		code=ce01_prod
+		desc=ce01_prod
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_prod_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_prod_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_prod_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_prod_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_prodac begin -->
+	<target name ="ce01_prodac">
+		<echo message="build jar: ce01_prodac" />
+		<property name="base.dir" location="..\..\prodac"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_prodac
+		code=ce01_prodac
+		desc=ce01_prodac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_prodac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_prodac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_prodac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_prodac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_lockmat begin -->
+	<target name ="ce01_lockmat">
+		<echo message="build jar: ce01_lockmat" />
+		<property name="base.dir" location="..\..\lockmat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_lockmat
+		code=ce01_lockmat
+		desc=ce01_lockmat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_lockmat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_lockmat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_lockmat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_lockmat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_prq begin -->
+	<target name ="ce01_prq">
+		<echo message="build jar: ce01_prq" />
+		<property name="base.dir" location="..\..\prq"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_prq
+		code=ce01_prq
+		desc=ce01_prq
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_prq_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_prq_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_prq_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_prq_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_mrp begin -->
+	<target name ="ce01_mrp">
+		<echo message="build jar: ce01_mrp" />
+		<property name="base.dir" location="..\..\mrp"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_mrp
+		code=ce01_mrp
+		desc=ce01_mrp
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_mrp_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_mrp_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_mrp_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_mrp_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_crm begin -->
+	<target name ="ce01_crm">
+		<echo message="build jar: ce01_crm" />
+		<property name="base.dir" location="..\..\crm"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_crm
+		code=ce01_crm
+		desc=ce01_crm
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_crm_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_crm_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_crm_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_crm_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_crmtrdg begin -->
+	<target name ="ce01_crmtrdg">
+		<echo message="build jar: ce01_crmtrdg" />
+		<property name="base.dir" location="..\..\crmtrdg"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_crmtrdg
+		code=ce01_crmtrdg
+		desc=ce01_crmtrdg
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_crmtrdg_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_crmtrdg_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_crmtrdg_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_crmtrdg_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>	
+	
+	<!-- ce01_lsp begin -->
+	<target name ="ce01_lsp">
+		<echo message="build jar: ce01_lsp" />
+		<property name="base.dir" location="..\..\lsp"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_lsp
+		code=ce01_lsp
+		desc=ce01_lsp
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_lsp_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_lsp_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_lsp_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_lsp_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_pzzh begin -->
+	<target name ="ce01_pzzh">
+		<echo message="build jar: ce01_pzzh" />
+		<property name="base.dir" location="..\..\pzzh"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pzzh
+		code=ce01_pzzh
+		desc=ce01_pzzh
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pzzh_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pzzh_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pzzh_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pzzh_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_vatic begin -->
+	<target name ="ce01_vatic">
+		<echo message="build jar: ce01_vatic" />
+		<property name="base.dir" location="..\..\vatic"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_vatic
+		code=ce01_vatic
+		desc=ce01_vatic
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_vatic_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_vatic_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_vatic_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_vatic_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_ecom begin -->
+	<target name ="ce01_ecom">
+		<echo message="build jar: ce01_ecom" />
+		<property name="base.dir" location="..\..\ecom"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_ecom
+		code=ce01_ecom
+		desc=ce01_ecom
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_ecom_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_ecom_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_ecom_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_ecom_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_fa begin -->
+	<target name ="ce01_fa">
+		<echo message="build jar: ce01_fa" />
+		<property name="base.dir" location="..\..\fa"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fa
+		code=ce01_fa
+		desc=ce01_fa
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fa_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fa_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fa_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fa_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_poscore begin -->
+	<target name ="ce01_poscore">
+		<echo message="build jar: ce01_poscore" />
+		<property name="base.dir" location="..\..\poscore"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_poscore
+		code=ce01_poscore
+		desc=ce01_poscore
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_poscore_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_poscore_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_poscore_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_poscore_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_pospromo begin -->
+	<target name ="ce01_pospromo">
+		<echo message="build jar: ce01_pospromo" />
+		<property name="base.dir" location="..\..\pospromo"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pospromo
+		code=ce01_pospromo
+		desc=ce01_pospromo
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pospromo_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pospromo_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pospromo_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pospromo_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_poscoreac begin -->
+	<target name ="ce01_poscoreac">
+		<echo message="build jar: ce01_poscoreac" />
+		<property name="base.dir" location="..\..\poscoreac"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_poscoreac
+		code=ce01_poscoreac
+		desc=ce01_poscoreac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_poscoreac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_poscoreac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_poscoreac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_poscoreac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_posfront begin -->
+	<target name ="ce01_posfront">
+		<echo message="build jar: ce01_posfront" />
+		<property name="base.dir" location="..\..\posfront"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_posfront
+		code=ce01_posfront
+		desc=ce01_posfront
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_posfront_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_posfront_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_posfront_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_posfront_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_prodcost begin -->
+	<target name ="ce01_prodcost">
+		<echo message="build jar: ce01_prodcost" />
+		<property name="base.dir" location="..\..\prodcost"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_prodcost
+		code=ce01_prodcost
+		desc=ce01_prodcost
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_prodcost_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_prodcost_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_prodcost_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_prodcost_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\prodcost\logo" includes="ce01_prodcost.png" />
+		</zip>
+	</target>
+		
+	<!-- ce01_catering begin -->
+	<target name ="ce01_catering">
+		<echo message="build jar: ce01_catering" />
+		<property name="base.dir" location="..\..\catering"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_catering
+		code=ce01_catering
+		desc=ce01_catering
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_catering_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_catering_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_catering_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_catering_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\catering\logo" includes="ce01_catering.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_possync begin -->
+	<target name ="ce01_possync">
+		<echo message="build jar: ce01_possync" />
+		<property name="base.dir" location="..\..\possync"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_possync
+		code=ce01_possync
+		desc=ce01_possync
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_possync_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_possync_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_possync_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_possync_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\possync\logo" includes="ce01_possync.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_alipay begin -->
+	<target name ="ce01_alipay">
+		<echo message="build jar: ce01_alipay" />
+		<property name="base.dir" location="..\..\alipay"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_alipay
+		code=ce01_alipay
+		desc=ce01_alipay
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_alipay_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_alipay_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_alipay_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_alipay_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\alipay\logo" includes="ce01_alipay.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_stripepay begin -->
+	<target name ="ce01_stripepay">
+		<echo message="build jar: ce01_stripepay" />
+		<property name="base.dir" location="..\..\stripepay"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_stripepay
+		code=ce01_stripepay
+		desc=ce01_stripepay
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_stripepay_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_stripepay_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_stripepay_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_stripepay_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\stripepay\logo" includes="ce01_stripepay.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_wechatpay begin -->
+	<target name ="ce01_wechatpay">
+		<echo message="build jar: ce01_wechatpay" />
+		<property name="base.dir" location="..\..\wechatpay"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_wechatpay
+		code=ce01_wechatpay
+		desc=ce01_wechatpay
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_wechatpay_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_wechatpay_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_wechatpay_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_wechatpay_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\wechatpay\logo" includes="ce01_wechatpay.png" />
+		</zip>
+	</target>
+	
+	
+	<!-- ce01_fps begin -->
+	<target name ="ce01_fps">
+		<echo message="build jar: ce01_fps" />
+		<property name="base.dir" location="..\..\fps"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fps
+		code=ce01_fps
+		desc=ce01_fps
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fps_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fps_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fps_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fps_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\fps\logo" includes="ce01_fps.png" />
+		</zip>
+	</target>
+	
+	
+	<!-- ce01_fpsac begin -->
+	<target name ="ce01_fpsac">
+		<echo message="build jar: ce01_fpsac" />
+		<property name="base.dir" location="..\..\fpsac"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fpsac
+		code=ce01_fpsac
+		desc=ce01_fpsac
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fpsac_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fpsac_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fpsac_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fpsac_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\fpsac\logo" includes="ce01_fpsac.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_fpstrdg begin -->
+	<target name ="ce01_fpstrdg">
+		<echo message="build jar: ce01_fpstrdg" />
+		<property name="base.dir" location="..\..\fpstrdg"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fpstrdg
+		code=ce01_fpstrdg
+		desc=ce01_fpstrdg
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fpstrdg_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fpstrdg_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fpstrdg_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fpstrdg_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\fpstrdg\logo" includes="ce01_fpstrdg.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_fpsconsign begin -->
+	<target name ="ce01_fpsconsign">
+		<echo message="build jar: ce01_fpsconsign" />
+		<property name="base.dir" location="..\..\fpsconsign"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fpsconsign
+		code=ce01_fpsconsign
+		desc=ce01_fpsconsign
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fpsconsign_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fpsconsign_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fpsconsign_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fpsconsign_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\fpsconsign\logo" includes="ce01_fpsconsign.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_fpspos begin -->
+	<target name ="ce01_fpspos">
+		<echo message="build jar: ce01_fpspos" />
+		<property name="base.dir" location="..\..\fpspos"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_fpspos
+		code=ce01_fpspos
+		desc=ce01_fpspos
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_fpspos_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_fpspos_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_fpspos_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_fpspos_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\fpspos\logo" includes="ce01_fpspos.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_cusrnp begin -->
+	<target name ="ce01_cusrnp">
+		<echo message="build jar: ce01_cusrnp" />
+		<property name="base.dir" location="..\..\cusrnp"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_cusrnp
+		code=ce01_cusrnp
+		desc=ce01_cusrnp
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_cusrnp_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_cusrnp_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_cusrnp_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_cusrnp_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\cusrnp\logo" includes="ce01_cusrnp.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_venrnp begin -->
+	<target name ="ce01_venrnp">
+		<echo message="build jar: ce01_venrnp" />
+		<property name="base.dir" location="..\..\venrnp"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_venrnp
+		code=ce01_venrnp
+		desc=ce01_venrnp
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_venrnp_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_venrnp_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_venrnp_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_venrnp_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\venrnp\logo" includes="ce01_venrnp.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_pmpcore begin -->
+	<target name ="ce01_pmpcore">
+		<echo message="build jar: ce01_pmpcore" />
+		<property name="base.dir" location="..\..\pmpcore"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_pmpcore
+		code=ce01_pmpcore
+		desc=ce01_pmpcore
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_pmpcore_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_pmpcore_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_pmpcore_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_pmpcore_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\pmpcore\logo" includes="ce01_pmpcore.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_zpdcorevat begin -->
+	<target name ="ce01_zpdcorevat">
+		<echo message="build jar: ce01_zpdcorevat" />
+		<property name="base.dir" location="..\..\zpdcorevat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_zpdcorevat
+		code=ce01_zpdcorevat
+		desc=ce01_zpdcorevat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_zpdcorevat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_zpdcorevat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_zpdcorevat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_zpdcorevat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\zpdcorevat\logo" includes="ce01_zpdcorevat.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_zprodvat begin -->
+	<target name ="ce01_zprodvat">
+		<echo message="build jar: ce01_zprodvat" />
+		<property name="base.dir" location="..\..\zprodvat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_zprodvat
+		code=ce01_zprodvat
+		desc=ce01_zprodvat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_zprodvat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_zprodvat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_zprodvat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_zprodvat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\zprodvat\logo" includes="ce01_zprodvat.png" />
+		</zip>
+	</target>
+	
+	<!-- ce01_zprodcostvat begin -->
+	<target name ="ce01_zprodcostvat">
+		<echo message="build jar: ce01_zprodcostvat" />
+		<property name="base.dir" location="..\..\zprodcostvat"/>
+		<ant antfile="${base.dir}\p-other\ant\build_output.xml" dir="${base.dir}" inheritall="true" inheritrefs="true" />				
+		
+		<echo file="${mapp.dir}\app.properties"># app for ce01_zprodcostvat
+		code=ce01_zprodcostvat
+		desc=ce01_zprodcostvat
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_zprodcostvat_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_zprodcostvat_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_zprodcostvat_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_zprodcostvat_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\p-jsf\src\main\WebContent\resources\img\zprodcostvat\logo" includes="ce01_zprodcostvat.png" />
+		</zip>
+	</target>
+</project>

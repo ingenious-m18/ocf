@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: 
+Dependencies: org.apache.httpcomponents, org.javassist, org.apache.commons.beanutils, net.sf.ehcache, caw.core.base, com.alibaba.fastjson, org.jboss.resteasy.resteasy-jaxrs,net.sf.jasperreports,com.lowagie.itext,org.quartz-scheduler, org.apache.commons.lang

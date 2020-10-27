@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<nm xmlns="http://www.multiable.com/navmenu" app="ce01_ocf">
+	
+	<folder code="m18Opcq" messCode="ocf.ocfApp">
+		<menu code="opcqredemptioncoupon" messCode="ocf.redemptionCoupon" src="view/opcq/module/opcqredemptioncoupon" module="opcqredemptioncoupon" mType="FM" order="1000">			
+			<inherit name ="module_fc" />
+		</menu>
+		<menu code="opcqmessagecontent" messCode="ocf.messagecontent" src="view/opcq/module/opcqMessageContent" module="opcqmessagecontent" mType="FM" order="1000">			
+			<inherit name ="module_fc" />
+		</menu>
+		<menu code="ocfDnUpload" messCode="ocf.ocfDnUpload" src="view/opcq/module/ocfDnUpload" module="" mType="OTHER">
+			<icon name="cicon-tool" library="font/cawIcon"/>
+		</menu>
+	</folder>
+</nm>

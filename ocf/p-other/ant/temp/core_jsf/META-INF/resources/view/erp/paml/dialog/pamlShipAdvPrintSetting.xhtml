@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:caw="http://www.cloud-at-work.com">
+	<ui:composition>
+		<caw:fluidPanel id="trdgPrintSetting" column="2">
+			<caw:inputText id="title" label="#{caw:mess('core.title')}" value="#{var.reportDto.reportTitle}" style="width:100%;" style-input="width:69%;">
+				<caw:constraints colSpan="2"/>
+			</caw:inputText>
+			<caw:inputCombo id="langCode" label="#{caw:mess('ce01_core.iReportLang')}" value="#{var.reportDto.langCode}" dataOption="#{var.langCodeList}"/>
+			<caw:inputCombo id="sayTotallang" label="#{caw:mess('ce01_core.sayTotallang')}" value="#{var.reportDto.sayTotallang}" dataOption="#{var.sayTotallangList}" disabled="#{var.reportDto.prtSayTotal == false}"/>
+			<!-- <caw:inputCheck id="prtLocal" label="#{caw:mess('ce01_core.prtLocal')}" value="#{var.reportDto.prtLocal}" /> -->
+			<caw:inputCheck id="prtLogo" label="#{caw:mess('prtComLog')}" value="#{var.reportDto.prtLogo}" />
+			<caw:inputCheck id="prtCode" label="#{caw:mess('ce01_core.prtCode')}" value="#{var.reportDto.prtCode}" />
+			<caw:inputCheck id="prtVersion" label="#{caw:mess('ce01_core.prtRev')}" value="#{var.reportDto.prtVersion}" />
+			<caw:inputCheck id="prtBDesc" label="#{caw:mess('ce01_core.prtBDesc')}" value="#{var.reportDto.prtBDesc}" />
+			<caw:inputCheck id="prtDisc" label="#{caw:mess('ce01_core.prtItemDisc')}" value="#{var.reportDto.prtDisc}" />
+			<caw:inputCheck id="prtDDesc" label="#{caw:mess('ce01_core.prtDDesc')}" value="#{var.reportDto.prtDDesc}" />
+			<caw:inputCheck id="prtNetup" label="#{caw:mess('ce01_core.prtNetup')}" value="#{var.reportDto.prtNetup}" />
+			<caw:inputCheck id="prtSmark" label="#{caw:mess('ce01_core.prtSmark')}" value="#{var.reportDto.prtSmark}" />
+			<caw:inputCheck id="prtTTLQty" label="#{caw:mess('ce01_core.prtTTLQty')}" value="#{var.reportDto.prtTTLQty}" />
+			<caw:inputCombo id="prtUnitType" label="#{caw:mess('ce01_core.prtTTLUnit')}" value="#{var.reportDto.prtUnitType}">
+				<caw:selectItem itemValue="inputUnit" itemLabel="#{caw:mess('ce01_core.inputUnit')}"/>
+				<caw:selectItem itemValue="basicUnit" itemLabel="#{caw:mess('ce01_core.basicUnit')}"/>
+				<caw:selectItem itemValue="withoutUnit" itemLabel="#{caw:mess('ce01_core.withoutUnit')}"/>
+			</caw:inputCombo>
+			<caw:inputCheck id="prtDomAmt" label="#{caw:mess('ce01_core.prtDomAmt')}" value="#{var.reportDto.prtDomAmt}" />
+			<caw:inputCheck id="prtOwnSignature" label="#{caw:mess('ce01_core.prtSign_user')}" value="#{var.reportDto.prtOwnSignature}" />
+			<caw:inputCheck id="prtClientSignature" label="#{caw:mess('ce01_core.prtSign_cus')}" value="#{var.reportDto.prtClientSignature}" />
+			<caw:inputCheck id="prtWaterMark" label="#{caw:mess('ce01_core.prtWaterMark')}" value="#{var.reportDto.prtWaterMark_}" />
+			<caw:inputCheck id="printEof" label="#{caw:mess('ce01_core.prtEOE')}" value="#{var.reportDto.prtEofMark}" />
+			<caw:inputCheck id="prtCusShip" label="#{caw:mess('ce01_core.prtCusShip')}" value="#{var.reportDto.prtCusShip}"/>
+			<caw:inputCheck id="prtTextHtml" label="#{caw:mess('ce01_core.prtTextHtml')}" value="#{var.reportDto.prtTextHtml}" mess-info="ce01_core.prtTextHtmlInfo"/>
+			<caw:inputCheck id="prtSayTotal" label="#{caw:mess('ce01_core.prtSayTotal')}" value="#{var.reportDto.prtSayTotal}"/>
+		</caw:fluidPanel>
+	</ui:composition>
+</html>

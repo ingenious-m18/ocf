@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:caw="http://www.cloud-at-work.com">
+	<ui:composition>
+		<caw:extendComponent target="toolbar" action="append">
+			<caw:actionItem action="printCard" mess-label="Print Message Card" onstart="myView.toggleLayer('frameWait', true);" oncomplete="editorFrame.prototype.afterLongRequest('afterPrint',xhr,status,args)" process="@this" update="@form" 
+				mess-title="Print Message Card">
+				<caw:icon name="cicon-print" library="font/cawIcon"></caw:icon>
+			</caw:actionItem>
+		</caw:extendComponent>
+		
+		<caw:extendComponent target="fp_remdn_remarks" action="after">
+			<caw:fluidPanel id="fpmsgcontent" column="3" style="padding-left:6.5px; padding-top:6.5px">
+				<caw:inputText tableName="remdn" columnName="ocfrecipient"><caw:constraints rowHold="true"/></caw:inputText>
+				<caw:richTextEditor tableName="remdn" columnName="ocfsender" rows="4" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
+					<caw:constraints colSpan="2" rowSpan="7"/>
+				</caw:richTextEditor>
+				<caw:richTextEditor tableName="remdn" columnName="msgcontent" rows="4" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
+					<caw:constraints colSpan="2" rowSpan="7"/>
+				</caw:richTextEditor>
+				<caw:fieldGroup id="fg_remdn_msgcontent" column="1">
+					
+					<caw:lookupAddon id="lookupAddon_remarks_opcqmessagecontent_msgcontent" lookupType="opcqmessagecontent" lookupName="remdn_msgcontent" multiSelect="false" /> 
+					<caw:commandButton id="add_opcqmessagecontent_msgcontent" mess-label="ce01_core.add" />
+						
+				</caw:fieldGroup>
+				<caw:inputCombo tableName="remdn" columnName="cardsize"><caw:constraints rowHold="true"/></caw:inputCombo>
+			</caw:fluidPanel>
+		</caw:extendComponent>
+	</ui:composition>
+</html>

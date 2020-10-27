@@ -1,0 +1,12 @@
+[Unit]
+Description=M18-JBOSS-Wildfly9
+
+[Service]
+Type=forking
+WorkingDirectory=/home/macremote/wildfly9-demo/bin
+ExecStart=/usr/bin/wildfly start
+ExecStop=/usr/bin/wildfly stop
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

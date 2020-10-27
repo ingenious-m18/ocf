@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:caw="http://www.cloud-at-work.com">
+	<ui:composition>
+		<caw:fluidPanel id="cardSizeSmallPrintSetting" column="2">
+			<caw:inputText id="title" label="#{caw:mess('core.title')}" value="#{var.reportDto.reportTitle}" style="width:100%;" style-input="width:69%;">
+				<caw:constraints colSpan="2"/>
+			</caw:inputText>
+			
+		</caw:fluidPanel>	
+	</ui:composition>
+
+</html>
