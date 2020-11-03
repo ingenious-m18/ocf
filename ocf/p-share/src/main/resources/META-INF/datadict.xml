@@ -37,8 +37,8 @@
 	<table name="ocfremcust" mess="ocf.pointEarnedAndSpent" pk="id"> 
 		<inherit name="id_irev" />
 		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="cus" dataImport="false" dataExport="false" buildin="true"/>
-		<column name="date" type="datetime" mess="ce01_core.date" defValue="NOW()" defPattern="datetime"/>
-		<column name="sourcetransactiondate" type="datetime" mess="ocf.sourceTransactionDate" defValue="NOW()" defPattern="datetime"/>		
+		<column name="date" type="datetime" mess="ce01_core.date" defValue="19000101" defPattern="datetime"/>
+		<column name="sourcetransactiondate" type="datetime" mess="ocf.sourceTransactionDate" defValue="19000101" defPattern="datetime"/>		
 		<column name="sourceType" type="varchar" mess="ce01_trdg.proDataSource" length="100" defValue="siso" />
 		<column name="sourceId" type="int_unsigned" mess="ce01_core.sourceTransaction" defValue="0" defPattern="erp_import_id" checkLookupVal="false" multiLookup="sourceType" />
 		<column name="pointearned" type="decimal" mess="ocf.pointEarned" length="6" decimal="2" defPattern="number6_2"/>

@@ -14,8 +14,8 @@
 				 	<caw:inputNum tableName="remcus" columnName="pointbalance" disabled="true"/>
 			 	</caw:fluidPanel>
 			 	
-			 	<caw:fluidPanel id="fpocfremcust" column="1">
-				 	<caw:editTable id="ocfremcust" tableName="ocfremcust" primarykey="sourceId">
+			 	<caw:fluidPanel id="fpocfremcust" column="1" mess-title="ocf.pointEarnedAndSpent" style="margin:10px auto 10px;">
+				 	<caw:editTable id="ocfremcust" tableName="ocfremcust" primarykey="pointearned;date">
 						<caw:constraints rowHold="true" style="padding-top: 10px;" />
 						<caw:tableColumn columnName="pointearned" edittype="cawNum" />
 						<caw:tableColumn columnName="date" edittype="cawDate" />
@@ -24,7 +24,7 @@
 					</caw:editTable>
 				</caw:fluidPanel>
 				
-				<caw:fluidPanel id="fpocfrccus" column="1">
+				<caw:fluidPanel id="fpocfrccus" column="1" mess-title="ocf.redemptionCoupon">
 					<caw:editTable id="ocfrccus" tableName="ocfrccus" primarykey="rcdate">
 						<caw:constraints rowHold="true" style="padding-top: 10px;" />
 						<caw:tableColumn columnName="rcdate" edittype="cawDate"/>
@@ -35,7 +35,7 @@
 					</caw:editTable>
 				</caw:fluidPanel>
 				
-				<caw:fluidPanel id="fpocfrcdcus" column="1">
+				<caw:fluidPanel id="fpocfrcdcus" column="1" mess-title="ocf.redemptionCredit">
 					<caw:editTable id="ocfrcdcus" tableName="ocfrcdcus" primarykey="rcddate" editable="false"
 						showDefAction="false">
 						<caw:constraints rowHold="true" style="padding-top: 10px;" />

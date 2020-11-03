@@ -11,9 +11,11 @@
 				<caw:icon name="cicon-print" library="font/cawIcon"></caw:icon>
 			</caw:actionItem>
 		</caw:extendComponent>
-		
+						
 		<caw:extendComponent target="fp_remdn_remarks" action="after">
-			<caw:fluidPanel id="fpmsgcontent" column="3" style="padding-left:6.5px; padding-top:6.5px">
+<!-- 			<caw:fluidPanel id="fpmsgcontent" column="3" style="padding-left:6.5px; padding-top:6.5px"> -->
+			<caw:fluidPanel id="fpmsgcontent" groupBorder="true" mess-title="ocf.fpmsgcontent" column="3">
+				<caw:constraints rowHold="true" rowSpan="9"/>
 				<caw:inputText tableName="remdn" columnName="ocfrecipient"><caw:constraints rowHold="true"/></caw:inputText>
 				<caw:richTextEditor tableName="remdn" columnName="ocfsender" rows="4" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
 					<caw:constraints colSpan="2" rowSpan="7"/>
@@ -28,6 +30,7 @@
 						
 				</caw:fieldGroup>
 				<caw:inputCombo tableName="remdn" columnName="cardsize"><caw:constraints rowHold="true"/></caw:inputCombo>
+				<caw:constraints rowHold="true" colSpan="2" rowSpan="7"/>
 			</caw:fluidPanel>
 		</caw:extendComponent>
 	</ui:composition>

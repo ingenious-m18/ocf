@@ -2,6 +2,7 @@ package com.multiable.opcq.bean.view.listener;
 
 import com.multiable.bean.view.ModuleAction;
 import com.multiable.bean.view.ModuleAction.ActionType;
+import com.multiable.core.share.server.CawGlobal;
 import com.multiable.core.share.util.JNDILocator;
 import com.multiable.erp.core.bean.listener.MacModuleRecordViewListener;
 import com.multiable.logging.CawLog;
@@ -24,7 +25,7 @@ public class OpcqReceiptRegisterListener extends MacModuleRecordViewListener {
 			if (!chkBal && !chkBal()) {
 				// Prompt a dialog to ask if continue
 
-				WebUtil.askif("ocfChkBal", "Not enough balance", "");
+				WebUtil.askif("ocfChkBal", CawGlobal.getMess("ocf.msgContentDialog"), "");
 
 				return false;
 			}

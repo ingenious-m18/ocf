@@ -15,105 +15,11 @@ import com.multiable.core.ejb.eao.localinterface.SqlEntityEAOLocal;
 import com.multiable.core.share.data.SqlTable;
 import com.multiable.core.share.dto.SeCurdKey;
 import com.multiable.core.share.entity.SqlEntity;
-import com.multiable.core.share.lib.MathLib;
 import com.multiable.core.share.message.CheckMsg;
 import com.multiable.core.share.util.JNDILocator;
 import com.multiable.erp.core.share.data.TableStaticIndexAdapter;
 
-public class Opcqocfremcus {
-
-	@EntityCheck(type = CheckType.SAVE, range = CheckRange.AFTER, checkOrder = 200)
-	public CheckMsg insertPointEarned(SeSaveParam param) {
-
-		CheckMsg msg = null;
-
-		// Step 1: Find cus
-		SqlEntity entity = param.getSqlEntity();
-		// SqlTable mainTable = entity.getMainData();
-		SqlTable mainTable = entity.getData("maintar");
-
-		Long cusId = mainTable.getLong(1, "cusId");
-
-		// Step 1b. Read customer record
-		SqlEntityEAOLocal entityEao = null;
-		try {
-			entityEao = JNDILocator.getInstance().lookupEJB("SqlEntityEAO", SqlEntityEAOLocal.class);
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
-
-		SeReadParam readParam = new SeReadParam("cus");
-		readParam.setEntityId(cusId);
-		SqlEntity cusEntity = entityEao.loadEntity(readParam);
-
-		// Find ocfremcust
-		SqlTable ocfremcust = cusEntity.getData("ocfremcust");
-
-		// Step 2: Check if pointearn table has source transaction
-		// Loop
-		Long srcTranId = param.getEntityId();
-		int foundrow = 0;
-		for (int i = 1; i <= ocfremcust.size(); i++) {
-
-			if (ocfremcust.getString(i, "sourceType").equals("siso")
-					&& ocfremcust.getLong(i, "sourceId") == srcTranId) {
-				foundrow = i; // If found
-			}
-
-		}
-
-		if (foundrow > 0) {
-			// Found, update pointearned, sourcetransactiondate
-
-			Date tDate = (Date) mainTable.getObject(1, "tDate");
-
-			Double pointearned = 0d;
-			// Calculation
-
-			// Find amt, depoAmt
-			Double amt = mainTable.getDouble(1, "amt");
-			Double depoAmt = mainTable.getDouble(1, "depoAmt");
-			pointearned = MathLib.floor((amt + depoAmt) / 50) * 5;
-
-			// pointearned = (int) (amt + depoAmt)/50 * 5
-
-			ocfremcust.setDouble(foundrow, "pointearned", pointearned);
-			ocfremcust.setObject(foundrow, "sourcetransactiondate", tDate);
-
-		} else {
-			// Not found
-			int rec = ocfremcust.addRow();
-
-			// Set date, pointearned, sourcetransactiondate, sourceType, sourceId
-			Date tDate = (Date) mainTable.getObject(1, "tDate");
-			Double pointearned = 0d;
-			Double amt = mainTable.getDouble(1, "amt");
-			Double depoAmt = mainTable.getDouble(1, "depoAmt");
-			pointearned = MathLib.floor((amt + depoAmt) / 50) * 5;
-
-			String sourceType = "siso";
-			Long sourceId = mainTable.getLong(1, "id");
-
-			ocfremcust.setObject(rec, "date", tDate);
-			ocfremcust.setObject(rec, "sourcetransactiondate", tDate);
-			ocfremcust.setDouble(rec, "pointearned", pointearned);
-			ocfremcust.setString(rec, "sourceType", sourceType);
-			ocfremcust.setLong(rec, "sourceId", sourceId);
-		}
-
-		// Step 3a: Yes
-
-		// ocfremcust.setValue(foundrow, "", Xxx);
-
-		// Step 3b: No
-
-		// Save customer
-		SeSaveParam saveParam = new SeSaveParam("cus");
-		saveParam.setSqlEntity(cusEntity);
-		entityEao.saveEntity(saveParam);
-
-		return msg;
-	}
+public class OpcqocfReceiptRegisterChecker {
 
 	@EntityCheck(type = CheckType.SAVE, range = CheckRange.AFTER, checkOrder = 201)
 	public CheckMsg insertCredit(SeSaveParam param) {
@@ -124,11 +30,11 @@ public class Opcqocfremcus {
 		double redepmtionAmt = 0;
 
 		SqlEntity entity = param.getSqlEntity();
-		SqlTable sipaym = entity.getData("sipaym");
+		SqlTable recregdbt = entity.getData("recregdbt");
 
 		String idStr = "";
-		for (int i = 1; i <= sipaym.size(); i++) {
-			idStr = idStr + sipaym.getLong(i, "accId") + ",";
+		for (int i = 1; i <= recregdbt.size(); i++) {
+			idStr = idStr + recregdbt.getLong(i, "accId") + ",";
 		}
 
 		SqlTable accResult = null;
@@ -149,18 +55,18 @@ public class Opcqocfremcus {
 			};
 			accIndex.action();
 
-			for (int i = 1; i <= sipaym.size(); i++) {
-				int seekRow = accIndex.seek(sipaym.getLong(i, "accId") + "");
+			for (int i = 1; i <= recregdbt.size(); i++) {
+				int seekRow = accIndex.seek(recregdbt.getLong(i, "accId") + "");
 				if (seekRow > 0) {
 					use = true;
-					redepmtionAmt += sipaym.getDouble(i, "amt");
+					redepmtionAmt += recregdbt.getDouble(i, "amt");
 				}
 			}
 		}
 
 		// Step 2: Find cus
-		SqlTable mainTable = entity.getData("maintar");
-		Long cusId = mainTable.getLong(1, "cusId");
+		SqlTable mainTable = entity.getData("mainrecreg");
+		Long AIId = mainTable.getLong(1, "AIId");
 		SqlEntityEAOLocal entityEao = null;
 		try {
 			entityEao = JNDILocator.getInstance().lookupEJB("SqlEntityEAO", SqlEntityEAOLocal.class);
@@ -169,7 +75,7 @@ public class Opcqocfremcus {
 		}
 
 		SeReadParam readParam = new SeReadParam("cus");
-		readParam.setEntityId(cusId);
+		readParam.setEntityId(AIId);
 		SqlEntity cusEntity = entityEao.loadEntity(readParam);
 
 		SqlTable ocfrcdcus = cusEntity.getData("ocfrcdcus");
@@ -179,7 +85,7 @@ public class Opcqocfremcus {
 		int foundrow = 0;
 		for (int i = 1; i <= ocfrcdcus.size(); i++) {
 
-			if (ocfrcdcus.getString(i, "rcdsourcetype").equals("siso")
+			if (ocfrcdcus.getString(i, "rcdsourcetype").equals("recReg")
 					&& ocfrcdcus.getLong(i, "rcdsourcetransaction") == srcTranId) {
 				foundrow = i; // If found
 			}
@@ -209,7 +115,7 @@ public class Opcqocfremcus {
 				ocfrcdcus.setObject(rec, "rcddate", tDate);
 				ocfrcdcus.setDouble(rec, "rcdsourcetransactionamount", redepmtionAmt);
 				ocfrcdcus.setDouble(rec, "rcdpointspent", pointspent);
-				ocfrcdcus.setString(rec, "rcdsourcetype", "siso");
+				ocfrcdcus.setString(rec, "rcdsourcetype", "recReg");
 				ocfrcdcus.setLong(rec, "rcdsourcetransaction", srcTranId);
 			}
 
@@ -222,6 +128,10 @@ public class Opcqocfremcus {
 			// Step 3d: No. No action
 
 		}
+
+		// Calculate total
+		calculateTotalPoint(cusEntity);
+
 		SeSaveParam saveParam = new SeSaveParam("cus");
 		saveParam.setSqlEntity(cusEntity);
 		entityEao.saveEntity(saveParam);
@@ -235,9 +145,9 @@ public class Opcqocfremcus {
 
 		// Step 1: Find cus
 		SqlEntity entity = (SqlEntity) param.getJsonParam().get(SeCurdKey.SQLENTITY);
-		SqlTable mainTable = entity.getData("maintar");
+		SqlTable mainTable = entity.getData("mainrecreg");
 
-		Long cusId = mainTable.getLong(1, "cusId");
+		Long AIId = mainTable.getLong(1, "AIId");
 
 		// Step 1b. Read customer record
 		SqlEntityEAOLocal entityEao = null;
@@ -248,7 +158,7 @@ public class Opcqocfremcus {
 		}
 
 		SeReadParam readParam = new SeReadParam("cus");
-		readParam.setEntityId(cusId);
+		readParam.setEntityId(AIId);
 		SqlEntity cusEntity = entityEao.loadEntity(readParam);
 
 		// Find ocfremcust and delete row if found same transaction
@@ -258,7 +168,7 @@ public class Opcqocfremcus {
 		int foundrow = 0;
 		for (int i = 1; i <= ocfremcust.size(); i++) {
 
-			if (ocfremcust.getString(i, "sourceType").equals("siso")
+			if (ocfremcust.getString(i, "sourceType").equals("recReg")
 					&& ocfremcust.getLong(i, "sourceId") == srcTranId) {
 				foundrow = i; // If found
 			}
@@ -275,7 +185,7 @@ public class Opcqocfremcus {
 		foundrow = 0;
 		for (int i = 1; i <= ocfrcdcus.size(); i++) {
 
-			if (ocfrcdcus.getString(i, "rcdsourcetype").equals("siso")
+			if (ocfrcdcus.getString(i, "rcdsourcetype").equals("recReg")
 					&& ocfrcdcus.getLong(i, "rcdsourcetransaction") == srcTranId) {
 				foundrow = i; // If found
 			}
@@ -285,12 +195,47 @@ public class Opcqocfremcus {
 			ocfrcdcus.deleteRow(foundrow);
 		}
 
+		// Calculate total
+		calculateTotalPoint(cusEntity);
+
 		SeSaveParam saveParam = new SeSaveParam("cus");
 		saveParam.setSqlEntity(cusEntity);
 		entityEao.saveEntity(saveParam);
 
 		return msg;
 
+	}
+
+	public void calculateTotalPoint(SqlEntity cusEntity) {
+		// Calculate total
+		SqlTable ocfremcust = cusEntity.getData("ocfremcust");
+		SqlTable ocfrccus = cusEntity.getData("ocfrccus");
+		SqlTable ocfrcdcus = cusEntity.getData("ocfrcdcus");
+		SqlTable remcus = cusEntity.getData("remcus");
+
+		// Step 1: Calculate total point earned
+		double pointearned = 0d;
+		for (int i = 1; i <= ocfremcust.size(); i++) {
+			pointearned += ocfremcust.getDouble(i, "pointearned");
+		}
+
+		// Step 2: Calculate total point spent
+		double pointspent = 0d;
+		for (int i = 1; i <= ocfrccus.size(); i++) {
+			pointspent += ocfrccus.getDouble(i, "rcpointspent");
+		}
+
+		for (int i = 1; i <= ocfrcdcus.size(); i++) {
+			pointspent += ocfrcdcus.getDouble(i, "rcdpointspent");
+		}
+
+		// Step 3: Calculate point balance
+		double balance = 0d;
+		balance = pointearned - pointspent;
+
+		remcus.setDouble(1, "pointearnedtotal", pointearned);
+		remcus.setDouble(1, "pointspenttotal", pointspent);
+		remcus.setDouble(1, "pointbalance", balance);
 	}
 
 }

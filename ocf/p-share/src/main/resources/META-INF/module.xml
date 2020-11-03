@@ -14,13 +14,14 @@
 		<table name="ocfremcust" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<table name="ocfrccus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<table name="ocfrcdcus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
+		<checker class="com.multiable.erp.opcq.checker.OpcqocfcusChecker"/>
 	</module>
 	
 	<module name="siso" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.Opcqocfremcus"/>
+		<checker class="com.multiable.erp.opcq.checker.OpcqocfremcusChecker"/>
 	</module>
 	
 	<module name="recReg" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OpcqocfReceiptRegister"/>
+		<checker class="com.multiable.erp.opcq.checker.OpcqocfReceiptRegisterChecker"/>
 	</module>
 </md>

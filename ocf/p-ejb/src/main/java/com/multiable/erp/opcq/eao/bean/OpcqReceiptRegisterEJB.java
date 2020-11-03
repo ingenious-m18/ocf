@@ -61,13 +61,13 @@ public class OpcqReceiptRegisterEJB implements OpcqReceiptRegisterLocal {
 
 		// Step 3: Get Customer data
 		Long rrId = mainTable.getLong(1, "id");
-		Long aiCusId = mainTable.getLong(1, "aiCusId");
+		Long AIId = mainTable.getLong(1, "AIId");
 
-		if (aiCusId != 0) {
-			String sql = " select * from ocfremcust where hId = " + aiCusId
+		if (AIId != 0) {
+			String sql = " select * from ocfremcust where hId = " + AIId
 					+ " and concat(`sourceType`, '_',`sourceId`) != 'recReg_" + rrId + "';";
-			sql += " select * from ocfrccus where hId = " + aiCusId + ";";
-			sql += " select * from ocfrcdcus where hId = " + aiCusId
+			sql += " select * from ocfrccus where hId = " + AIId + ";";
+			sql += " select * from ocfrcdcus where hId = " + AIId
 					+ " and concat(`rcdsourcetype`, '_',`rcdsourcetransaction`) != 'recReg_" + rrId + "';";
 
 			List<SqlTable> resultList = CawDs.getResults(sql);
