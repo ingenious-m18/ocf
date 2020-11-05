@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.faces.component.UIComponent;
+
 import org.apache.http.HttpResponse;
 
 import com.alibaba.fastjson.JSON;
@@ -31,6 +33,7 @@ import com.multiable.erp.core.share.util.MacUtil;
 import com.multiable.ui.application.FacesAssistant;
 import com.multiable.ui.util.FacesUtil;
 import com.multiable.web.LookupDecorateEvent;
+import com.multiable.web.ValueChangeEvent;
 import com.multiable.web.ViewActionEvent;
 import com.multiable.web.WebMessage.MessageType;
 import com.multiable.web.WebUtil;
@@ -73,6 +76,28 @@ public class OpcqDNListener extends MacModuleRecordViewListener {
 			if (MacUtil.isIn(event.getLookupAction().getLookupType(), "qufooter", "asofooter", "sofooter",
 					"dnfooter", "sretfooter", "sifooter")) {
 				lastLookupType = "tranId";
+			}
+		}
+	}
+
+	@Override
+	public void valueChange(ValueChangeEvent vce) {
+		super.valueChange(vce);
+		UIComponent component = vce.getComponent();
+
+		if (("remdn_cardsize").equals(component.getId())) {
+			SqlTable remdn = getEntity().getData("remdn");
+			if (ConvertLib.toString(vce.getNewValue()).equals("Small")) {
+				remdn.setString(1, "ocfsender",
+						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
+				remdn.setString(1, "msgcontent",
+						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
+
+			} else if (ConvertLib.toString(vce.getNewValue()).equals("Large")) {
+				remdn.setString(1, "ocfsender",
+						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
+				remdn.setString(1, "msgcontent",
+						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
 			}
 		}
 	}
@@ -222,7 +247,21 @@ public class OpcqDNListener extends MacModuleRecordViewListener {
 						SqlTable remdn = getEntity().getData("remdn");
 						remdn.setString(1, "cardsize", cardSize);
 
-						WebUtil.update("remdn_cardsize");
+						// Default font, paragraph, font size for <Sender>, <Message Content>
+
+						if (cardSize.equals("Small")) {
+							remdn.setString(1, "ocfsender",
+									"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
+							remdn.setString(1, "msgcontent",
+									"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
+						} else if (cardSize.equals("Large")) {
+							remdn.setString(1, "ocfsender",
+									"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
+							remdn.setString(1, "msgcontent",
+									"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
+						}
+
+						WebUtil.update("remdn_cardsize", "remdn_ocfsender", "remdn_msgcontent");
 					}
 
 				}
@@ -233,7 +272,21 @@ public class OpcqDNListener extends MacModuleRecordViewListener {
 					SqlTable remdn = getEntity().getData("remdn");
 					remdn.setString(1, "cardsize", cardSize);
 
-					WebUtil.update("remdn_cardsize");
+					// Default font, paragraph, font size for <Sender>, <Message Content>
+
+					if (cardSize.equals("Small")) {
+						remdn.setString(1, "ocfsender",
+								"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
+						remdn.setString(1, "msgcontent",
+								"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
+					} else if (cardSize.equals("Large")) {
+						remdn.setString(1, "ocfsender",
+								"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
+						remdn.setString(1, "msgcontent",
+								"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
+					}
+
+					WebUtil.update("remdn_cardsize", "remdn_ocfsender", "remdn_msgcontent");
 				}
 			}
 		}

@@ -6,6 +6,7 @@ ide/wildfly9/standalone/tmp/
 ocf/p-ejb/build/classes/
 ocf/p-jsf/build/classes/
 ocf/p-share/bin/
+ocf/p-other/ant/temp/
 mysource/
 AppKey.txt
 AppKey-BusinessProcess.txt
