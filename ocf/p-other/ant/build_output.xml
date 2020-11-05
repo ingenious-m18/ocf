@@ -8,16 +8,16 @@
 		
 		<!--**** begin -->
 		<property name="share.dir" location="${base.dir}\p-share"/>
-		<echo message="build jar: ce01_test01_share" />
+		<echo message="build jar: ce01_ocf_share" />
 		<!--javac share-->
 		<ant antfile="${share.dir}\build.xml" dir="${share.dir}" inheritall="true" inheritrefs="true" />
 		
 		<!-- <delete file="${output.dir}\core-share.jar"/> -->
-		<jar destfile="${output.dir}\ce01_test01_share.jar" 
+		<jar destfile="${output.dir}\ce01_ocf_share.jar" 
 			manifest="${share.dir}\src\main\resources\META-INF\MANIFEST.MF" >
 			<fileset dir="${share.dir}\bin" />
 	    </jar>
-		<jar destfile="${output.dir}\src\ce01_test01_share_src.jar" >
+		<jar destfile="${output.dir}\src\ce01_ocf_share_src.jar" >
 			<fileset dir="${share.dir}\src\main\java" />
 		</jar>
 		<!--**** end -->
@@ -25,15 +25,15 @@
 
 		<!--**** begin -->
 		<property name="ejb.dir" location="${base.dir}\p-ejb"/>
-		<echo message="build jar: ce01_test01_ejb" />
+		<echo message="build jar: ce01_ocf_ejb" />
 		<!--javac share-->
 		<ant antfile="${ejb.dir}\build.xml" dir="${ejb.dir}" inheritall="true" inheritrefs="true" />
 
-		<jar destfile="${output.dir}\ce01_test01_ejb.jar" 
+		<jar destfile="${output.dir}\ce01_ocf_ejb.jar" 
 			manifest="${ejb.dir}\src\main\resources\META-INF\MANIFEST.MF" >
 			<fileset dir="${ejb.dir}\build\classes" />
 	    </jar>
-		<jar destfile="${output.dir}\src\ce01_test01_ejb_src.jar" >
+		<jar destfile="${output.dir}\src\ce01_ocf_ejb_src.jar" >
 			<fileset dir="${ejb.dir}\src\main\java" />
 		</jar>
 		<!--**** end -->
@@ -41,7 +41,7 @@
 
 		<!--**** begin -->
 		<property name="jsf.dir" location="${base.dir}\p-jsf"/>
-		<echo message="build jar: ce01_test01_jsf" />
+		<echo message="build jar: ce01_ocf_jsf" />
 		<!--javac share-->
 		<ant antfile="${jsf.dir}\build.xml" dir="${jsf.dir}" inheritall="true" inheritrefs="true" />
 
@@ -73,13 +73,13 @@
 			</fileset>
 		</copy>
 		
-		<jar destfile="${output.dir}\ce01_test01_jsf.jar" > 
+		<jar destfile="${output.dir}\ce01_ocf_jsf.jar" > 
 			<fileset dir="${jsf.dir}\build\classes/" >
 			</fileset>
 			<fileset dir="${temp.dir}\core_jsf" >
 			</fileset>
 		</jar>
-		<jar destfile="${output.dir}\src\ce01_test01_jsf_src.jar" >
+		<jar destfile="${output.dir}\src\ce01_ocf_jsf_src.jar" >
 			<fileset dir="${jsf.dir}\src\main\java" />
 		</jar>
 		
@@ -90,19 +90,19 @@
 		
 		<copy todir="${output.dir}\caw_ear.ear">
 			<fileset dir="${output.dir}">
-				<include name="ce01_test01_ejb.jar"/>
+				<include name="ce01_ocf_ejb.jar"/>
 			</fileset>
 		</copy>
 		
 		<copy todir="${output.dir}\caw_ear.ear\lib">
 			<fileset dir="${output.dir}">
-				<include name="ce01_test01_share.jar"/>
+				<include name="ce01_ocf_share.jar"/>
 			</fileset>
 		</copy>
 		
 		<copy todir="${output.dir}\caw_ear.ear\jsf.war\WEB-INF\lib">
 			<fileset dir="${output.dir}">
-				<include name="ce01_test01_jsf.jar"/>
+				<include name="ce01_ocf_jsf.jar"/>
 			</fileset>
 		</copy>
 		

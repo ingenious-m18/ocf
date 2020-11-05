@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="jsf">
+    <property environment="env"/>
+    <property name="ce01.location" value="../../ce01"/>
+    <property name="ECLIPSE_HOME" value="C:/eclipse2/"/>
+    <property name="ce01_mldc_share.location" value="../p-share"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <path id="WildFly 9.x Runtime (Experimental) [WildFly 9.x Runtime].libraryclasspath">
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/activation/api/main/activation-1.1.1.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/annotation/api/main/jboss-annotations-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/ejb/api/main/jboss-ejb-api_3.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/el/api/main/jboss-el-api_3.0_spec-1.0.4.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/enterprise/api/main/cdi-api-1.2.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/faces/api/main/jboss-jsf-api_2.2_spec-2.2.11.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/inject/api/main/javax.inject-1.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/interceptor/api/main/jboss-interceptors-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/jms/api/main/jboss-jms-api_2.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/jws/api/main/jsr181-api-1.0-MR1.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/mail/api/main/javax.mail-1.5.3.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/management/j2ee/api/main/jboss-j2eemgmt-api_1.1_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/persistence/api/main/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/resource/api/main/jboss-connector-api_1.7_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/security/auth/message/api/main/jboss-jaspi-api_1.1_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/security/jacc/api/main/jboss-jacc-api_1.5_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/servlet/api/main/jboss-servlet-api_3.1_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/servlet/jsp/api/main/jboss-jsp-api_2.3_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/servlet/jstl/api/main/jboss-jstl-api_1.2_spec-1.1.2.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/transaction/api/main/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/validation/api/main/validation-api-1.1.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/ws/rs/api/main/jboss-jaxrs-api_2.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/wsdl4j/api/main/wsdl4j-1.6.3.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/xml/bind/api/main/jboss-jaxb-api_2.2_spec-1.0.4.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/xml/rpc/api/main/jboss-jaxrpc-api_1.1_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/xml/soap/api/main/jboss-saaj-api_1.3_spec-1.0.3.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/xml/ws/api/main/jboss-jaxws-api_2.2_spec-2.0.2.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/hibernate/validator/main/hibernate-validator-5.1.3.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/picketbox/main/picketbox-4.9.2.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/picketbox/main/picketbox-commons-1.0.0.final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/picketbox/main/picketbox-infinispan-4.9.2.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/as/controller-client/main/wildfly-controller-client-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/dmr/main/jboss-dmr-1.3.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/logging/main/jboss-logging-3.2.1.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxb-provider/main/resteasy-jaxb-provider-3.0.11.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxrs/main/async-http-servlet-3.0-3.0.11.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxrs/main/resteasy-client-3.0.11.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxrs/main/resteasy-jaxrs-3.0.11.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/resteasy/resteasy-multipart-provider/main/resteasy-multipart-provider-3.0.11.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/jboss/ejb3/main/jboss-ejb3-ext-api-2.1.0.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/batch/api/main/jboss-batch-api_1.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/enterprise/concurrent/api/main/jboss-concurrency-api_1.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/javax/websocket/api/main/jboss-websocket-api_1.1_spec-1.1.1.Final.jar"/>
+        <pathelement location="../../ide/wildfly9/modules/system/layers/base/org/glassfish/javax/json/main/javax.json-1.0.3.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="../../../../../ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_core_jsf.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_root_jsf.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/jsf.war/WEB-INF/lib/core_jsf.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_trdg_jsf.jar"/>
+    </path>
+    <path id="EAR Libraries.libraryclasspath">
+        <pathelement location="../../../../../ce01/caw_ear.ear/lib/ce01_trdg_share.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/lib/ce01_root_share.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/lib/core_share.jar"/>
+        <pathelement location="../../../../../ce01/caw_ear.ear/lib/ce01_core_share.jar"/>
+        <pathelement location="../../../../../ce01_mldc_share"/>
+    </path>
+    <path id="Ivy.libraryclasspath">
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/net.sf.ehcache/ehcache/jars/ehcache-2.10.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.7.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.javassist/javassist/bundles/javassist-3.20.0-GA.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.servlet/jboss-servlet-api_3.1_spec/jars/jboss-servlet-api_3.1_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.ejb/jboss-ejb-api_3.2_spec/jars/jboss-ejb-api_3.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.websocket/jboss-websocket-api_1.0_spec/jars/jboss-websocket-api_1.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.9.2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-collections/commons-collections/jars/commons-collections-3.2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/caw.core.base/caw-base/jars/caw-base-1.20.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.logmanager/jboss-logmanager/jars/jboss-logmanager-2.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.alibaba/fastjson/jars/fastjson-1.2.21.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.resteasy/resteasy-jaxrs/jars/resteasy-jaxrs-3.0.11.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.resteasy/jaxrs-api/jars/jaxrs-api-3.0.11.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.annotation/jboss-annotations-api_1.1_spec/jars/jboss-annotations-api_1.1_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/javax.activation/activation/jars/activation-1.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-io/commons-io/jars/commons-io-2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/net.jcip/jcip-annotations/jars/jcip-annotations-1.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.reflections/reflections/jars/reflections-0.9.9-RC1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/dom4j/dom4j/jars/dom4j-1.6.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.quartz-scheduler/quartz/jars/quartz-2.2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/c3p0/c3p0/jars/c3p0-0.9.1.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/net.sf.jasperreports/jasperreports/jars/jasperreports-6.2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-digester/commons-digester/jars/commons-digester-2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.lowagie/itext/jars/itext-2.1.7.js4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/bouncycastle/bcmail-jdk14/jars/bcmail-jdk14-138.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/bouncycastle/bcprov-jdk14/jars/bcprov-jdk14-138.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.bouncycastle/bctsp-jdk14/jars/bctsp-jdk14-1.38.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.bouncycastle/bcprov-jdk14/jars/bcprov-jdk14-1.38.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.bouncycastle/bcmail-jdk14/jars/bcmail-jdk14-1.38.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jfree/jcommon/jars/jcommon-1.0.23.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jfree/jfreechart/jars/jfreechart-1.0.19.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/xml-apis/xml-apis/jars/xml-apis-1.3.02.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.eclipse.jdt.core.compiler/ecj/jars/ecj-4.3.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.codehaus.castor/castor-xml/jars/castor-xml-1.3.3.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.codehaus.castor/castor-core/jars/castor-core-1.3.3.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-lang/commons-lang/jars/commons-lang-2.6.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/javax.inject/javax.inject/jars/javax.inject-1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/stax/stax/jars/stax-1.2.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/stax/stax-api/jars/stax-api-1.0.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/javax.xml.stream/stax-api/jars/stax-api-1.0-2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-context/jars/spring-context-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-aop/jars/spring-aop-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/aopalliance/aopalliance/jars/aopalliance-1.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-asm/jars/spring-asm-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-beans/jars/spring-beans-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-core/jars/spring-core-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.springframework/spring-expression/jars/spring-expression-3.0.6.RELEASE.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.1.4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.1.4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.1.4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.lucene/lucene-core/jars/lucene-core-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.lucene/lucene-analyzers-common/jars/lucene-analyzers-common-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.lucene/lucene-queryparser/jars/lucene-queryparser-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.lucene/lucene-queries/jars/lucene-queries-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.lucene/lucene-sandbox/jars/lucene-sandbox-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/jakarta-regexp/jakarta-regexp/jars/jakarta-regexp-1.4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.olap4j/olap4j/jars/olap4j-0.9.7.309-JS-3.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.google.zxing/core/jars/core-2.3.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/net.sf.jasperreports/htmlcomponent/jars/htmlcomponent-6.2.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.poi/poi/jars/poi-3.16-beta2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-codec/commons-codec/jars/commons-codec-1.10.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.commons/commons-collections4/jars/commons-collections4-4.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.poi/poi-ooxml/jars/poi-ooxml-3.16-beta2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.poi/poi-ooxml-schemas/jars/poi-ooxml-schemas-3.16-beta2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.xmlbeans/xmlbeans/jars/xmlbeans-2.6.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.github.virtuald/curvesapi/jars/curvesapi-1.04.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.poi/poi-scratchpad/jars/poi-scratchpad-3.16-beta2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/uk.com.robust-it/cloning/bundles/cloning-1.9.3.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.objenesis/objenesis/jars/objenesis-2.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.1.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.3.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.testng/testng/jars/testng-6.9.13.6.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.beust/jcommander/jars/jcommander-1.48.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.ant/ant/jars/ant-1.9.7.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.apache.ant/ant-launcher/jars/ant-launcher-1.9.7.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.beanshell/bsh/jars/bsh-2.0b4.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.google.inject/guice/jars/guice-4.1.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/com.google.guava/guava/bundles/guava-19.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-webservices-server-integration/jars/wildfly-webservices-server-integration-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.msc/jboss-msc/jars/jboss-msc-1.2.6.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.security/wildfly-security-manager/jars/wildfly-security-manager-1.1.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-jmx/jars/wildfly-jmx-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-server/jars/wildfly-server-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-controller/jars/wildfly-controller-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-dmr/jars/jboss-dmr-1.3.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-controller-client/jars/wildfly-controller-client-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-protocol/jars/wildfly-protocol-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.logging/jboss-logging/jars/jboss-logging-3.2.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.remoting/jboss-remoting/jars/jboss-remoting-4.0.9.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.xnio/xnio-api/jars/xnio-api-3.3.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.sasl/jboss-sasl/jars/jboss-sasl-1.0.5.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.threads/jboss-threads/jars/jboss-threads-2.2.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.xnio/xnio-nio/jars/xnio-nio-3.3.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-core-security/jars/wildfly-core-security-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-core-security-api/jars/wildfly-core-security-api-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.modules/jboss-modules/jars/jboss-modules-1.4.3.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/staxmapper/jars/staxmapper-1.2.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-domain-http-interface/jars/wildfly-domain-http-interface-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/io.undertow/undertow-core/jars/undertow-core-1.2.8.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-domain-management/jars/wildfly-domain-management-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-common-core/jars/jboss-common-core-2.5.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.picketbox/picketbox/jars/picketbox-4.9.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-deployment-repository/jars/wildfly-deployment-repository-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-vfs/jars/jboss-vfs-3.2.9.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-platform-mbean/jars/wildfly-platform-mbean-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-process-controller/jars/wildfly-process-controller-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-version/jars/wildfly-version-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.marshalling/jboss-marshalling/jars/jboss-marshalling-1.4.10.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-remoting/jars/wildfly-remoting-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-io/jars/wildfly-io-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-network/jars/wildfly-network-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-self-contained/jars/wildfly-self-contained-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jandex/bundles/jandex-1.2.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.invocation/jboss-invocation/jars/jboss-invocation-1.4.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.stdio/jboss-stdio/jars/jboss-stdio-1.0.2.GA.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.remotingjmx/remoting-jmx/jars/remoting-jmx-2.0.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.marshalling/jboss-marshalling-river/jars/jboss-marshalling-river-1.4.10.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-ee/jars/wildfly-ee-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.glassfish/javax.enterprise.concurrent/jars/javax.enterprise.concurrent-1.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.metadata/jboss-metadata-common/jars/jboss-metadata-common-8.1.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.metadata/jboss-metadata-ear/jars/jboss-metadata-ear-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.enterprise.concurrent/jboss-concurrency-api_1.0_spec/jars/jboss-concurrency-api_1.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.transaction/jboss-transaction-api_1.2_spec/jars/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.annotation/jboss-annotations-api_1.2_spec/jars/jboss-annotations-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-request-controller/jars/wildfly-request-controller-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-naming/jars/wildfly-naming-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-remote-naming/jars/jboss-remote-naming-2.0.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-ejb-client/jars/jboss-ejb-client-2.0.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.checkstyle/wildfly-checkstyle-config/jars/wildfly-checkstyle-config-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.interceptor/jboss-interceptors-api_1.2_spec/jars/jboss-interceptors-api_1.2_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-ejb3/jars/wildfly-ejb3-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-connector/jars/wildfly-connector-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-jgroups-spi/jars/wildfly-clustering-jgroups-spi-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-jgroups-api/jars/wildfly-clustering-jgroups-api-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jgroups/jgroups/bundles/jgroups-3.6.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-service/jars/wildfly-clustering-service-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-transactions/jars/wildfly-transactions-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-iiop-openjdk/jars/wildfly-iiop-openjdk-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.openjdk-orb/openjdk-orb/jars/openjdk-orb-8.0.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.narayana.jts/narayana-jts-idlj/jars/narayana-jts-idlj-5.0.6.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.metadata/jboss-metadata-ejb/jars/jboss-metadata-ejb-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-transaction-spi/jars/jboss-transaction-spi-7.1.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.narayana.jts/narayana-jts-integration/jars/narayana-jts-integration-5.0.6.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.narayana.compensations/compensations/jars/compensations-5.0.6.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.resource/jboss-connector-api_1.7_spec/jars/jboss-connector-api_1.7_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly.core/wildfly-threads/jars/wildfly-threads-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-security/jars/wildfly-security-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-infinispan-spi/jars/wildfly-clustering-infinispan-spi-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-marshalling/jars/wildfly-clustering-marshalling-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.infinispan/infinispan-core/bundles/infinispan-core-7.2.3.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.infinispan/infinispan-commons/bundles/infinispan-commons-7.2.3.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.security/jboss-negotiation-extras/jars/jboss-negotiation-extras-2.3.7.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.security/jboss-negotiation-common/jars/jboss-negotiation-common-2.3.7.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.servlet/jboss-servlet-api_3.0_spec/jars/jboss-servlet-api_3.0_spec-1.0.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.picketbox/picketbox-commons/jars/picketbox-commons-1.0.0.final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.security/jboss-negotiation-spnego/jars/jboss-negotiation-spnego-2.3.7.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.security.jacc/jboss-jacc-api_1.5_spec/jars/jboss-jacc-api_1.5_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.picketbox/picketbox-infinispan/jars/picketbox-infinispan-4.9.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/commons-cli/commons-cli/jars/commons-cli-1.2.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-core-api/jars/ironjacamar-core-api-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-core-impl/jars/ironjacamar-core-impl-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-common-api/jars/ironjacamar-common-api-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-common-spi/jars/ironjacamar-common-spi-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-common-impl/jars/ironjacamar-common-impl-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-deployers-common/jars/ironjacamar-deployers-common-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-jdbc/jars/ironjacamar-jdbc-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ironjacamar/ironjacamar-validator/jars/ironjacamar-validator-1.2.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/javax.validation/validation-api/jars/validation-api-1.1.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-api/jars/wildfly-clustering-api-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-common/jars/wildfly-clustering-common-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-ejb-spi/jars/wildfly-clustering-ejb-spi-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-clustering-ee-spi/jars/wildfly-clustering-ee-spi-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/jars/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.classfilewriter/jboss-classfilewriter/jars/jboss-classfilewriter-1.1.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss/jboss-iiop-client/jars/jboss-iiop-client-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ejb3/jboss-ejb3-ext-api/jars/jboss-ejb3-ext-api-2.1.0.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.jms/jboss-jms-api_2.0_spec/jars/jboss-jms-api_2.0_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.xml.rpc/jboss-jaxrpc-api_1.1_spec/jars/jboss-jaxrpc-api_1.1_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-web-common/jars/wildfly-web-common-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.metadata/jboss-metadata-web/jars/jboss-metadata-web-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.security.auth.message/jboss-jaspi-api_1.1_spec/jars/jboss-jaspi-api_1.1_spec-1.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.servlet.jsp/jboss-jsp-api_2.3_spec/jars/jboss-jsp-api_2.3_spec-1.0.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.el/jboss-el-api_3.0_spec/jars/jboss-el-api_3.0_spec-1.0.4.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ws/jbossws-api/jars/jbossws-api-1.0.3.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.wildfly/wildfly-undertow/jars/wildfly-undertow-9.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.common/jboss-common-beans/jars/jboss-common-beans-1.1.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/io.undertow/undertow-servlet/jars/undertow-servlet-1.2.8.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/io.undertow/undertow-websockets-jsr/jars/undertow-websockets-jsr-1.2.8.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.websocket/jboss-websocket-api_1.1_spec/jars/jboss-websocket-api_1.1_spec-1.1.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/io.undertow.jastow/jastow/jars/jastow-1.1.1.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ws/jbossws-common/jars/jbossws-common-3.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.ws/jbossws-spi/jars/jbossws-spi-3.0.0.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jboss.spec.javax.xml.ws/jboss-jaxws-api_2.2_spec/jars/jboss-jaxws-api_2.2_spec-2.0.2.Final.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/net.coobird/thumbnailator/jars/thumbnailator-0.4.8.jar"/>
+        <pathelement location="../../../../xnj02_repo/cawRepo/cache/org.jsoup/jsoup/jars/jsoup-1.7.2.jar"/>
+    </path>
+    <path id="ce01_mldc_share.classpath">
+        <pathelement location="${ce01_mldc_share.location}/bin"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="WildFly 9.x Runtime (Experimental) [WildFly 9.x Runtime].libraryclasspath"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_core_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_root_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_trdg_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/core_share.jar"/>
+        <path refid="Ivy.libraryclasspath"/>
+    </path>
+    <path id="jsf.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="WildFly 9.x Runtime (Experimental) [WildFly 9.x Runtime].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <path refid="ce01_mldc_share.classpath"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_core_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_root_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/ce01_trdg_share.jar"/>
+        <pathelement location="${ce01.location}/caw_ear.ear/lib/core_share.jar"/>
+        <path refid="Ivy.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${ce01_mldc_share.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${ce01_mldc_share.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <src path="src/main/java"/>
+            <classpath refid="jsf.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+</project>

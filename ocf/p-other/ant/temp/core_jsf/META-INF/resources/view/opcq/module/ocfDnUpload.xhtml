@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:caw="http://www.cloud-at-work.com">
+<caw:view contentType="text/html" readonly="#{var.viewStatus}" disabled="#{var.viewStatus}">
+	<h:head>
+		<f:facet name="first">
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		</f:facet>
+		<title>Delivery Note Upload</title>
+		<style>
+			.iafBtn {
+				width:220px;
+				max-width:100%;
+			}
+		</style>
+		<script type="text/javascript">
+// 			$(document).on("frame.actived", function (event) {
+// 				$("button.globalControl").click();
+// 			});	
+// 			$(document).on("initTable", function(){
+// 				var target = $('.quickLookConatiner').find('div[crole=editTable]');
+// 				if(target.attr('id') ===  arguments[1].substring(0, arguments[1].lastIndexOf(":jqGrid"))){
+// 					var $form = $('form');
+// 					var height = $form.innerHeight() - $('.headerPanel').outerHeight(true)  - $('.toolbarDiv').outerHeight(true) - $('ul[cp=header]').outerHeight(true) - 30;
+// 					var target = $('.quickLookConatiner').find('div[crole=editTable]');
+// 					EditTable.resetTableHeight(target.attr('id'), height);
+// 				}	
+// 			}).on(Frame.Event.INIT, function(){
+// 				resizeQuickLook();	
+// 			}).on(JsView.EVENT.AFTER_LANGCHANGE, function(){
+// 				resizeQuickLook();	
+// 			}).on(Frame.Event.SIZECHANGE, function(){
+// 				resizeQuickLook();		
+// 			})
+		
+// 			var resizeQuickLook = function(){
+// 				var $form = $('form');
+// 				var height = $form.innerHeight() - $('.headerPanel').outerHeight(true)  - $('.toolbarDiv').outerHeight(true) - $('ul[cp=header]').outerHeight(true) - 30;
+// 				var target = $('.quickLookConatiner').find('div[crole=editTable]');
+// 				if(target.length > 0){
+// 					EditTable.resetTableHeight(target.attr('id'), height);
+// 				}	
+// 			}
+		</script>
+		<h:outputStylesheet name="style.min.css" library="font/cawIcon"></h:outputStylesheet>
+		<h:outputScript name="editorFrame.min.js" library="js/core"></h:outputScript>
+	</h:head>
+	<h:body style="overflow:auto;">
+		<h:form id="hiddenForm" style="display:none">
+<!-- 			<caw:commandButton id="export_hidden" class="exportFile" value="#{caw:mess('Export')}"  -->
+<!-- 				actionListener="#{iafGen.downloadFile}" ajax="false" type="submit"/> -->
+<!-- 			<caw:commandButton id="downloadHist_hidden" class="downloadHist" value="#{caw:mess('Export')}"  -->
+<!-- 				actionListener="#{iafGen.downloadHist}" ajax="false" type="submit"/> -->
+		</h:form>
+ 		<h:form id="ocfDnUploadForm">	
+ 			<caw:beanDeclare name="ocfDnUpload"/>
+	 		<caw:tabView id="mainView">	 			
+				<caw:tab id="mainTab" mess-title="Delivery Note Upload">
+<!-- 					<caw:fluidPanel id="fpSettingBeSelect" column="2" style="margin-top:10px;margin-bottom:10px;" visible="false"> -->
+<!-- 						<caw:label mess-text="core.beId" > -->
+<!-- 							<caw:constraints style="width:180px;" />	 -->
+<!-- 						</caw:label>  -->
+<!-- 						<caw:buttonSelect id="beList" globalControl="false" dataOptions="#{var.beList}" value="#{ocfDnUpload.beId}" validUpdate="true" -->
+<!-- 							colorStyle="secondary" withArrow="true" liveSearch="true"> -->
+<!-- 						</caw:buttonSelect> -->
+<!-- 					</caw:fluidPanel>					 -->
+
+					<caw:fluidPanel id="headerPanel" column="3" class="headerPanel">
+			 			<h:outputLabel value="#{caw:mess('sizeCannotExceed')}:">
+                            <b>#{var.attSize}#{var.attSizeUnit}</b>
+                        </h:outputLabel>
+                        
+						<caw:inputFile id="attachFiles" mess-label="core.attachment" value="#{ocfDnUpload.attachFile}" keepData="true" instantUpload="true" briefStyle="false"
+							multiple="false" caption="false" dropZone="true" style-dropZone="height: 80px;" style-input="width:calc(100% - 320px);vertical-align: middle;" style-file="width: 100%;"
+							fileExtension="pdf" maxFileSize="#{var.maxSize}">
+							<caw:constraints colSpan="2" newLine="true" />
+						</caw:inputFile>
+						
+						
+						
+					</caw:fluidPanel>
+					
+					<caw:fluidPanel id="btnPanel" column="5" style="margin-top: 15px;">		
+						<caw:constraints rowHold="true"/>
+						<caw:commandButton id="readDoc" mess-label="Read Doc" class="" onstart="myView.toggleLayer('frameWait', true);" oncomplete="editorFrame.prototype.afterLongRequest('afterReadDoc',xhr,status,args)"/>				
+						
+					</caw:fluidPanel>
+				</caw:tab>
+			</caw:tabView>	
+		</h:form>
+	</h:body>
+</caw:view>
+</html>
