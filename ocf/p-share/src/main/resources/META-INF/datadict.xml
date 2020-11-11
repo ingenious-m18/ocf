@@ -3,6 +3,12 @@
 	<table name="pro" extend="true"> 
 		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
 	</table>
+	<table name="opcqsender" mess="ocf.sender" pk="id" > 
+		<inherit name="module_fm" />
+		<column name="code" type="varchar" mess="ocf.messageCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="bDesc" type="varchar" mess="ocf.messageDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="desc" type="varchar" mess="ocf.senderDesc" length="-1" defPattern="html" batchUpdate="true"/>
+	</table>
 	<table name="opcqmessagecontent" mess="ocf.messagecontent" pk="id" > 
 		<inherit name="module_fm" />
 		<column name="code" type="varchar" mess="ocf.messageCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>

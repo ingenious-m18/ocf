@@ -51,13 +51,12 @@
 	</h:head>
 	<h:body style="overflow:auto;">
 		<h:form id="hiddenForm" style="display:none">
-<!-- 			<caw:commandButton id="export_hidden" class="exportFile" value="#{caw:mess('Export')}"  -->
-<!-- 				actionListener="#{iafGen.downloadFile}" ajax="false" type="submit"/> -->
-<!-- 			<caw:commandButton id="downloadHist_hidden" class="downloadHist" value="#{caw:mess('Export')}"  -->
-<!-- 				actionListener="#{iafGen.downloadHist}" ajax="false" type="submit"/> -->
+			<caw:commandButton id="downloadOcr_hidden" class="downloadOcrAction" value="Download Ocr" 
+				actionListener="#{ocfDnUpload.downloadOcrAction}" ajax="false" type="submit"/>
 		</h:form>
  		<h:form id="ocfDnUploadForm">	
  			<caw:beanDeclare name="ocfDnUpload"/>
+ 			
 	 		<caw:tabView id="mainView">	 			
 				<caw:tab id="mainTab" mess-title="Delivery Note Upload">
 <!-- 					<caw:fluidPanel id="fpSettingBeSelect" column="2" style="margin-top:10px;margin-bottom:10px;" visible="false"> -->
@@ -69,14 +68,30 @@
 <!-- 						</caw:buttonSelect> -->
 <!-- 					</caw:fluidPanel>					 -->
 
+					
+
 					<caw:fluidPanel id="headerPanel" column="3" class="headerPanel">
-			 			<h:outputLabel value="#{caw:mess('sizeCannotExceed')}:">
+						<caw:label id="downloadOcrLabel" mess-text="ocf.downloadOcrLabel">
+							<caw:icon name="cf-info2" library="font/"></caw:icon>
+							<caw:constraints rowHold="true"></caw:constraints>
+						</caw:label>
+						<caw:label id="howToLabel" mess-text="ocf.howToOcr">
+							<caw:icon name="cf-info2" library="font/"></caw:icon>
+							<caw:constraints rowHold="true"></caw:constraints>
+						</caw:label>
+						
+						<caw:commandButton id="downloadOcr" mess-label="Download Ocr" class="" onstart="myView.toggleLayer('frameWait', true);" oncomplete="editorFrame.prototype.afterLongRequest('afterDownloadOcr',xhr,status,args)">
+							<caw:constraints rowHold="true" />
+						</caw:commandButton>
+						
+					
+			 			<h:outputLabel value="#{caw:mess('sizeCannotExceed')}:" style="padding-top: 20px">
                             <b>#{var.attSize}#{var.attSizeUnit}</b>
                         </h:outputLabel>
                         
 						<caw:inputFile id="attachFiles" mess-label="core.attachment" value="#{ocfDnUpload.attachFile}" keepData="true" instantUpload="true" briefStyle="false"
 							multiple="false" caption="false" dropZone="true" style-dropZone="height: 80px;" style-input="width:calc(100% - 320px);vertical-align: middle;" style-file="width: 100%;"
-							fileExtension="pdf" maxFileSize="#{var.maxSize}">
+							fileExtension="zip" maxFileSize="#{var.maxSize}">
 							<caw:constraints colSpan="2" newLine="true" />
 						</caw:inputFile>
 						
@@ -89,6 +104,10 @@
 						<caw:commandButton id="readDoc" mess-label="Read Doc" class="" onstart="myView.toggleLayer('frameWait', true);" oncomplete="editorFrame.prototype.afterLongRequest('afterReadDoc',xhr,status,args)"/>				
 						
 					</caw:fluidPanel>
+				</caw:tab>
+				<caw:tab id="guideTab" mess-title="Guildline">
+					<caw:image id="howto" library="gif" name="ocr_v3.gif"></caw:image>
+				
 				</caw:tab>
 			</caw:tabView>	
 		</h:form>

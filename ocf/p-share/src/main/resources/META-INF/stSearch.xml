@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ss xmlns="http://www.multiable.com/stSearch">
+	<stSearch name="opcqsender" mess="ocf.sender" srcSt="opcqsender" maxLevel="3"
+		desc="#opcqsender#.bDesc;' (';#opcqsender#.code;')'" slaveEjb="ce01_ocf/OcfMessageContentSlave"
+		defCond="#opcqsender#.id != 0" sort="#opcqsender#.code" accessModule="opcqsender">
+		<format mess="core.defFormat">
+			<col col="code" mess="ocf.messageCode"/>
+			<col col="bDesc" mess="ocf.messageDesc"/>
+			<col col="desc" mess="ocf.senderDesc"/>
+		</format>
+	</stSearch>
+	
 	<stSearch name="opcqmessagecontent" mess="ocf.messagecontent" srcSt="opcqmessagecontent" maxLevel="3"
 		desc="#opcqmessagecontent#.bDesc;' (';#opcqmessagecontent#.code;')'" slaveEjb="ce01_ocf/OcfMessageContentSlave"
 		defCond="#opcqmessagecontent#.id != 0" sort="#opcqmessagecontent#.code" accessModule="opcqmessagecontent">

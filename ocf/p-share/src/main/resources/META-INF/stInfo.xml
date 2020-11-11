@@ -2,6 +2,8 @@
 <si xmlns="http://www.multiable.com/stInfo">
 	<stInfo name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" table="opcqredemptioncoupon">
     </stInfo>
+    <stInfo name="opcqsender" mess="ocf.sender" table="opcqsender">
+    </stInfo>
     <stInfo name="opcqmessagecontent" mess="ocf.messagecontent" table="opcqmessagecontent">
     </stInfo>
 </si>

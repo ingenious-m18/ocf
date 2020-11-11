@@ -1,0 +1,1 @@
+ocf/p-ejb/src/main/resources/ocr.zip filter=lfs diff=lfs merge=lfs -text

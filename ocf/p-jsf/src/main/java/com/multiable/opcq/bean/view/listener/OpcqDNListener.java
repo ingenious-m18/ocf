@@ -93,11 +93,14 @@ public class OpcqDNListener extends MacModuleRecordViewListener {
 				remdn.setString(1, "msgcontent",
 						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
 
+				WebUtil.update("remdn_ocfsender", "remdn_msgcontent");
 			} else if (ConvertLib.toString(vce.getNewValue()).equals("Large")) {
 				remdn.setString(1, "ocfsender",
 						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
 				remdn.setString(1, "msgcontent",
 						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
+
+				WebUtil.update("remdn_ocfsender", "remdn_msgcontent");
 			}
 		}
 	}

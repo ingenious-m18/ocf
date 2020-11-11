@@ -54,8 +54,8 @@ public class OcfDnUploadBean extends MacViewBean implements Serializable {
 
 	private boolean debug = false;
 
-	private File exportFile = null;
-	private String fileName = "";
+	private File ocrFile = null;
+	private String ocrFileName = "";
 
 	private Long beId = 0L;
 	private Long attachFile = 0L;
@@ -209,6 +209,31 @@ public class OcfDnUploadBean extends MacViewBean implements Serializable {
 					dialog.addParam("uploadResult", uploadResult);
 					WebUtil.showDialog(dialog);
 				}
+			} else if ("downloadOcr".equals(action)) {
+				if (waitThread != null && waitThread.isAlive()) {
+					waitThread.interrupt();
+				}
+				String longReqKey = LongRequestLib.addLrCache();
+				waitThread = new Thread(new Runnable() {
+					@Override
+					public void run() {
+						File ocrPackage = ocfDnUploadEJB.getOcrPackage();
+						LongRequestLib.putResult(longReqKey, ocrPackage);
+					}
+				});
+				waitThread.start();
+				FacesUtil.getAssistant().addCallbackParam("longReqKey", longReqKey);
+			} else if ("afterDownloadOcr".equals(action)) {
+				String longReqKey = FacesUtil.getRequestParamMap().get("longReqKey");
+				LongRequestCache longReqCache = LongRequestLib.get(longReqKey);
+				if (longReqCache != null) {
+					ocrFile = (File) longReqCache.getResult();
+					if (ocrFile != null) {
+						ocrFileName = ocrFile.getName();
+					}
+
+					FacesAssistant.getCurrentInstance().execute(" $('.downloadOcrAction').click();");
+				}
 			}
 		}
 	}
@@ -328,17 +353,15 @@ public class OcfDnUploadBean extends MacViewBean implements Serializable {
 		return true;
 	}
 
-	public void downloadFile() {
-		// String fileName = "iafGen.zip";
-
-		try (FileInputStream fio = new FileInputStream(exportFile)) {
-			FileUtil.download(fio, fileName);
+	public void downloadOcrAction() {
+		try (FileInputStream fio = new FileInputStream(ocrFile)) {
+			FileUtil.download(fio, ocrFileName);
 
 		} catch (Exception e) {
 			CawLog.logException(e);
 		}
-		exportFile = null;
-		fileName = "";
+		ocrFile = null;
+		ocrFileName = "";
 	}
 
 	public long getBeId() {

@@ -5,6 +5,9 @@
 		<menu code="opcqredemptioncoupon" messCode="ocf.redemptionCoupon" src="view/opcq/module/opcqredemptioncoupon" module="opcqredemptioncoupon" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>
+		<menu code="opcqsender" messCode="ocf.sender" src="view/opcq/module/opcqSender" module="opcqsender" mType="FM" order="1000">			
+			<inherit name ="module_fc" />
+		</menu>
 		<menu code="opcqmessagecontent" messCode="ocf.messagecontent" src="view/opcq/module/opcqMessageContent" module="opcqmessagecontent" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>

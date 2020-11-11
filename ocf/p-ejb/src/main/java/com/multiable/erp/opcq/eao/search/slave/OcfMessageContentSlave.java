@@ -15,7 +15,7 @@ public class OcfMessageContentSlave extends SearchSlaveAdapter {
 
 	@Override
 	public void beforeDatalookup(StParameter param) {
-		if (MacUtil.isIn(param.getStSearch(), "opcqmessagecontent")) {
+		if (MacUtil.isIn(param.getStSearch(), "opcqmessagecontent", "opcqsender")) {
 			param.addExtraField("desc");
 		}
 	}
