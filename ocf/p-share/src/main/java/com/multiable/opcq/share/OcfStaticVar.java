@@ -9,6 +9,7 @@ public class OcfStaticVar {
 		public static final String OpcqSalesInvoiceEJB = appName + "/OpcqSalesInvoiceEJB";
 		public static final String OpcqReceiptRegisterEJB = appName + "/OpcqReceiptRegisterEJB";
 		public static final String OcfDnUploadEJB = appName + "/OcfDnUploadEJB";
+		public static final String OpcqDNEJB = appName + "/OpcqDNEJB";
 	}
 
 	public static class OcfSLAVE {

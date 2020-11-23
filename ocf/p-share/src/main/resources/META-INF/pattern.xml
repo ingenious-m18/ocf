@@ -16,4 +16,14 @@
 	<record code="opcqmessagecontent" type="lookup">
 		<lookup searchType="opcqmessagecontent"/>
 	</record>
+	
+	<record code="ocfpostalcodedeliverycharge" type="lookup">
+		<lookup searchType="ocfpostalcodedeliverycharge"/>
+	</record>
+	<record code="opcqrecipient" type="lookup">
+		<lookup searchType="opcqrecipient"/>
+	</record>
+	<record code="udfChar2" type="text">
+		<text length="2" />
+	</record>
 </pattern>

@@ -10,6 +10,8 @@
 <!-- 		</caw:extendComponent> -->
 		<caw:extendComponent target="chacc_expired" action="after">
 			<caw:inputCheck tableName="chacc" columnName="redemptioncreditaccount"/>
+			<caw:inputCheck tableName="chacc" columnName="transportchargeaccount"/>
+			<caw:inputCheck tableName="chacc" columnName="invoicediscountaccount"/>
 		</caw:extendComponent>		
 		
 <!-- 		<caw:extendComponent target="chacc" action="append"> -->

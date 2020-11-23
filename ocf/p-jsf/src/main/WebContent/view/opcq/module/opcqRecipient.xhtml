@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:caw="http://www.cloud-at-work.com">
+<caw:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		</f:facet>
+		<title>#{caw:mess('ocf.recipient')}</title>
+		<h:outputStylesheet name="style.min.css" library="font/cawIcon"></h:outputStylesheet>
+	</h:head>
+	<h:body>
+ 		<h:form id="opcqrecipient">
+ 			<caw:beanDeclare name="opcqrecipient"/>
+			<ui:decorate template="/view/template/viewTemplate.xhtml"> 
+				<caw:tabView id="mainView" style="margin: 20px auto 20px">	
+					<caw:tab id="mainTab" mess-title="ocf.dnRecipient">
+						<caw:fluidPanel id="bookPanel" column="3">	
+							<caw:inputText tableName="opcqrecipient" columnName="code" />
+							<caw:inputText tableName="opcqrecipient" columnName="bDesc" style="width:100%" style-input="width:75%">
+								<caw:constraints colSpan="2" newLine="true"/>
+							</caw:inputText>		
+							<caw:richTextEditor tableName="opcqrecipient" columnName="desc" rows="4" style="width:67%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
+								<caw:constraints rowHold="true" colSpan="2" rowSpan="7"/>
+							</caw:richTextEditor>					
+						</caw:fluidPanel>
+					</caw:tab>											
+					<ui:include src="/view/share/recordCtInfo.xhtml" />
+				</caw:tabView>					
+	 		</ui:decorate> 
+		</h:form>
+	</h:body>
+</caw:view>
+</html>

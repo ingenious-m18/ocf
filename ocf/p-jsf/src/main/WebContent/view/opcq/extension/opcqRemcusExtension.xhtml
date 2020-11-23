@@ -12,8 +12,7 @@
 					<caw:inputNum tableName="remcus" columnName="pointearnedtotal" disabled="true"/>
 				 	<caw:inputNum tableName="remcus" columnName="pointspenttotal" disabled="true"/>
 				 	<caw:inputNum tableName="remcus" columnName="pointbalance" disabled="true"/>
-			 	</caw:fluidPanel>
-			 	
+			 	</caw:fluidPanel>			 	
 			 	<caw:fluidPanel id="fpocfremcust" column="1" mess-title="ocf.pointEarnedAndSpent" style="margin:10px auto 10px;">
 				 	<caw:editTable id="ocfremcust" tableName="ocfremcust" primarykey="pointearned;date">
 						<caw:constraints rowHold="true" style="padding-top: 10px;" />
@@ -22,8 +21,7 @@
 						<caw:tableColumn columnName="sourcetransactiondate" edittype="cawDate" editable="false"/>
 						<caw:tableColumn columnName="sourceId" edittype="cawLookup" editable="false"/>
 					</caw:editTable>
-				</caw:fluidPanel>
-				
+				</caw:fluidPanel>				
 				<caw:fluidPanel id="fpocfrccus" column="1" mess-title="ocf.redemptionCoupon">
 					<caw:editTable id="ocfrccus" tableName="ocfrccus" primarykey="rcdate">
 						<caw:constraints rowHold="true" style="padding-top: 10px;" />
@@ -33,8 +31,7 @@
 						<caw:tableColumn columnName="rcquantity" edittype="cawNum"/>
 						<caw:tableColumn columnName="rcpointspent" edittype="cawNum"/>
 					</caw:editTable>
-				</caw:fluidPanel>
-				
+				</caw:fluidPanel>				
 				<caw:fluidPanel id="fpocfrcdcus" column="1" mess-title="ocf.redemptionCredit">
 					<caw:editTable id="ocfrcdcus" tableName="ocfrcdcus" primarykey="rcddate" editable="false"
 						showDefAction="false">
@@ -44,8 +41,13 @@
 						<caw:tableColumn columnName="rcdsourcetransactionamount" edittype="cawNum"/>
 						<caw:tableColumn columnName="rcdpointspent" edittype="cawNum"/>
 					</caw:editTable>
-				</caw:fluidPanel>
+				</caw:fluidPanel>				
 			</caw:tab>			
 		</caw:extendComponent>
+		
+		<caw:extendComponent target="groupCoId" action="after">
+			<caw:inputNum tableName="cus" columnName="transportcharge"/>
+			<caw:inputNum tableName="cus" columnName="invoicediscount"/>
+		</caw:extendComponent>	
 	</ui:composition>
 </html>

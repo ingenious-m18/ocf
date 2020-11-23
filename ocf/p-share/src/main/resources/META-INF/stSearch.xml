@@ -8,8 +8,7 @@
 			<col col="bDesc" mess="ocf.messageDesc"/>
 			<col col="desc" mess="ocf.senderDesc"/>
 		</format>
-	</stSearch>
-	
+	</stSearch>	
 	<stSearch name="opcqmessagecontent" mess="ocf.messagecontent" srcSt="opcqmessagecontent" maxLevel="3"
 		desc="#opcqmessagecontent#.bDesc;' (';#opcqmessagecontent#.code;')'" slaveEjb="ce01_ocf/OcfMessageContentSlave"
 		defCond="#opcqmessagecontent#.id != 0" sort="#opcqmessagecontent#.code" accessModule="opcqmessagecontent">
@@ -18,8 +17,7 @@
 			<col col="bDesc" mess="ocf.messageDesc"/>
 			<col col="desc" mess="ocf.messageContentDesc"/>
 		</format>
-	</stSearch>
-	
+	</stSearch>	
 	<stSearch name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" srcSt="opcqredemptioncoupon" maxLevel="3"
 		desc="#opcqredemptioncoupon#.desc;' (';#opcqredemptioncoupon#.code;')'"
 		defCond="#opcqredemptioncoupon#.id != 0" sort="#opcqredemptioncoupon#.code" accessModule="opcqredemptioncoupon">
@@ -28,4 +26,22 @@
 			<col col="desc" mess="core.description"/>
 		</format>
 	</stSearch>
+	
+	<stSearch name="ocfpostalcodedeliverycharge" mess="ocf.postalCodeDeliveryCharge" srcSt="ocfpostalcodedeliverycharge" maxLevel="3"
+		desc="#ocfpostalcodedeliverycharge#.desc;' (';#ocfpostalcodedeliverycharge#.code;')'"
+		defCond="#ocfpostalcodedeliverycharge#.id != 0" sort="#ocfpostalcodedeliverycharge#.code" accessModule="ocfpostalcodedeliverycharge">
+		<format mess="core.defFormat">
+			<col col="code" mess="core.code"/>
+			<col col="desc" mess="core.description"/>
+		</format>
+	</stSearch>	
+	<stSearch name="opcqrecipient" mess="ocf.dnRecipient" srcSt="opcqrecipient" maxLevel="3"
+		desc="#opcqrecipient#.bDesc;' (';#opcqrecipient#.code;')'" slaveEjb="ce01_ocf/OcfMessageContentSlave"
+		defCond="#opcqrecipient#.id != 0" sort="#opcqrecipient#.code" accessModule="opcqrecipient">
+		<format mess="core.defFormat">
+			<col col="code" mess="ocf.messageCode"/>
+			<col col="bDesc" mess="ocf.messageDesc"/>
+			<col col="desc" mess="ocf.dnrecipientDesc"/>
+		</format>
+	</stSearch>	
 </ss>

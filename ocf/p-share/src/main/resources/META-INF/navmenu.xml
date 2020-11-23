@@ -14,5 +14,12 @@
 		<menu code="ocfDnUpload" messCode="ocf.ocfDnUpload" src="view/opcq/module/ocfDnUpload" module="" mType="OTHER">
 			<icon name="cicon-tool" library="font/cawIcon"/>
 		</menu>
+		
+		<menu code="ocfpostalcodedeliverycharge" messCode="ocf.postalCodeDeliveryCharge" src="view/opcq/module/ocfPostalCodeDeliveryCharge" module="ocfpostalcodedeliverycharge" mType="FM" order="1000">
+			<inherit name ="module_fc" />
+		</menu>
+		<menu code="opcqrecipient" messCode="ocf.dnRecipient" src="view/opcq/module/opcqRecipient" module="opcqrecipient" mType="FM" order="1000">			
+			<inherit name ="module_fc" />
+		</menu>
 	</folder>
 </nm>

@@ -6,4 +6,9 @@
     </stInfo>
     <stInfo name="opcqmessagecontent" mess="ocf.messagecontent" table="opcqmessagecontent">
     </stInfo>
+    
+    <stInfo name="ocfpostalcodedeliverycharge" mess="ocf.postalCodeDeliveryCharge" table="ocfpostalcodedeliverycharge">
+    </stInfo>
+    <stInfo name="opcqrecipient" mess="ocf.dnRecipient" table="opcqrecipient">
+    </stInfo>
 </si>

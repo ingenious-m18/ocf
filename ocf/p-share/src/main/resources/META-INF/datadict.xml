@@ -16,7 +16,7 @@
 		<column name="desc" type="varchar" mess="ocf.messageContentDesc" length="-1" defPattern="html" batchUpdate="true"/>
 	</table>
 	<table name="remdn" extend="true"> 
-		<column name="ocfrecipient" type="varchar" mess="ocf.dnRecipient" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="ocfrecipient" type="varchar" mess="ocf.dnRecipient" defPattern="html" batchUpdate="true"/>
 		<column name="ocfsender" type="varchar" mess="ocf.dnSender" defPattern="html" batchUpdate="true"/>
 		<column name="msgcontent" type="varchar" mess="ocf.messagecontent" defPattern="html" batchUpdate="true"/>
 		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
@@ -34,6 +34,12 @@
 	</table>
 	<table name="chacc" extend="true"> 
 		<column name="redemptioncreditaccount" type="bit" mess="ocf.redemptionCreditAccount" defValue="0" defPattern="check"/>
+		<column name="transportchargeaccount" type="bit" mess="ocf.transportChargeAccount" defValue="0" defPattern="check"/>
+		<column name="invoicediscountaccount" type="bit" mess="ocf.invoiceDiscountAccount" defValue="0" defPattern="check"/>
+	</table>
+	<table name="cus" extend="true"> 
+		<column name="transportcharge" type="decimal" defValue="0.00" mess="ocf.transportCharge" length="6" decimal="2" defPattern="number6_2"/>
+		<column name="invoicediscount" type="decimal" defValue="0.00" mess="ocf.invoiceDiscount" length="5" decimal="2" defPattern="number5_2"/>
 	</table>
 	<table name="remcus" extend="true"> 
 		<column name="pointearnedtotal" type="decimal" mess="ocf.pointEarnedTotal" length="6" decimal="2" defPattern="number6_2"/>
@@ -65,5 +71,25 @@
 		<column name="rcdsourcetransaction" type="int_unsigned" mess="ocf.rcdSourceTransaction" defValue="0" defPattern="erp_import_id" checkLookupVal="false" multiLookup="sourceType"/>
 		<column name="rcdsourcetransactionamount" type="decimal" mess="ocf.rcdSourceTransactionAmount" length="9" decimal="2" defPattern="number9_2"/>
 		<column name="rcdpointspent" type="decimal" mess="ocf.rcdPointSpent" length="6" decimal="2" defPattern="number6_2" required="true"/>
+	</table>
+	
+	<table name="ocfpostalcodedeliverycharge" mess="ocf.postalCodeDeliveryCharge" pk="id" > 
+		<inherit name="module_fm" />
+<!-- 		<column name="code" type="int" mess="ocf.postalCode" length="2" defPattern="number2_0" required="true" batchUpdate="false"/> -->
+<!-- 		<column name="code" type="int" mess="ocf.postalCode" length="2" decimal="0" defPattern="number2_0" /> -->
+		<column name="code" type="varchar" mess="ocf.postalCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="desc" type="varchar" mess="ocf.postalDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
+	</table>
+	<table name="ocfpostalcodedeliverycharget" mess="ocf.postalCodeDeliveryCharget" pk="id">
+		<inherit name="id_irev" />
+		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="ocfpostalcodedeliverycharge" dataImport="false" dataExport="false" buildin="true"/>
+		<column name="postalcode" type="varchar" mess="ocf.postalCode" length="2" defPattern="udfChar2" batchUpdate="true"/>
+		<column name="deliverychargeperdistance" type="decimal" mess="ocf.deliveryChargePerDistance" length="5" decimal="2" defPattern="number5_2"/>
+	</table>
+	<table name="opcqrecipient" mess="ocf.dnRecipient" pk="id" > 
+		<inherit name="module_fm" />
+		<column name="code" type="varchar" mess="ocf.messageCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="bDesc" type="varchar" mess="ocf.messageDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="desc" type="varchar" mess="ocf.dnrecipientDesc" length="-1" defPattern="html" batchUpdate="true"/>
 	</table>
 </dd>
