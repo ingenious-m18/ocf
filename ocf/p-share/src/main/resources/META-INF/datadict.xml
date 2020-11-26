@@ -83,7 +83,7 @@
 	<table name="ocfpostalcodedeliverycharget" mess="ocf.postalCodeDeliveryCharget" pk="id">
 		<inherit name="id_irev" />
 		<column name="hId" type="int_unsigned" mess="" defValue="0" defPattern="ocfpostalcodedeliverycharge" dataImport="false" dataExport="false" buildin="true"/>
-		<column name="postalcode" type="varchar" mess="ocf.postalCode" length="2" defPattern="udfChar2" batchUpdate="true"/>
+		<column name="postalcode" type="varchar" mess="ocf.postalCodet" length="2" defPattern="udfChar2" batchUpdate="true"/>
 		<column name="deliverychargeperdistance" type="decimal" mess="ocf.deliveryChargePerDistance" length="5" decimal="2" defPattern="number5_2"/>
 	</table>
 	<table name="opcqrecipient" mess="ocf.dnRecipient" pk="id" > 
