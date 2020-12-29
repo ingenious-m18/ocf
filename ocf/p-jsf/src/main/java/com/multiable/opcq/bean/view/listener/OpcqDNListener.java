@@ -436,8 +436,8 @@ public class OpcqDNListener extends MacModuleRecordViewListener implements ITrad
 
 				}
 
-				// SqlTable dnt = getEntity().getData("dnt");
-				// dnt.setDouble(tarIndex, "qty", 1);
+				SqlTable dnt = getEntity().getData("dnt");
+				dnt.setDouble(tarIndex, "qty", 1);
 				//
 				// Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
 				// MacVatUtil.triggerVatFormula(getBeId(), getFTName(), getMainFooter(), tarIndex, "qty", true,
@@ -471,8 +471,8 @@ public class OpcqDNListener extends MacModuleRecordViewListener implements ITrad
 					WebUtil.update("remdn_cardsize", "remdn_ocfsender", "remdn_msgcontent", "remdn_ocfrecipient");
 				}
 
-				// SqlTable dnt = getEntity().getData("dnt");
-				// dnt.setDouble(tarIndex, "qty", 1);
+				SqlTable dnt = getEntity().getData("dnt");
+				dnt.setDouble(tarIndex, "qty", 1);
 
 			}
 		}
