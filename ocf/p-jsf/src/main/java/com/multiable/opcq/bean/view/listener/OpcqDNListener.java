@@ -438,6 +438,7 @@ public class OpcqDNListener extends MacModuleRecordViewListener implements ITrad
 
 				SqlTable dnt = getEntity().getData("dnt");
 				dnt.setDouble(tarIndex, "qty", 1);
+				dnt.setDouble(tarIndex, "qty1", 1);
 				//
 				// Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
 				// MacVatUtil.triggerVatFormula(getBeId(), getFTName(), getMainFooter(), tarIndex, "qty", true,
@@ -473,7 +474,7 @@ public class OpcqDNListener extends MacModuleRecordViewListener implements ITrad
 
 				SqlTable dnt = getEntity().getData("dnt");
 				dnt.setDouble(tarIndex, "qty", 1);
-
+				dnt.setDouble(tarIndex, "qty1", 1);
 			}
 		}
 	}
