@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2021-01-05T08:50:11 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="354" pageHeight="498" columnWidth="314" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
+<!-- 2021-01-13T12:35:40 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="354" pageHeight="495" columnWidth="314" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\p-share\src\main\java\com\multiable\opcq\share\data\ireport\resource\ds\cardsizesmall\cardsizesmall.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
 	<parameter name="macvar" class="com.multiable.core.share.util.ireport.CawJrVar" isForPrompting="false"/>
 	<parameter name="macparam" class="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto" isForPrompting="false"/>
 	<queryString>
@@ -24,10 +32,9 @@
 	<field name="maindn.id" class="java.lang.Long">
 		<fieldDescription><![CDATA[maindn.id]]></fieldDescription>
 	</field>
-	<group name="Group1" minHeightToStartNewPage="100">
+	<group name="Group1">
 		<groupHeader>
-			<band height="457">
-				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+			<band height="426">
 				<textField>
 					<reportElement x="0" y="155" width="100" height="15" uuid="f2d5c046-365d-4264-b830-0b0a40d52f8f">
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
@@ -38,35 +45,37 @@
 					<textFieldExpression><![CDATA["To"]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement positionType="Float" x="20" y="325" width="80" height="15" uuid="410aa427-aeb8-4261-99ae-37341a55ae8b"/>
+					<reportElement positionType="Float" x="20" y="317" width="80" height="15" uuid="410aa427-aeb8-4261-99ae-37341a55ae8b"/>
 					<textElement>
 						<font fontName="Times New Roman" size="12" isBold="true" isItalic="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["From"]]></textFieldExpression>
 				</textField>
 				<componentElement>
-					<reportElement positionType="Float" x="0" y="269" width="314" height="55" uuid="a1fd3889-fbbc-4f27-9e95-260b216907ef">
+					<reportElement positionType="Float" x="0" y="170" width="314" height="74" uuid="2975eb84-31bd-4001-a1b9-24f783e9d27f">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealSize" horizontalAlign="Center" verticalAlign="Top">
+						<hc:htmlContentExpression><![CDATA[$F{maindn.ocfrecipient}]]></hc:htmlContentExpression>
+					</hc:html>
+				</componentElement>
+				<componentElement>
+					<reportElement positionType="Float" x="0" y="244" width="314" height="73" uuid="602beac9-67eb-4f3f-9083-01fef283fc72">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
 					</reportElement>
-					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealHeight" horizontalAlign="Center" verticalAlign="Middle">
+					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealSize" horizontalAlign="Center" verticalAlign="Top">
 						<hc:htmlContentExpression><![CDATA[$F{maindn.msgcontent}]]></hc:htmlContentExpression>
 					</hc:html>
 				</componentElement>
 				<componentElement>
-					<reportElement positionType="Float" x="0" y="368" width="314" height="48" uuid="6fc3ee80-021e-4d6d-b1dc-8fb33d4faf51">
-						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<reportElement positionType="Float" x="0" y="332" width="314" height="73" uuid="30f42789-c1ec-424e-b5b1-b2ef34ad5c34">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
 					</reportElement>
-					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealHeight" horizontalAlign="Center" verticalAlign="Middle">
+					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealSize" horizontalAlign="Center" verticalAlign="Top">
 						<hc:htmlContentExpression><![CDATA[$F{maindn.ocfsender}]]></hc:htmlContentExpression>
-					</hc:html>
-				</componentElement>
-				<componentElement>
-					<reportElement positionType="Float" x="0" y="190" width="314" height="55" uuid="ed55b77d-67ea-4f3d-af9d-e2fe2861dfef">
-						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
-					</reportElement>
-					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="RealHeight" horizontalAlign="Center" verticalAlign="Middle">
-						<hc:htmlContentExpression><![CDATA[$F{maindn.ocfrecipient}]]></hc:htmlContentExpression>
 					</hc:html>
 				</componentElement>
 			</band>
