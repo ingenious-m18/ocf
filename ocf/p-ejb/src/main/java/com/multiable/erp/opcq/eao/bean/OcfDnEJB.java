@@ -1,6 +1,7 @@
 package com.multiable.erp.opcq.eao.bean;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -12,12 +13,13 @@ import com.multiable.core.share.lib.DateLib;
 import com.multiable.core.share.lib.MathLib;
 import com.multiable.core.share.lib.StringLib;
 import com.multiable.erp.core.share.util.MacUtil;
+import com.multiable.erp.core.share.util.MacXMLUtil;
 import com.multiable.opcq.share.OcfStaticVar.OcfEJB;
-import com.multiable.opcq.share.interfaces.local.OpcqDNLocal;
+import com.multiable.opcq.share.interfaces.local.OcfDnLocal;
 
-@Stateless(name = OcfEJB.OpcqDNEJB)
-@Local({ OpcqDNLocal.class })
-public class OpcqDNEJB implements OpcqDNLocal {
+@Stateless(name = OcfEJB.OcfDnEJB)
+@Local({ OcfDnLocal.class })
+public class OcfDnEJB implements OcfDnLocal {
 	@Override
 	public SqlTable loadChargeDiscount(Long beId, Long cusId, Long transAccId, Long invDiscAccId, Date tDate,
 			String zipcode, SqlTable dnt) {
@@ -211,5 +213,57 @@ public class OpcqDNEJB implements OpcqDNLocal {
 		}
 
 		return retTable;
+	}
+
+	@Override
+	public double getCusDiscount(Long beId, Long cusId) {
+		double disc = 0;
+		StringBuffer sql = new StringBuffer();
+		sql.append("select invoicediscount from cus where id = " + cusId);
+		sql.append(" and id != 0");
+		sql.append(";");
+
+		SqlTable sqlResult = CawDs.getResult(sql.toString());
+		if (sqlResult != null && sqlResult.size() > 0) {
+			disc = sqlResult.getDouble(1, "invoicediscount");
+		}
+
+		return disc;
+	}
+
+	@Override
+	public List<SqlTable> calcCusDiscount(Long beId, Long cusId, Long transAccId, Date tDate, String zipcode,
+			SqlTable dnt) {
+		String[] fields = new String[] { "proId", "unitId", "qty" };
+		String xmlStr = (dnt == null || dnt.size() == 0) ? "" : MacXMLUtil.buildXmlString(dnt, fields);
+		String m_zipcode = !StringLib.isEmpty(zipcode) && zipcode.length() >= 2 ? zipcode.substring(0, 2) : "";
+
+		StringBuffer sql = new StringBuffer();
+		sql.append("call ocf_get_cusdisc(");
+		sql.append(beId);
+		sql.append(", " + cusId);
+		sql.append(", '" + xmlStr + "'");
+		sql.append(", " + transAccId);
+		sql.append(", '" + DateLib.dateToString(tDate) + "'");
+		sql.append(", '" + m_zipcode + "'");
+		sql.append(");");
+
+		return CawDs.getResults(sql.toString());
+	}
+
+	@Override
+	public SqlTable getZipCodeCharge(Long beId, Long transAccId, Date tDate, String zipcode) {
+		String m_zipcode = !StringLib.isEmpty(zipcode) && zipcode.length() >= 2 ? zipcode.substring(0, 2) : "";
+
+		StringBuffer sql = new StringBuffer();
+		sql.append("call ocf_get_zccharge(");
+		sql.append(beId);
+		sql.append(", " + transAccId);
+		sql.append(", '" + DateLib.dateToString(tDate) + "'");
+		sql.append(", '" + m_zipcode + "'");
+		sql.append(");");
+
+		return CawDs.getResult(sql.toString());
+
 	}
 }

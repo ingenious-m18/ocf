@@ -11,4 +11,7 @@
     </stInfo>
     <stInfo name="opcqrecipient" mess="ocf.dnRecipient" table="opcqrecipient">
     </stInfo>
+    
+    <stInfo name="ocfTerms" mess="ocf.terms" table="ocfterms">
+    </stInfo>
 </si>

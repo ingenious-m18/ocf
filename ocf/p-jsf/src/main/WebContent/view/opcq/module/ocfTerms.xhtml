@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:caw="http://www.cloud-at-work.com">
+<caw:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+			<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		</f:facet>
+		<title>#{caw:mess('ocf.terms')}</title>
+		<h:outputStylesheet name="style.min.css" library="font/cawIcon"></h:outputStylesheet>
+	</h:head>
+	<h:body>
+ 		<h:form id="ocfTermsForm">
+ 			<caw:beanDeclare name="ocfTerms"/>
+			<ui:decorate template="/view/template/viewTemplate.xhtml"> 
+				<caw:tabView id="mainView" style="margin: 20px auto 20px">	
+					<caw:tab id="mainTab" mess-title="ocf.terms">
+						<caw:fluidPanel id="bookPanel" column="3">	
+							<caw:inputText tableName="ocfterms" columnName="code" />
+							<caw:inputText tableName="ocfterms" columnName="desc">
+							</caw:inputText>
+							<caw:inputNum tableName="ocfterms" columnName="comPercent" />
+						</caw:fluidPanel>
+					</caw:tab>											
+					<ui:include src="/view/share/recordCtInfo.xhtml" />
+				</caw:tabView>					
+	 		</ui:decorate> 
+		</h:form>
+	</h:body>
+</caw:view>
+</html>

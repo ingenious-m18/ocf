@@ -1,5 +1,6 @@
 package com.multiable.opcq.bean.view.listener;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.faces.component.UIComponent;
@@ -16,11 +17,19 @@ import com.multiable.erp.core.share.data.TableStaticIndexAdapter;
 import com.multiable.logging.CawLog;
 import com.multiable.opcq.share.OcfStaticVar.OcfEJB;
 import com.multiable.opcq.share.interfaces.local.OpcqRemcusLocal;
+import com.multiable.opcq.share.util.OcfUtil;
+import com.multiable.ui.component.form.inputcombo.ComboOption;
 import com.multiable.web.ValueChangeEvent;
 import com.multiable.web.component.edittable.EditTable;
 import com.multiable.web.component.edittable.EditTableModel;
 
 public class OpcqRemcusListener extends MacModuleRecordViewListener {
+
+	@Override
+	protected void initialized() {
+		super.initialized();
+
+	}
 
 	@Override
 	public void afterCreated(ModuleAction action) {
@@ -86,6 +95,27 @@ public class OpcqRemcusListener extends MacModuleRecordViewListener {
 			}
 		}
 
+		// Set up ocfTermsList for ocfTerms
+		ArrayList<ComboOption> ocfTermsList = new ArrayList<ComboOption>();
+		SqlTable ocfTerms = OcfUtil.getOcfTerms(getBeId());
+
+		ComboOption defOption = new ComboOption();
+		defOption.setValue("");
+		defOption.setLabel("--");
+		defOption.setType("option");
+
+		ocfTermsList.add(defOption);
+
+		if (ocfTerms != null && ocfTerms.size() > 0) {
+			for (int i : ocfTerms) {
+				ComboOption option = new ComboOption();
+				option.setValue("" + ocfTerms.getLong(i, "id"));
+				option.setLabel(ocfTerms.getString(i, "desc"));
+				option.setType("option");
+				ocfTermsList.add(option);
+			}
+		}
+		setVariable("ocfTermsList", ocfTermsList);
 	}
 
 	@Override

@@ -23,6 +23,11 @@
 	<record code="opcqrecipient" type="lookup">
 		<lookup searchType="opcqrecipient"/>
 	</record>
+	
+	<record code="ocfTerms" type="lookup">
+		<lookup searchType="ocfTerms"/>
+	</record>
+	
 	<record code="udfChar2" type="text">
 		<text length="2" />
 	</record>

@@ -7,12 +7,33 @@
 	        <jrxml name="PrtCardSizeSmall.jrxml" main="true"></jrxml>
 	     </format>
 	</report>
+	
 	<report module="dn" code="@ocf_cardsizelarge_sql" reportDto="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto"
 	        providerCode="com.multiable.erp.opcq.ireport.provider.cardsizelarge.CardSizeLargeProvider" providerOrder="1" providerMess="CardSizeLarge" 
 	        reportDtoSettingSrc="/view/opcq/dialog/cardSizeLargePrintSetting.xhtml">   
 		 <format code="@ocf_cardsizelarge_sql" remark="Print Card Size Large" description="Print Card Size Large" 
 		         packageName="com.multiable.opcq.share.data.ireport.resource.report.cardsizelarge" expired="false">
 	        <jrxml name="PrtCardSizeLarge.jrxml" main="true"></jrxml>
+	     </format>
+	</report>
+	
+	<report module="dn" code="@ocf_dn_sql" reportDto="com.multiable.erp.trdg.share.data.ireport.dn.DnJrDto"
+	        providerCode="com.multiable.erp.opcq.ireport.provider.dn.OcfDeliveryNoteProvider" providerOrder="2" providerMess="Delivery Order (OCF)" 
+	        reportDtoSettingSrc="/view/erp/trdg/dialog/dnPrintSetting.xhtml">   
+		 <format code="@ocf_dn_sql" remark="Delivery Order (OCF)" description="Delivery Order (OCF)" 
+		         packageName="com.multiable.opcq.share.data.ireport.resource.report.dn" expired="false">
+	        <jrxml name="prtDn.jrxml" main="true"></jrxml>
+	        <jrxml name="prtDnt.jrxml"></jrxml>
+	     </format>
+	</report>
+	
+	<report module="siso" code="@ocf_siso_sql" reportDto="com.multiable.erp.trdg.share.data.ireport.siso.SisoJrDto"
+	        providerCode="com.multiable.erp.opcq.ireport.provider.siso.OcfSalesInvoiceProvider" providerOrder="1" providerMess="Sales Invoice (OCF)" 
+	        reportDtoSettingSrc="/view/erp/trdg/dialog/sisoPrintSetting.xhtml">   
+		 <format code="@ocf_siso_sql" remark="Sales Invoice (OCF)" description="Sales Invoice (OCF)" 
+		         packageName="com.multiable.opcq.share.data.ireport.resource.report.siso" expired="false">
+	        <jrxml name="PrtSi.jrxml" main="true"></jrxml>
+	        <jrxml name="PrtSit.jrxml"></jrxml>
 	     </format>
 	</report>
 	

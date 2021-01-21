@@ -43,5 +43,15 @@
 			<col col="bDesc" mess="ocf.messageDesc"/>
 			<col col="desc" mess="ocf.dnrecipientDesc"/>
 		</format>
+	</stSearch>
+	
+	<stSearch name="ocfTerms" mess="ocf.terms" srcSt="ocfTerms" maxLevel="3"
+		desc="#ocfTerms#.desc;' (';#ocfTerms#.code;')'"
+		defCond="#ocfTerms#.id != 0" sort="#ocfTerms#.code" accessModule="ocfTerms">
+		<format mess="core.defFormat">
+			<col col="code" mess="core.code"/>
+			<col col="desc" mess="core.desc"/>
+			<col col="comPercent" mess="ocf.comPercent"/>
+		</format>
 	</stSearch>	
 </ss>

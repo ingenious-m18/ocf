@@ -19,16 +19,17 @@
 		<checker class="com.multiable.erp.opcq.checker.OpcqocfcusChecker"/>
 	</module>	
 	<module name="siso" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OpcqocfremcusChecker"/>
+		<checker class="com.multiable.erp.opcq.checker.OcfSiChecker"/>
 	</module>	
 	<module name="recReg" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OpcqocfReceiptRegisterChecker"/>
+		<checker class="com.multiable.erp.opcq.checker.OcfReceiptRegisterChecker"/>
 	</module>
 
 	<module name="ocfpostalcodedeliverycharge" mess="ocf.postalCodeDeliveryCharge" extend="false" mainTable="ocfpostalcodedeliverycharge" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
 		<table name="ocfpostalcodedeliverycharge" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		<table name="ocfpostalcodedeliverycharget" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 	</module>
+	
 	<module name="opcqrecipient" mess="ocf.dnRecipient" extend="false" mainTable="opcqrecipient" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
 		<table name="opcqrecipient" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
@@ -36,5 +37,11 @@
 	
 	<module name="account" extend="true">
 		<checker class="com.multiable.erp.opcq.checker.OcfAccountChecker"/>
+	</module>
+	
+	<module name="ocfTerms" mess="ocf.terms" extend="false" mainTable="ocfterms" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="TER">
+		<table name="ocfterms" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
+		
+		<checker class="com.multiable.erp.opcq.checker.OcfTermsChecker"/>
 	</module>
 </md>

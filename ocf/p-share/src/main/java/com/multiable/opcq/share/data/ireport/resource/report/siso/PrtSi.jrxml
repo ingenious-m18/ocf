@@ -1,0 +1,1431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2021-01-21T12:14:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtSi" pageWidth="680" pageHeight="788" columnWidth="612" leftMargin="34" rightMargin="34" topMargin="0" bottomMargin="0" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\opcq\share\data\ireport\resource\ds\siso\si.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
+	<parameter name="macvar" class="com.multiable.erp.trdg.share.util.TradeJrVar" isForPrompting="false"/>
+	<parameter name="macparam" class="com.multiable.erp.trdg.share.data.ireport.siso.SisoJrDto" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="mainsi.createDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.createDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI30" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI30]]></fieldDescription>
+	</field>
+	<field name="sidisc.taxCodeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.taxCodeId]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastApproveUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.lastApproveUid]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastModifyUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.lastModifyUid]]></fieldDescription>
+	</field>
+	<field name="remsi.remarks" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.remarks]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.sourcetransactiondate" class="java.util.Date">
+		<fieldDescription><![CDATA[ocfremcust.sourcetransactiondate]]></fieldDescription>
+	</field>
+	<field name="mainsi.aInvMonth" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.aInvMonth]]></fieldDescription>
+	</field>
+	<field name="cli.telCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.telCountry]]></fieldDescription>
+	</field>
+	<field name="remsi.shipAd1" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipAd1]]></fieldDescription>
+	</field>
+	<field name="cli.createUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.createUid]]></fieldDescription>
+	</field>
+	<field name="remsi.shipAd2" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipAd2]]></fieldDescription>
+	</field>
+	<field name="remsi.shipAd3" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipAd3]]></fieldDescription>
+	</field>
+	<field name="remsi.shipAd4" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipAd4]]></fieldDescription>
+	</field>
+	<field name="cli.invoicediscount" class="java.lang.Double">
+		<fieldDescription><![CDATA[cli.invoicediscount]]></fieldDescription>
+	</field>
+	<field name="cli.useAccessBl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.useAccessBl]]></fieldDescription>
+	</field>
+	<field name="sidisc.accId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.accId]]></fieldDescription>
+	</field>
+	<field name="mainsi.beId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.beId]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfOsBal" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ocfOsBal]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessWl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessWl]]></fieldDescription>
+	</field>
+	<field name="mainsi.telCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.telCountry]]></fieldDescription>
+	</field>
+	<field name="cli.statusModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[cli.statusModifyDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcModule" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcModule]]></fieldDescription>
+	</field>
+	<field name="cli.udfATattSetId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.udfATattSetId]]></fieldDescription>
+	</field>
+	<field name="cli.lastApproveUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.lastApproveUid]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcBeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcBeId]]></fieldDescription>
+	</field>
+	<field name="cli.transportcharge" class="java.lang.Double">
+		<fieldDescription><![CDATA[cli.transportcharge]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.virDeptDesc]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[ocfremcust.id]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI11" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI11]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI10" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI10]]></fieldDescription>
+	</field>
+	<field name="mainsi.weightUnit" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.weightUnit]]></fieldDescription>
+	</field>
+	<field name="remsi.gpsLong" class="java.lang.Double">
+		<fieldDescription><![CDATA[remsi.gpsLong]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI19" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI19]]></fieldDescription>
+	</field>
+	<field name="cli.groupCoId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.groupCoId]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI18" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI18]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI17" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI17]]></fieldDescription>
+	</field>
+	<field name="cli.printCount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[cli.printCount]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI16" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI16]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI15" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI15]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccess" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccess]]></fieldDescription>
+	</field>
+	<field name="cli.udfATupdateAccess" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.udfATupdateAccess]]></fieldDescription>
+	</field>
+	<field name="mainsi.descOrigin" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.descOrigin]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI14" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI14]]></fieldDescription>
+	</field>
+	<field name="cli.status" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.status]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI13" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI13]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI12" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI12]]></fieldDescription>
+	</field>
+	<field name="mainsi.@sub@sit" class="java.lang.Object">
+		<fieldDescription><![CDATA[mainsi.@sub@sit]]></fieldDescription>
+	</field>
+	<field name="cli.attachmentNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[cli.attachmentNo]]></fieldDescription>
+	</field>
+	<field name="mainsi.genFailedMsg" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.genFailedMsg]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.jlTypeId]]></fieldDescription>
+	</field>
+	<field name="remsi.email" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.email]]></fieldDescription>
+	</field>
+	<field name="mainsi.installNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.installNo]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.jlTypeCode]]></fieldDescription>
+	</field>
+	<field name="remsi.particular" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.particular]]></fieldDescription>
+	</field>
+	<field name="mainsi.completedDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.completedDate]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI30" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI30]]></fieldDescription>
+	</field>
+	<field name="mainsi.eDiscRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.eDiscRate]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI22" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI22]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI21" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI21]]></fieldDescription>
+	</field>
+	<field name="mainsi.freeQtyPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.freeQtyPer]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI20" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI20]]></fieldDescription>
+	</field>
+	<field name="remsi.telCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.telCountry]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI28" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI28]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI27" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI27]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.sourceType" class="java.lang.String">
+		<fieldDescription><![CDATA[ocfremcust.sourceType]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI29" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI29]]></fieldDescription>
+	</field>
+	<field name="mainsi.acCompleted" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.acCompleted]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI29" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI29]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI28" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI28]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI27" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI27]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI26" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI26]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI25" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI25]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI24" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI24]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI23" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI23]]></fieldDescription>
+	</field>
+	<field name="remsi.issueBank" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.issueBank]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI24" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI24]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI23" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI23]]></fieldDescription>
+	</field>
+	<field name="mainsi.upOrigin" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.upOrigin]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI26" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI26]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI25" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI25]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI20" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI20]]></fieldDescription>
+	</field>
+	<field name="cli.fax" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.fax]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI22" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI22]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI21" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI21]]></fieldDescription>
+	</field>
+	<field name="sidisc.taxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.taxDomAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.expiredDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.expiredDate]]></fieldDescription>
+	</field>
+	<field name="remsi.zipcode" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.zipcode]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI17" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI17]]></fieldDescription>
+	</field>
+	<field name="remsi.dest" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.dest]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI16" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI16]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI19" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI19]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI18" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI18]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.lastModifyDate]]></fieldDescription>
+	</field>
+	<field name="sidisc.itemNo" class="java.lang.String">
+		<fieldDescription><![CDATA[sidisc.itemNo]]></fieldDescription>
+	</field>
+	<field name="remsi.cusId" class="java.lang.Long">
+		<fieldDescription><![CDATA[remsi.cusId]]></fieldDescription>
+	</field>
+	<field name="mainsi.printCount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.printCount]]></fieldDescription>
+	</field>
+	<field name="mainsi.expiredUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.expiredUid]]></fieldDescription>
+	</field>
+	<field name="cli.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[cli.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.domDepoAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domDepoAmt]]></fieldDescription>
+	</field>
+	<field name="sidisc.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[sidisc.iRev]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI13" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI13]]></fieldDescription>
+	</field>
+	<field name="mainsi.redeemCredit" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.redeemCredit]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI12" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI12]]></fieldDescription>
+	</field>
+	<field name="cli.viewCode" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.viewCode]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI15" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI15]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI14" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI14]]></fieldDescription>
+	</field>
+	<field name="mainsi.faxArea" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.faxArea]]></fieldDescription>
+	</field>
+	<field name="mainsi.cpDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.cpDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.viewCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.viewCode]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI11" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI11]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI10" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI10]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcId]]></fieldDescription>
+	</field>
+	<field name="mainsi.createUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.createUid]]></fieldDescription>
+	</field>
+	<field name="mainsi.recId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.recId]]></fieldDescription>
+	</field>
+	<field name="mainsi.attachmentCount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.attachmentCount]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI4" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI4]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI3" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI3]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI6" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI6]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.jlTypeDesc]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI5" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI5]]></fieldDescription>
+	</field>
+	<field name="mainsi.expired" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.expired]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI8" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI8]]></fieldDescription>
+	</field>
+	<field name="mainsi.cnDeptId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.cnDeptId]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI7" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI7]]></fieldDescription>
+	</field>
+	<field name="remsi.recipient" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.recipient]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI9" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI9]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.sourceId" class="java.lang.Long">
+		<fieldDescription><![CDATA[ocfremcust.sourceId]]></fieldDescription>
+	</field>
+	<field name="mainsi.amt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.amt]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI2" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI2]]></fieldDescription>
+	</field>
+	<field name="sidisc.AI1" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.AI1]]></fieldDescription>
+	</field>
+	<field name="remsi.l_C" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.l_C]]></fieldDescription>
+	</field>
+	<field name="mainsi.rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.rate]]></fieldDescription>
+	</field>
+	<field name="sidisc.ce01Module" class="java.lang.String">
+		<fieldDescription><![CDATA[sidisc.ce01Module]]></fieldDescription>
+	</field>
+	<field name="remsi.shipCodeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[remsi.shipCodeId]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowFlowId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowFlowId]]></fieldDescription>
+	</field>
+	<field name="cli.telArea" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.telArea]]></fieldDescription>
+	</field>
+	<field name="cli.i18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.i18nField]]></fieldDescription>
+	</field>
+	<field name="cli.createDate" class="java.util.Date">
+		<fieldDescription><![CDATA[cli.createDate]]></fieldDescription>
+	</field>
+	<field name="sidisc.vatPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.vatPer]]></fieldDescription>
+	</field>
+	<field name="remsi.payTerm" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.payTerm]]></fieldDescription>
+	</field>
+	<field name="cli.sysJson" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.sysJson]]></fieldDescription>
+	</field>
+	<field name="remsi.shipfax" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipfax]]></fieldDescription>
+	</field>
+	<field name="remsi.telArea" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.telArea]]></fieldDescription>
+	</field>
+	<field name="sidisc.domAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.domAmt]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ocfremcust.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxDomAmt]]></fieldDescription>
+	</field>
+	<field name="cli.code" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.code]]></fieldDescription>
+	</field>
+	<field name="remsi.discharge" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.discharge]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlCharge" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlCharge]]></fieldDescription>
+	</field>
+	<field name="mainsi.tel" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.tel]]></fieldDescription>
+	</field>
+	<field name="mainsi.loadGpCoData" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.loadGpCoData]]></fieldDescription>
+	</field>
+	<field name="remsi.fax" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.fax]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfEntitledToPts" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.ocfEntitledToPts]]></fieldDescription>
+	</field>
+	<field name="remsi.onAbout" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.onAbout]]></fieldDescription>
+	</field>
+	<field name="mainsi.flowTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.flowTypeId]]></fieldDescription>
+	</field>
+	<field name="mainsi.cp" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.cp]]></fieldDescription>
+	</field>
+	<field name="remsi.statement" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.statement]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessAutoCalc" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessAutoCalc]]></fieldDescription>
+	</field>
+	<field name="remsi.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[remsi.id]]></fieldDescription>
+	</field>
+	<field name="mainsi.faxCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.faxCountry]]></fieldDescription>
+	</field>
+	<field name="mainsi.fromModule" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.fromModule]]></fieldDescription>
+	</field>
+	<field name="mainsi.tDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.tDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.curId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.curId]]></fieldDescription>
+	</field>
+	<field name="cli.groupCo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.groupCo]]></fieldDescription>
+	</field>
+	<field name="cli.locked" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.locked]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.date" class="java.util.Date">
+		<fieldDescription><![CDATA[ocfremcust.date]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfCusPoNo" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ocfCusPoNo]]></fieldDescription>
+	</field>
+	<field name="cli.useAccess" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.useAccess]]></fieldDescription>
+	</field>
+	<field name="remsi.ship" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.ship]]></fieldDescription>
+	</field>
+	<field name="sidisc.hId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.hId]]></fieldDescription>
+	</field>
+	<field name="sidisc.preTaxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.preTaxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.manId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.manId]]></fieldDescription>
+	</field>
+	<field name="mainsi.domAmtDiff" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domAmtDiff]]></fieldDescription>
+	</field>
+	<field name="cli.lastModifyUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.lastModifyUid]]></fieldDescription>
+	</field>
+	<field name="remsi.siId" class="java.lang.Long">
+		<fieldDescription><![CDATA[remsi.siId]]></fieldDescription>
+	</field>
+	<field name="mainsi.depoAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.depoAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.showEarlyPayDisc" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.showEarlyPayDisc]]></fieldDescription>
+	</field>
+	<field name="mainsi.position" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.position]]></fieldDescription>
+	</field>
+	<field name="mainsi.sysJson" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.sysJson]]></fieldDescription>
+	</field>
+	<field name="mainsi.man" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.man]]></fieldDescription>
+	</field>
+	<field name="cli.expiredDate" class="java.util.Date">
+		<fieldDescription><![CDATA[cli.expiredDate]]></fieldDescription>
+	</field>
+	<field name="cli.webSite" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.webSite]]></fieldDescription>
+	</field>
+	<field name="mainsi.monthEndDate" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.monthEndDate]]></fieldDescription>
+	</field>
+	<field name="sidisc.siId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.siId]]></fieldDescription>
+	</field>
+	<field name="remsi.heading" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.heading]]></fieldDescription>
+	</field>
+	<field name="cli.useAccessAutoCalc" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.useAccessAutoCalc]]></fieldDescription>
+	</field>
+	<field name="sidisc.c_d" class="java.lang.String">
+		<fieldDescription><![CDATA[sidisc.c_d]]></fieldDescription>
+	</field>
+	<field name="cli.expiredUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.expiredUid]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlAmt]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.hId" class="java.lang.Long">
+		<fieldDescription><![CDATA[ocfremcust.hId]]></fieldDescription>
+	</field>
+	<field name="sidisc.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.id]]></fieldDescription>
+	</field>
+	<field name="cli.blackListed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.blackListed]]></fieldDescription>
+	</field>
+	<field name="cli.faxCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.faxCountry]]></fieldDescription>
+	</field>
+	<field name="mainsi.status" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.status]]></fieldDescription>
+	</field>
+	<field name="remsi.ce01Module" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.ce01Module]]></fieldDescription>
+	</field>
+	<field name="cli.regionId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.regionId]]></fieldDescription>
+	</field>
+	<field name="mainsi.telArea" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.telArea]]></fieldDescription>
+	</field>
+	<field name="mainsi.method" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.method]]></fieldDescription>
+	</field>
+	<field name="remsi.hId" class="java.lang.Long">
+		<fieldDescription><![CDATA[remsi.hId]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.virDeptCode]]></fieldDescription>
+	</field>
+	<field name="mainsi.staffId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.staffId]]></fieldDescription>
+	</field>
+	<field name="mainsi.completed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.completed]]></fieldDescription>
+	</field>
+	<field name="remsi.tradeTerm" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.tradeTerm]]></fieldDescription>
+	</field>
+	<field name="sidisc.taxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.taxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.dayOfMonth" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.dayOfMonth]]></fieldDescription>
+	</field>
+	<field name="mainsi.statusModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.statusModifyDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.virDeptId]]></fieldDescription>
+	</field>
+	<field name="mainsi.redeemCoupon" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.redeemCoupon]]></fieldDescription>
+	</field>
+	<field name="cli.email" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.email]]></fieldDescription>
+	</field>
+	<field name="remsi.i18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.i18nField]]></fieldDescription>
+	</field>
+	<field name="mainsi.taxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.taxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfCommission" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ocfCommission]]></fieldDescription>
+	</field>
+	<field name="sidisc.preTaxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.preTaxDomAmt]]></fieldDescription>
+	</field>
+	<field name="remsi.country" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.country]]></fieldDescription>
+	</field>
+	<field name="sidisc.amt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.amt]]></fieldDescription>
+	</field>
+	<field name="cli.tel" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.tel]]></fieldDescription>
+	</field>
+	<field name="cli.ocfTerms" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.ocfTerms]]></fieldDescription>
+	</field>
+	<field name="mainsi.i18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.i18nField]]></fieldDescription>
+	</field>
+	<field name="sidisc.discRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[sidisc.discRate]]></fieldDescription>
+	</field>
+	<field name="cli.desc" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.desc]]></fieldDescription>
+	</field>
+	<field name="mainsi.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.id]]></fieldDescription>
+	</field>
+	<field name="mainsi.batchNo" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.batchNo]]></fieldDescription>
+	</field>
+	<field name="mainsi.locked" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.locked]]></fieldDescription>
+	</field>
+	<field name="remsi.province" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.province]]></fieldDescription>
+	</field>
+	<field name="cli.faxArea" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.faxArea]]></fieldDescription>
+	</field>
+	<field name="remsi.shipMark" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shipMark]]></fieldDescription>
+	</field>
+	<field name="mainsi.siId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.siId]]></fieldDescription>
+	</field>
+	<field name="mainsi.locId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.locId]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlDisc" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlDisc]]></fieldDescription>
+	</field>
+	<field name="cli.ad3" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.ad3]]></fieldDescription>
+	</field>
+	<field name="remsi.origin" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.origin]]></fieldDescription>
+	</field>
+	<field name="cli.ad4" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.ad4]]></fieldDescription>
+	</field>
+	<field name="cli.ad1" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.ad1]]></fieldDescription>
+	</field>
+	<field name="remsi.packing" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.packing]]></fieldDescription>
+	</field>
+	<field name="mainsi.rev" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.rev]]></fieldDescription>
+	</field>
+	<field name="cli.ad2" class="java.lang.String">
+		<fieldDescription><![CDATA[cli.ad2]]></fieldDescription>
+	</field>
+	<field name="sidisc.accDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[sidisc.accDesc]]></fieldDescription>
+	</field>
+	<field name="remsi.tgw" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.tgw]]></fieldDescription>
+	</field>
+	<field name="cli.cDate" class="java.util.Date">
+		<fieldDescription><![CDATA[cli.cDate]]></fieldDescription>
+	</field>
+	<field name="cli.staffId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.staffId]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessBl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessBl]]></fieldDescription>
+	</field>
+	<field name="mainsi.deliveryRequire" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.deliveryRequire]]></fieldDescription>
+	</field>
+	<field name="remsi.buyerNo" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.buyerNo]]></fieldDescription>
+	</field>
+	<field name="cli.useAccessWl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.useAccessWl]]></fieldDescription>
+	</field>
+	<field name="cli.lastModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[cli.lastModifyDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.comRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.comRate]]></fieldDescription>
+	</field>
+	<field name="remsi.manufact" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.manufact]]></fieldDescription>
+	</field>
+	<field name="mainsi.taxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.taxDomAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.ce01Module" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ce01Module]]></fieldDescription>
+	</field>
+	<field name="cli.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.id]]></fieldDescription>
+	</field>
+	<field name="cli.expired" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[cli.expired]]></fieldDescription>
+	</field>
+	<field name="mainsi.measUnit" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.measUnit]]></fieldDescription>
+	</field>
+	<field name="mainsi.domAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.cusId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.cusId]]></fieldDescription>
+	</field>
+	<field name="remsi.city" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.city]]></fieldDescription>
+	</field>
+	<field name="cli.beId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.beId]]></fieldDescription>
+	</field>
+	<field name="remsi.shiptel" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.shiptel]]></fieldDescription>
+	</field>
+	<field name="mainsi.manI18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.manI18nField]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlCharge" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlCharge]]></fieldDescription>
+	</field>
+	<field name="cli.priceTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[cli.priceTypeId]]></fieldDescription>
+	</field>
+	<field name="ocfremcust.pointearned" class="java.lang.Double">
+		<fieldDescription><![CDATA[ocfremcust.pointearned]]></fieldDescription>
+	</field>
+	<field name="remsi.loading" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.loading]]></fieldDescription>
+	</field>
+	<field name="mainsi.acCompletedDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.acCompletedDate]]></fieldDescription>
+	</field>
+	<field name="remsi.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[remsi.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI9" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI9]]></fieldDescription>
+	</field>
+	<field name="sidisc.beId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sidisc.beId]]></fieldDescription>
+	</field>
+	<field name="remsi.gpsLat" class="java.lang.Double">
+		<fieldDescription><![CDATA[remsi.gpsLat]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI7" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI7]]></fieldDescription>
+	</field>
+	<field name="mainsi.vatPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.vatPer]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI8" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI8]]></fieldDescription>
+	</field>
+	<field name="mainsi.accDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.accDesc]]></fieldDescription>
+	</field>
+	<field name="mainsi.fax" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.fax]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlDisc" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlDisc]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfTerms" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ocfTerms]]></fieldDescription>
+	</field>
+	<field name="remsi.tel" class="java.lang.String">
+		<fieldDescription><![CDATA[remsi.tel]]></fieldDescription>
+	</field>
+	<field name="mainsi.hpSetting" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.hpSetting]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI5" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI5]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI6" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI6]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI3" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI3]]></fieldDescription>
+	</field>
+	<field name="mainsi.code" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.code]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI4" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI4]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI1" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI1]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI2" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI2]]></fieldDescription>
+	</field>
+	<variable name="waterMark" class="com.multiable.ir.CawJrWaterMark" resetType="None">
+		<variableExpression><![CDATA[$P{macvar}.getWaterMark()]]></variableExpression>
+	</variable>
+	<variable name="company" class="com.multiable.ir.CawJrCompany" resetType="None">
+		<variableExpression><![CDATA[$P{macvar}.getCompany($P{macparam}.getPrtLogoType(), $F{mainsi.beId}, $F{mainsi.virDeptId})]]></variableExpression>
+	</variable>
+	<variable name="user" class="com.multiable.UserDto" resetType="None">
+		<variableExpression><![CDATA[$P{macvar}.getUser()]]></variableExpression>
+	</variable>
+	<variable name="m.slmTtlAmt" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlgw" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlnw" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlvol" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlctn" class="java.lang.Double">
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<group name="SERIALNO2" footerPosition="StackAtBottom">
+		<groupExpression><![CDATA[$F{mainsi.id}]]></groupExpression>
+	</group>
+	<group name="SERIALNO" minHeightToStartNewPage="15">
+		<groupExpression><![CDATA[$F{mainsi.id}]]></groupExpression>
+		<groupHeader>
+			<band height="187" splitType="Stretch">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+				<frame>
+					<reportElement x="6" y="62" width="362" height="99" uuid="b673b0fa-dc12-41cd-b6cd-0756af939c78">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textField>
+						<reportElement x="32" y="0" width="318" height="14" uuid="80dd5d89-e033-4e5a-9c7a-5ce31a25c7e1">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.desc}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="14" width="318" height="14" uuid="1cdccbe9-7b2b-4c2d-ac40-d1e00d4d45dc">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.ad1}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="28" width="318" height="14" uuid="e3ad25ed-0ec5-4715-a8ee-27737acced91">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.ad2}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="42" width="318" height="14" uuid="e19f402f-2a6d-42e0-b197-810919e8113d">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.ad3}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="56" width="318" height="14" uuid="28825fec-d1ca-4d59-af3e-0c35aebc8e05">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.ad4}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="70" width="318" height="14" uuid="6b9d915d-ecd5-4771-a0cc-88f4bcf473cb">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["Attn: "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="32" y="84" width="318" height="14" uuid="baaa26e2-a81b-4e2d-9998-7e148a666336">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["Tel: " + $F{cli.tel}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="388" y="62" width="201" height="60" uuid="9ac9844e-f79e-4058-8f50-5f8976af66e9">
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					</reportElement>
+					<textField>
+						<reportElement x="0" y="0" width="76" height="14" uuid="9b48255b-5686-476a-95f5-01425790ff59">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["INVOICE NO : "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="80" y="0" width="120" height="14" uuid="b0a44896-d091-49e5-8337-593cf66eac4b">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{mainsi.code}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="14" width="76" height="14" uuid="34a7a048-dc51-4f39-b4ca-e65ac68fb9a1">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["DATE : "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="28" width="76" height="14" uuid="6f9c736d-e516-43e8-8f9a-5577efc154fd">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["ACCOUNT NO : "]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="80" y="14" width="120" height="14" uuid="a0cb143b-ebc6-49b2-91ca-af7ff2cf86e0">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$P{macvar}.rep_date_format($F{mainsi.tDate})]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="80" y="28" width="120" height="14" uuid="c12916eb-459b-408b-bb04-7c109133aca5">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{cli.code}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField>
+					<reportElement x="388" y="130" width="76" height="14" uuid="6e29d0be-4f85-440d-9e7a-663ef7ff2031">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["TERMS : "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="388" y="144" width="76" height="14" uuid="ee17b0b9-3c83-4c0c-8788-cb9500846bfe">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["REFERENCE : "]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="468" y="130" width="120" height="14" uuid="1538b2f8-7457-4731-b8ad-22340c4800d9">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{mainsi.ocfTerms}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="468" y="144" width="120" height="14" uuid="9619b0e5-c35e-4375-9224-8ebae6b8452f">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{mainsi.ocfCusPoNo}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="22">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<textField>
+					<reportElement x="6" y="0" width="44" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="401c077d-f317-49bd-918c-047b20434da9">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Order No."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="50" y="0" width="77" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="00a4faea-490f-4e65-ade1-13b8125d9793">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Item No."]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="127" y="0" width="226" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="625b5117-8b49-4e3f-a278-7268a67ec23b">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Description"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="353" y="0" width="19" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="d2afd789-7938-46e6-bbba-e9d7fa9ae652">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Qty"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="372" y="0" width="85" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="a95a2914-a4a4-402e-aecc-075782a37def">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Unit Price"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="457" y="0" width="28" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="ac9b69a0-825a-4ccb-af08-814903629c2b">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Disc"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="485" y="0" width="102" height="22" forecolor="rgba(0, 0, 0, 0.0)" uuid="a5697cd8-07a1-4755-b546-9ed78b13e875">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Dialog" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total Amount"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="246" splitType="Stretch">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<subreport>
+					<reportElement isPrintRepeatedValues="false" x="0" y="0" width="612" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="6601712c-ced9-4704-85f7-3306d05e0d21">
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					</reportElement>
+					<subreportParameter name="macvar">
+						<subreportParameterExpression><![CDATA[$P{macvar}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="macparam">
+						<subreportParameterExpression><![CDATA[$P{macparam}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="m.weightUnit">
+						<subreportParameterExpression><![CDATA[$F{mainsi.weightUnit}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[$F{mainsi.@sub@sit}]]></dataSourceExpression>
+					<returnValue subreportVariable="m.ttlgw" toVariable="m.ttlgw"/>
+					<returnValue subreportVariable="m.ttlnw" toVariable="m.ttlnw"/>
+					<returnValue subreportVariable="m.ttlvol" toVariable="m.ttlvol"/>
+					<returnValue subreportVariable="m.ttlctn" toVariable="m.ttlctn"/>
+					<subreportExpression><![CDATA["PrtSit.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+			<band height="62" splitType="Stretch">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<frame>
+					<reportElement x="6" y="0" width="362" height="56" uuid="6c30ecb5-e500-43da-94e9-f081f356a9c8">
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textField>
+						<reportElement x="10" y="0" width="340" height="14" uuid="cd82ac7a-4c09-4035-a26d-e9f0c39df928">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA[$F{remsi.remarks}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="368" y="0" width="221" height="56" uuid="3741d28f-7712-412f-b606-75d9a1498a33">
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textField>
+						<reportElement x="10" y="0" width="99" height="11" uuid="f1ef34c4-4763-4e19-8a70-6f807e1def7d">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["GROSS TOTAL"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="109" y="0" width="99" height="11" uuid="d6a86478-7a75-4ada-87cd-30e58b5961a6">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mainsi.preTaxAmt}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="109" y="11" width="99" height="11" uuid="e3786e68-30e4-4447-88e4-76434858220c">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mainsi.preTaxTtlCharge}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="10" y="11" width="99" height="11" uuid="7c83eb66-b166-44bb-a842-0563d75bd089">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["TRANSPORT CHARGE"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="109" y="22" width="99" height="11" uuid="324495f4-f5a2-4765-8ae0-90b80b72c1bf">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mainsi.redeemCredit}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="10" y="22" width="99" height="11" uuid="b8b908d5-101c-49ec-b9ff-08420dd406f1">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["REDEEMED CREDIT"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="109" y="33" width="99" height="11" uuid="15ec080b-3715-41ad-abc8-1eb7d718d6a0">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mainsi.taxAmt}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="10" y="33" width="99" height="11" uuid="213be1a4-e024-4fc1-9a75-3ad943195153">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["GST     " + $P{macvar}.rep_amt_format($F{mainsi.vatPer}) + "%"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="109" y="44" width="99" height="11" uuid="13a94a09-e678-4f65-9b75-ec415f2cc2b1">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right">
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{mainsi.ttlAmt}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="10" y="44" width="99" height="11" uuid="f60fe1f6-becb-43c2-842b-87e19f521aaf">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement>
+							<font fontName="Dialog" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA["PLEASE PAY"]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+			<band height="96" splitType="Stretch">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<textField>
+					<reportElement x="170" y="48" width="85" height="14" uuid="2d27f3db-b82f-417e-8ec6-4b96a1ff5781">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{cli.code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="298" y="48" width="48" height="14" uuid="dc84b5d3-2652-4936-8554-acede7631370">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{mainsi.code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="396" y="48" width="48" height="14" uuid="42156b74-292d-46bd-8174-dd55d0a8db6d">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+					</reportElement>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{mainsi.amt}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="153" splitType="Stretch">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				<frame>
+					<reportElement x="14" y="19" width="255" height="70" uuid="0dff7345-e599-4511-946c-86ab0f3d95ac">
+						<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						<printWhenExpression><![CDATA[$F{mainsi.redeemCoupon} != 0]]></printWhenExpression>
+					</reportElement>
+					<textField>
+						<reportElement x="2" y="2" width="26" height="14" uuid="c832c011-9b0d-4acc-96ea-879ba3e72a87">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["THIS"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="28" y="2" width="52" height="14" uuid="2696c67f-86d3-48a7-801c-861fa381f04f">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textElement textAlignment="Right"/>
+						<textFieldExpression><![CDATA[$F{mainsi.redeemCoupon}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="85" y="2" width="164" height="14" uuid="e35382fb-e83d-41b3-a1b3-f2e512140826">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["POINTS COUPON IS ISSUED FOR"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="2" y="16" width="246" height="14" uuid="a6e87369-efe1-4db5-8303-83208752c3fa">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["INVOICE NO : " + $F{mainsi.code}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="2" y="30" width="246" height="14" uuid="342c0c94-8c28-4ecb-9682-165f74bc6f67">
+							<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+							<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+						</reportElement>
+						<textFieldExpression><![CDATA["ATTN TO : "]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+</jasperReport>

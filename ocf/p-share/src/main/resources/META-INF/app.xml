@@ -13,21 +13,22 @@
 	<ejb>ce01_ocf_ejb</ejb>
 	<extension>
 		<view code="pro" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/opcqCardsizeExtension.xhtml</page>
+			<page>/view/opcq/extension/ocfProExtension.xhtml</page>
 		</view>
 		<view code="dn" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/opcqDNExtension.xhtml</page>
-			<listener>com.multiable.opcq.bean.view.listener.OpcqDNListener</listener>
+			<page>/view/opcq/extension/ocfDnExtension.xhtml</page>
+			<listener>com.multiable.opcq.bean.view.listener.OcfDnListener</listener>
 		</view>
 		<view code="account" app="ce01_core" filter="" type="frame">
 			<page>/view/opcq/extension/opcqChaccExtension.xhtml</page>
 		</view>
 		<view code="cus" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/opcqRemcusExtension.xhtml</page>
+			<page>/view/opcq/extension/ocfCusExtension.xhtml</page>
 			<listener>com.multiable.opcq.bean.view.listener.OpcqRemcusListener</listener>
 		</view>
 		<view code="siso" app="ce01_trdg" filter="" type="frame">
-			<listener>com.multiable.opcq.bean.view.listener.OpcqSalesInvoiceListener</listener>
+			<page>/view/opcq/extension/ocfSiExtension.xhtml</page>
+			<listener>com.multiable.opcq.bean.view.listener.OcfSiListener</listener>
 		</view>
 		<view code="recReg" app="ce01_trdg" filter="" type="frame">
 			<listener>com.multiable.opcq.bean.view.listener.OpcqReceiptRegisterListener</listener>

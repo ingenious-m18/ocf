@@ -2,6 +2,7 @@
 <dd xmlns="http://www.multiable.com/datadict">
 	<table name="pro" extend="true"> 
 		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
+		<column name="ocfAddOnItem" type="bit" mess="ocf.addOnItem" defValue="0" defPattern="check"/>
 	</table>
 	<table name="opcqsender" mess="ocf.sender" pk="id" > 
 		<inherit name="module_fm" />
@@ -15,12 +16,25 @@
 		<column name="bDesc" type="varchar" mess="ocf.messageDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
 		<column name="desc" type="varchar" mess="ocf.messageContentDesc" length="-1" defPattern="html" batchUpdate="true"/>
 	</table>
+	<table name="maindn" extend="true">
+		<column name="ocfCusPoNo" type="varchar" mess="ocf.cusPoNo" length="20" defPattern="char20" batchUpdate="false"/>
+		<column name="ocfTerms" type="varchar" mess="ocf.terms" length="10" defValue="" />
+	</table>
 	<table name="remdn" extend="true"> 
 		<column name="ocfrecipient" type="varchar" mess="ocf.dnRecipient" defPattern="html" batchUpdate="true"/>
 		<column name="ocfsender" type="varchar" mess="ocf.dnSender" defPattern="html" batchUpdate="true"/>
 		<column name="msgcontent" type="varchar" mess="ocf.messagecontent" defPattern="html" batchUpdate="true"/>
 		<column name="cardsize" type="varchar" mess="ocf.cardSize" length="100" defPattern="cardsize" defValue="--" batchUpdate="true"/>
 	</table>
+	
+	<table name="maintar" extend="true">
+		<column name="ocfCusPoNo" type="varchar" mess="ocf.cusPoNo" length="20" defPattern="char20" batchUpdate="false"/>
+		<column name="ocfEntitledToPts" type="bit" mess="ocf.entitledToPts" defValue="1" defPattern="check"/>
+		<column name="ocfTerms" type="varchar" mess="ocf.terms" length="10" defValue="" />
+		<column name="ocfCommission" type="decimal" mess="ocf.commission" length="14" decimal="2" defPattern="n_number14_2" />
+		<column name="ocfOsBal" type="decimal" mess="ocf.osBal" length="14" decimal="2" defPattern="n_number14_2" />
+	</table>
+	
 	<table name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" pk="id" > 
 		<inherit name="module_fm" />
 		<column name="code" type="varchar" mess="ocf.redemptionCode" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
@@ -40,6 +54,7 @@
 	<table name="cus" extend="true"> 
 		<column name="transportcharge" type="decimal" defValue="0.00" mess="ocf.transportCharge" length="6" decimal="2" defPattern="number6_2"/>
 		<column name="invoicediscount" type="decimal" defValue="0.00" mess="ocf.invoiceDiscount" length="5" decimal="2" defPattern="number5_2"/>
+		<column name="ocfTerms" type="varchar" mess="ocf.terms" length="10" defValue="" />
 	</table>
 	<table name="remcus" extend="true"> 
 		<column name="pointearnedtotal" type="decimal" mess="ocf.pointEarnedTotal" length="6" decimal="2" defPattern="number6_2"/>
@@ -92,4 +107,12 @@
 		<column name="bDesc" type="varchar" mess="ocf.messageDesc" length="100" defPattern="charDesc" batchUpdate="true"/>
 		<column name="desc" type="varchar" mess="ocf.dnrecipientDesc" length="-1" defPattern="html" batchUpdate="true"/>
 	</table>
+	
+	<table name="ocfterms" mess="ocf.terms" pk="id"> 
+		<inherit name="module_fm" />
+		<column name="code" type="varchar" mess="core.code" length="20" defPattern="fmCode" required="true" batchUpdate="false"/>
+		<column name="desc" type="varchar" mess="core.desc" length="100" defPattern="charDesc" batchUpdate="true"/>
+		<column name="comPercent" type="decimal" defValue="0.00" mess="ocf.comPercent" length="5" decimal="2" defPattern="number5_2"/>
+	</table>
+	
 </dd>

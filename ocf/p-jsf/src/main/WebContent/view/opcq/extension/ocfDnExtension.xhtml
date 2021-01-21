@@ -11,7 +11,13 @@
 				<caw:icon name="cicon-print" library="font/cawIcon"></caw:icon>
 			</caw:actionItem>
 		</caw:extendComponent>
-						
+		
+		<caw:extendComponent target="maindn_locId" action="after">
+			<caw:inputText tableName="maindn" columnName="ocfCusPoNo"></caw:inputText>
+			<caw:inputCombo tableName="maindn" columnName="ocfTerms" dataOption="#{var.ocfTermsList}">
+			</caw:inputCombo>
+		</caw:extendComponent>
+		
 		<caw:extendComponent target="fp_remdn_remarks" action="after">
 <!-- 			<caw:fluidPanel id="fpmsgcontent" column="3" style="padding-left:6.5px; padding-top:6.5px"> -->
 			<caw:fluidPanel id="fpmsgcontent" groupBorder="true" mess-title="ocf.fpmsgcontent" column="3">
@@ -23,14 +29,16 @@
 				<caw:fieldGroup id="fg_remdn_ocfrecipient" column="1">					
 					<caw:lookupAddon id="lookupAddon_remarks_opcqrecipient_ocfrecipient" lookupType="opcqrecipient" lookupName="remdn_ocfrecipient" multiSelect="false" /> 
 					<caw:commandButton id="add_opcqrecipient_ocfrecipient" mess-label="ce01_core.add" />						
-				</caw:fieldGroup>	
+				</caw:fieldGroup>
+				
 				<caw:richTextEditor tableName="remdn" columnName="ocfsender" rows="8" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
 					<caw:constraints colSpan="2" rowSpan="14"/>
 				</caw:richTextEditor>
 				<caw:fieldGroup id="fg_remdn_ocfsender" column="1">					
 					<caw:lookupAddon id="lookupAddon_remarks_opcqsender_ocfsender" lookupType="opcqsender" lookupName="remdn_ocfsender" multiSelect="false" /> 
 					<caw:commandButton id="add_opcqsender_ocfsender" mess-label="ce01_core.add" />						
-				</caw:fieldGroup>				
+				</caw:fieldGroup>
+							
 				<caw:richTextEditor tableName="remdn" columnName="msgcontent" rows="8" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
 					<caw:constraints colSpan="2" rowSpan="14"/>
 				</caw:richTextEditor>
@@ -38,15 +46,22 @@
 					<caw:lookupAddon id="lookupAddon_remarks_opcqmessagecontent_msgcontent" lookupType="opcqmessagecontent" lookupName="remdn_msgcontent" multiSelect="false" /> 
 					<caw:commandButton id="add_opcqmessagecontent_msgcontent" mess-label="ce01_core.add" />						
 				</caw:fieldGroup>
+				
 				<caw:inputCombo tableName="remdn" columnName="cardsize"><caw:constraints rowHold="true"/></caw:inputCombo>
 				<caw:constraints rowHold="true" colSpan="2" rowSpan="7"/>
+				
+				<!-- A display box -->
+				<caw:richTextEditor id="ocfDisplayBox" label="Display Box" value="#{var.ocfDisplay}" disabled="true"
+					rows="24" style="width:100%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
+					<caw:constraints colSpan="2"/>
+				</caw:richTextEditor>
 			</caw:fluidPanel>
 		</caw:extendComponent>
-		
-		<caw:extendComponent target="maindn_locId" action="after">
+					
+<!-- 		<caw:extendComponent target="maindn_locId" action="after"> -->
 			
-			<caw:commandButton id="btn_loadChargeDiscount" mess-label="ocf.loadChargeDiscount" style="width: 90%;"/>
+<!-- 			<caw:commandButton id="btn_loadChargeDiscount" mess-label="ocf.loadChargeDiscount" style="width: 90%;"/> -->
 			
-		</caw:extendComponent>
+<!-- 		</caw:extendComponent> -->
 	</ui:composition>
 </html>
