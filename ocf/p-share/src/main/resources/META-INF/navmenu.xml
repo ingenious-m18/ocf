@@ -2,28 +2,28 @@
 <nm xmlns="http://www.multiable.com/navmenu" app="ce01_ocf">
 	
 	<folder code="m18Opcq" messCode="ocf.ocfApp">
-		<menu code="opcqredemptioncoupon" messCode="ocf.redemptionCoupon" src="view/opcq/module/opcqredemptioncoupon" module="opcqredemptioncoupon" mType="FM" order="1000">			
+		<menu code="opcqredemptioncoupon" messCode="ocf.redemptionCoupon" src="view/ocf/module/opcqredemptioncoupon" module="opcqredemptioncoupon" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>
-		<menu code="opcqsender" messCode="ocf.sender" src="view/opcq/module/opcqSender" module="opcqsender" mType="FM" order="1000">			
+		<menu code="opcqsender" messCode="ocf.sender" src="view/ocf/module/opcqSender" module="opcqsender" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>
-		<menu code="opcqmessagecontent" messCode="ocf.messagecontent" src="view/opcq/module/opcqMessageContent" module="opcqmessagecontent" mType="FM" order="1000">			
+		<menu code="opcqmessagecontent" messCode="ocf.messagecontent" src="view/ocf/module/opcqMessageContent" module="opcqmessagecontent" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>
-		<menu code="ocfDnUpload" messCode="ocf.ocfDnUpload" src="view/opcq/module/ocfDnUpload" module="" mType="OTHER">
+		<menu code="ocfDnUpload" messCode="ocf.ocfDnUpload" src="view/ocf/module/ocfDnUpload" module="" mType="OTHER">
 			<icon name="cicon-tool" library="font/cawIcon"/>
 		</menu>
 		
-		<menu code="ocfpostalcodedeliverycharge" messCode="ocf.postalCodeDeliveryCharge" src="view/opcq/module/ocfPostalCodeDeliveryCharge" module="ocfpostalcodedeliverycharge" mType="FM" order="1000">
+		<menu code="ocfpostalcodedeliverycharge" messCode="ocf.postalCodeDeliveryCharge" src="view/ocf/module/ocfPostalCodeDeliveryCharge" module="ocfpostalcodedeliverycharge" mType="FM" order="1000">
 			<inherit name ="module_fc" />
 		</menu>
 		
-		<menu code="opcqrecipient" messCode="ocf.dnRecipient" src="view/opcq/module/opcqRecipient" module="opcqrecipient" mType="FM" order="1000">			
+		<menu code="opcqrecipient" messCode="ocf.dnRecipient" src="view/ocf/module/opcqRecipient" module="opcqrecipient" mType="FM" order="1000">			
 			<inherit name ="module_fc" />
 		</menu>
 		
-		<menu code="ocfTerms" messCode="ocf.terms" src="view/opcq/module/ocfTerms" module="ocfTerms" mType="FM" order="1000">
+		<menu code="ocfTerms" messCode="ocf.terms" src="view/ocf/module/ocfTerms" module="ocfTerms" mType="FM" order="1000">
 			<inherit name ="module_fc" />
 		</menu>
 	</folder>

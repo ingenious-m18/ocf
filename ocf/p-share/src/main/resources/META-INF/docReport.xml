@@ -1,42 +1,42 @@
 <docReport>
-	<report module="dn" code="@ocf_cardsizesmall_sql" reportDto="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto"
-	        providerCode="com.multiable.erp.opcq.ireport.provider.cardsizesmall.CardSizeSmallProvider" providerOrder="1" providerMess="CardSizeSmall" 
-	        reportDtoSettingSrc="/view/opcq/dialog/cardSizeSmallPrintSetting.xhtml">   
+	<report module="dn" code="@ocf_cardsizesmall_sql" reportDto="com.multiable.erp.ocf.share.data.ireport.cardsize.CardSizeJrDto"
+	        providerCode="com.multiable.erp.ocf.ireport.provider.cardsizesmall.CardSizeSmallProvider" providerOrder="1" providerMess="Card Size Small" 
+	        reportDtoSettingSrc="/view/ocf/dialog/cardSizeSmallPrintSetting.xhtml">   
 		 <format code="@ocf_cardsizesmall_sql" remark="Print Card Size Small" description="Print Card Size Small" 
-		         packageName="com.multiable.opcq.share.data.ireport.resource.report.cardsizesmall" expired="false">
+		         packageName="com.multiable.erp.ocf.share.data.ireport.resource.report.cardsizesmall" expired="false">
 	        <jrxml name="PrtCardSizeSmall.jrxml" main="true"></jrxml>
 	     </format>
 	</report>
 	
-	<report module="dn" code="@ocf_cardsizelarge_sql" reportDto="com.multiable.opcq.share.data.ireport.cardsize.CardSizeJrDto"
-	        providerCode="com.multiable.erp.opcq.ireport.provider.cardsizelarge.CardSizeLargeProvider" providerOrder="1" providerMess="CardSizeLarge" 
-	        reportDtoSettingSrc="/view/opcq/dialog/cardSizeLargePrintSetting.xhtml">   
+	<report module="dn" code="@ocf_cardsizelarge_sql" reportDto="com.multiable.erp.ocf.share.data.ireport.cardsize.CardSizeJrDto"
+	        providerCode="com.multiable.erp.ocf.ireport.provider.cardsizelarge.CardSizeLargeProvider" providerOrder="1" providerMess="Card Size Large" 
+	        reportDtoSettingSrc="/view/ocf/dialog/cardSizeLargePrintSetting.xhtml">   
 		 <format code="@ocf_cardsizelarge_sql" remark="Print Card Size Large" description="Print Card Size Large" 
-		         packageName="com.multiable.opcq.share.data.ireport.resource.report.cardsizelarge" expired="false">
+		         packageName="com.multiable.erp.ocf.share.data.ireport.resource.report.cardsizelarge" expired="false">
 	        <jrxml name="PrtCardSizeLarge.jrxml" main="true"></jrxml>
 	     </format>
 	</report>
 	
 	<report module="dn" code="@ocf_dn_sql" reportDto="com.multiable.erp.trdg.share.data.ireport.dn.DnJrDto"
-	        providerCode="com.multiable.erp.opcq.ireport.provider.dn.OcfDeliveryNoteProvider" providerOrder="2" providerMess="Delivery Order (OCF)" 
+	        providerCode="com.multiable.erp.ocf.ireport.provider.dn.OcfDeliveryNoteProvider" providerOrder="2" providerMess="Delivery Order (OCF)" 
 	        reportDtoSettingSrc="/view/erp/trdg/dialog/dnPrintSetting.xhtml">   
 		 <format code="@ocf_dn_sql" remark="Delivery Order (OCF)" description="Delivery Order (OCF)" 
-		         packageName="com.multiable.opcq.share.data.ireport.resource.report.dn" expired="false">
+		         packageName="com.multiable.erp.ocf.share.data.ireport.resource.report.dn" expired="false">
 	        <jrxml name="prtDn.jrxml" main="true"></jrxml>
 	        <jrxml name="prtDnt.jrxml"></jrxml>
 	     </format>
 	</report>
 	
 	<report module="siso" code="@ocf_siso_sql" reportDto="com.multiable.erp.trdg.share.data.ireport.siso.SisoJrDto"
-	        providerCode="com.multiable.erp.opcq.ireport.provider.siso.OcfSalesInvoiceProvider" providerOrder="1" providerMess="Sales Invoice (OCF)" 
+	        providerCode="com.multiable.erp.ocf.ireport.provider.siso.OcfSalesInvoiceProvider" providerOrder="1" providerMess="Sales Invoice (OCF)" 
 	        reportDtoSettingSrc="/view/erp/trdg/dialog/sisoPrintSetting.xhtml">   
 		 <format code="@ocf_siso_sql" remark="Sales Invoice (OCF)" description="Sales Invoice (OCF)" 
-		         packageName="com.multiable.opcq.share.data.ireport.resource.report.siso" expired="false">
+		         packageName="com.multiable.erp.ocf.share.data.ireport.resource.report.siso" expired="false">
 	        <jrxml name="PrtSi.jrxml" main="true"></jrxml>
 	        <jrxml name="PrtSit.jrxml"></jrxml>
 	     </format>
 	</report>
 	
-	<resetData prCode="com.multiable.opcq.ireport.provider.cardsizesmall.CardSizeSmallProvider" resetClass ="com.multiable.opcq.ireport.provider.cardsizesmall.CardSizeSmallRestData" order="1" />
-	<resetData prCode="com.multiable.opcq.ireport.provider.cardsizelarge.CardSizeLargeProvider" resetClass ="com.multiable.opcq.ireport.provider.cardsizelarge.CardSizeLargeRestData" order="1" />
+	<resetData prCode="com.multiable.ocf.ireport.provider.cardsizesmall.CardSizeSmallProvider" resetClass ="com.multiable.ocf.ireport.provider.cardsizesmall.CardSizeSmallRestData" order="1" />
+	<resetData prCode="com.multiable.ocf.ireport.provider.cardsizelarge.CardSizeLargeProvider" resetClass ="com.multiable.ocf.ireport.provider.cardsizelarge.CardSizeLargeRestData" order="1" />
 </docReport>

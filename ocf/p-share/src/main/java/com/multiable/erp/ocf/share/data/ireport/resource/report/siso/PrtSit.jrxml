@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2021-01-25T17:26:54 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtSit" pageWidth="612" pageHeight="802" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e988718d-2c1e-4b56-94d4-691bc2105a37">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\siso\sit.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="macvar" class="com.multiable.erp.trdg.share.util.TradeJrVar" isForPrompting="false"/>
+	<parameter name="macparam" class="com.multiable.erp.trdg.share.data.ireport.siso.SisoJrDto" isForPrompting="false"/>
+	<parameter name="m.weightUnit" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="mainsi.createDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.createDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI30" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI30]]></fieldDescription>
+	</field>
+	<field name="sit.qty2" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.qty2]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastApproveUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.lastApproveUid]]></fieldDescription>
+	</field>
+	<field name="sit.volume" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.volume]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastModifyUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.lastModifyUid]]></fieldDescription>
+	</field>
+	<field name="sit.qty1" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.qty1]]></fieldDescription>
+	</field>
+	<field name="sit.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.id]]></fieldDescription>
+	</field>
+	<field name="sit.freeQtyPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.freeQtyPer]]></fieldDescription>
+	</field>
+	<field name="sit.ctn" class="java.lang.Integer">
+		<fieldDescription><![CDATA[sit.ctn]]></fieldDescription>
+	</field>
+	<field name="mainsi.aInvMonth" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.aInvMonth]]></fieldDescription>
+	</field>
+	<field name="sit.scrapQty2" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.scrapQty2]]></fieldDescription>
+	</field>
+	<field name="sit.scrapQty1" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.scrapQty1]]></fieldDescription>
+	</field>
+	<field name="sit.reDeliveryId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.reDeliveryId]]></fieldDescription>
+	</field>
+	<field name="mainsi.beId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.beId]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfOsBal" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ocfOsBal]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessWl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessWl]]></fieldDescription>
+	</field>
+	<field name="mainsi.telCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.telCountry]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcModule" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcModule]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcBeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcBeId]]></fieldDescription>
+	</field>
+	<field name="sit.gw" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.gw]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.virDeptDesc]]></fieldDescription>
+	</field>
+	<field name="sit.asbCode" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.asbCode]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI11" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI11]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI10" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI10]]></fieldDescription>
+	</field>
+	<field name="mainsi.weightUnit" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.weightUnit]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI19" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI19]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI18" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI18]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI17" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI17]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI16" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI16]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI15" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI15]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccess" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccess]]></fieldDescription>
+	</field>
+	<field name="mainsi.descOrigin" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.descOrigin]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI14" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI14]]></fieldDescription>
+	</field>
+	<field name="sit.AI19" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI19]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI13" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI13]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI12" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI12]]></fieldDescription>
+	</field>
+	<field name="mainsi.@sub@sit" class="java.lang.Object">
+		<fieldDescription><![CDATA[mainsi.@sub@sit]]></fieldDescription>
+	</field>
+	<field name="sit.AI28" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI28]]></fieldDescription>
+	</field>
+	<field name="sit.AI29" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI29]]></fieldDescription>
+	</field>
+	<field name="sit.AI26" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI26]]></fieldDescription>
+	</field>
+	<field name="mainsi.genFailedMsg" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.genFailedMsg]]></fieldDescription>
+	</field>
+	<field name="sit.AI27" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI27]]></fieldDescription>
+	</field>
+	<field name="sit.AI24" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI24]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.jlTypeId]]></fieldDescription>
+	</field>
+	<field name="sit.AI25" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI25]]></fieldDescription>
+	</field>
+	<field name="sit.AI22" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI22]]></fieldDescription>
+	</field>
+	<field name="mainsi.installNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.installNo]]></fieldDescription>
+	</field>
+	<field name="sit.AI23" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI23]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.jlTypeCode]]></fieldDescription>
+	</field>
+	<field name="sit.AI20" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI20]]></fieldDescription>
+	</field>
+	<field name="sit.AI21" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI21]]></fieldDescription>
+	</field>
+	<field name="sit.passQty1" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.passQty1]]></fieldDescription>
+	</field>
+	<field name="sit.passQty2" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.passQty2]]></fieldDescription>
+	</field>
+	<field name="mainsi.completedDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.completedDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.eDiscRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.eDiscRate]]></fieldDescription>
+	</field>
+	<field name="sit.innerQty" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.innerQty]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI22" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI22]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI21" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI21]]></fieldDescription>
+	</field>
+	<field name="mainsi.freeQtyPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.freeQtyPer]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI20" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI20]]></fieldDescription>
+	</field>
+	<field name="sit.siId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.siId]]></fieldDescription>
+	</field>
+	<field name="sit.ce01Module" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.ce01Module]]></fieldDescription>
+	</field>
+	<field name="mainsi.acCompleted" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.acCompleted]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI29" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI29]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI28" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI28]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI27" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI27]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI26" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI26]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI25" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI25]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI24" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI24]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI23" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI23]]></fieldDescription>
+	</field>
+	<field name="sit.AI17" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI17]]></fieldDescription>
+	</field>
+	<field name="sit.AI18" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI18]]></fieldDescription>
+	</field>
+	<field name="sit.AI15" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI15]]></fieldDescription>
+	</field>
+	<field name="sit.packingDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.packingDesc]]></fieldDescription>
+	</field>
+	<field name="sit.AI16" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI16]]></fieldDescription>
+	</field>
+	<field name="sit.AI13" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI13]]></fieldDescription>
+	</field>
+	<field name="sit.AI14" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI14]]></fieldDescription>
+	</field>
+	<field name="sit.sourceLot" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.sourceLot]]></fieldDescription>
+	</field>
+	<field name="sit.AI11" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI11]]></fieldDescription>
+	</field>
+	<field name="sit.AI12" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI12]]></fieldDescription>
+	</field>
+	<field name="sit.AI10" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI10]]></fieldDescription>
+	</field>
+	<field name="mainsi.upOrigin" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.upOrigin]]></fieldDescription>
+	</field>
+	<field name="sit.locId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.locId]]></fieldDescription>
+	</field>
+	<field name="mainsi.expiredDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.expiredDate]]></fieldDescription>
+	</field>
+	<field name="sit.taxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.taxDomAmt]]></fieldDescription>
+	</field>
+	<field name="sit.dDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.dDesc]]></fieldDescription>
+	</field>
+	<field name="mainsi.lastModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.lastModifyDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.printCount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.printCount]]></fieldDescription>
+	</field>
+	<field name="mainsi.expiredUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.expiredUid]]></fieldDescription>
+	</field>
+	<field name="sit.unitId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.unitId]]></fieldDescription>
+	</field>
+	<field name="mainsi.domDepoAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domDepoAmt]]></fieldDescription>
+	</field>
+	<field name="sit.qcId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.qcId]]></fieldDescription>
+	</field>
+	<field name="mainsi.redeemCredit" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.redeemCredit]]></fieldDescription>
+	</field>
+	<field name="mainsi.faxArea" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.faxArea]]></fieldDescription>
+	</field>
+	<field name="mainsi.cpDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.cpDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.viewCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.viewCode]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowSrcId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowSrcId]]></fieldDescription>
+	</field>
+	<field name="mainsi.createUid" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.createUid]]></fieldDescription>
+	</field>
+	<field name="mainsi.recId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.recId]]></fieldDescription>
+	</field>
+	<field name="mainsi.attachmentCount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.attachmentCount]]></fieldDescription>
+	</field>
+	<field name="sit.sourceType" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.sourceType]]></fieldDescription>
+	</field>
+	<field name="mainsi.jlTypeDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.jlTypeDesc]]></fieldDescription>
+	</field>
+	<field name="sit.qty" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.qty]]></fieldDescription>
+	</field>
+	<field name="mainsi.expired" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.expired]]></fieldDescription>
+	</field>
+	<field name="mainsi.cnDeptId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.cnDeptId]]></fieldDescription>
+	</field>
+	<field name="sit.AI30" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI30]]></fieldDescription>
+	</field>
+	<field name="mainsi.amt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.amt]]></fieldDescription>
+	</field>
+	<field name="sit.asnLot" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.asnLot]]></fieldDescription>
+	</field>
+	<field name="mainsi.rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.rate]]></fieldDescription>
+	</field>
+	<field name="mainsi.multiFlowFlowId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.multiFlowFlowId]]></fieldDescription>
+	</field>
+	<field name="sit.passQty" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.passQty]]></fieldDescription>
+	</field>
+	<field name="sit.reDelivery" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sit.reDelivery]]></fieldDescription>
+	</field>
+	<field name="sit.proId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.proId]]></fieldDescription>
+	</field>
+	<field name="sit.completed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sit.completed]]></fieldDescription>
+	</field>
+	<field name="sit.packingUnitId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.packingUnitId]]></fieldDescription>
+	</field>
+	<field name="sit.asbLotno" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.asbLotno]]></fieldDescription>
+	</field>
+	<field name="sit.taxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.taxAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxDomAmt]]></fieldDescription>
+	</field>
+	<field name="sit.refCode" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.refCode]]></fieldDescription>
+	</field>
+	<field name="sit.isInventory" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sit.isInventory]]></fieldDescription>
+	</field>
+	<field name="sit.soId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.soId]]></fieldDescription>
+	</field>
+	<field name="sit.nw" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.nw]]></fieldDescription>
+	</field>
+	<field name="sit.unit2Id" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.unit2Id]]></fieldDescription>
+	</field>
+	<field name="sit.AI2" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI2]]></fieldDescription>
+	</field>
+	<field name="sit.AI3" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI3]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlCharge" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlCharge]]></fieldDescription>
+	</field>
+	<field name="sit.AI1" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI1]]></fieldDescription>
+	</field>
+	<field name="mainsi.tel" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.tel]]></fieldDescription>
+	</field>
+	<field name="sit.asbId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.asbId]]></fieldDescription>
+	</field>
+	<field name="sit.AI6" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI6]]></fieldDescription>
+	</field>
+	<field name="mainsi.loadGpCoData" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.loadGpCoData]]></fieldDescription>
+	</field>
+	<field name="sit.AI7" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI7]]></fieldDescription>
+	</field>
+	<field name="sit.preTaxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.preTaxAmt]]></fieldDescription>
+	</field>
+	<field name="sit.AI4" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI4]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfEntitledToPts" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.ocfEntitledToPts]]></fieldDescription>
+	</field>
+	<field name="sit.AI5" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI5]]></fieldDescription>
+	</field>
+	<field name="mainsi.flowTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.flowTypeId]]></fieldDescription>
+	</field>
+	<field name="mainsi.cp" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.cp]]></fieldDescription>
+	</field>
+	<field name="sit.beId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.beId]]></fieldDescription>
+	</field>
+	<field name="sit.asbCurId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.asbCurId]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessAutoCalc" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessAutoCalc]]></fieldDescription>
+	</field>
+	<field name="sit.proCode" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.proCode]]></fieldDescription>
+	</field>
+	<field name="sit.costAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.costAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.faxCountry" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.faxCountry]]></fieldDescription>
+	</field>
+	<field name="mainsi.fromModule" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.fromModule]]></fieldDescription>
+	</field>
+	<field name="sit.asbNewLotno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[sit.asbNewLotno]]></fieldDescription>
+	</field>
+	<field name="mainsi.tDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.tDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.curId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.curId]]></fieldDescription>
+	</field>
+	<field name="sit.taxCodeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.taxCodeId]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfCusPoNo" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ocfCusPoNo]]></fieldDescription>
+	</field>
+	<field name="sit.discAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.discAmt]]></fieldDescription>
+	</field>
+	<field name="sit.AI8" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI8]]></fieldDescription>
+	</field>
+	<field name="sit.AI9" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.AI9]]></fieldDescription>
+	</field>
+	<field name="sit.newLotno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[sit.newLotno]]></fieldDescription>
+	</field>
+	<field name="sit.vatPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.vatPer]]></fieldDescription>
+	</field>
+	<field name="sit.width" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.width]]></fieldDescription>
+	</field>
+	<field name="mainsi.manId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.manId]]></fieldDescription>
+	</field>
+	<field name="mainsi.domAmtDiff" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domAmtDiff]]></fieldDescription>
+	</field>
+	<field name="sit.unit1Id" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.unit1Id]]></fieldDescription>
+	</field>
+	<field name="mainsi.depoAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.depoAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.showEarlyPayDisc" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.showEarlyPayDisc]]></fieldDescription>
+	</field>
+	<field name="mainsi.position" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.position]]></fieldDescription>
+	</field>
+	<field name="sit.asbLotNoId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.asbLotNoId]]></fieldDescription>
+	</field>
+	<field name="mainsi.sysJson" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.sysJson]]></fieldDescription>
+	</field>
+	<field name="mainsi.man" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.man]]></fieldDescription>
+	</field>
+	<field name="mainsi.monthEndDate" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.monthEndDate]]></fieldDescription>
+	</field>
+	<field name="sit.soLot" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.soLot]]></fieldDescription>
+	</field>
+	<field name="sit.asbRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.asbRate]]></fieldDescription>
+	</field>
+	<field name="sit.cuspono" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.cuspono]]></fieldDescription>
+	</field>
+	<field name="sit.scrapQty" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.scrapQty]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlAmt]]></fieldDescription>
+	</field>
+	<field name="sit.footerKey" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.footerKey]]></fieldDescription>
+	</field>
+	<field name="sit.asbQty" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.asbQty]]></fieldDescription>
+	</field>
+	<field name="sit.reShipType" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.reShipType]]></fieldDescription>
+	</field>
+	<field name="mainsi.status" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.status]]></fieldDescription>
+	</field>
+	<field name="mainsi.telArea" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.telArea]]></fieldDescription>
+	</field>
+	<field name="sit.lot" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.lot]]></fieldDescription>
+	</field>
+	<field name="mainsi.method" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.method]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptCode" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.virDeptCode]]></fieldDescription>
+	</field>
+	<field name="mainsi.staffId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.staffId]]></fieldDescription>
+	</field>
+	<field name="mainsi.completed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.completed]]></fieldDescription>
+	</field>
+	<field name="sit.domAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.domAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.dayOfMonth" class="java.lang.Integer">
+		<fieldDescription><![CDATA[mainsi.dayOfMonth]]></fieldDescription>
+	</field>
+	<field name="sit.shipMark" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.shipMark]]></fieldDescription>
+	</field>
+	<field name="mainsi.statusModifyDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.statusModifyDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.virDeptId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.virDeptId]]></fieldDescription>
+	</field>
+	<field name="sit.itemNo" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.itemNo]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfCommission" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ocfCommission]]></fieldDescription>
+	</field>
+	<field name="mainsi.taxAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.taxAmt]]></fieldDescription>
+	</field>
+	<field name="sit.length" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.length]]></fieldDescription>
+	</field>
+	<field name="sit.bDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.bDesc]]></fieldDescription>
+	</field>
+	<field name="sit.deliveryRequire" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[sit.deliveryRequire]]></fieldDescription>
+	</field>
+	<field name="sit.asbFlowTypeId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.asbFlowTypeId]]></fieldDescription>
+	</field>
+	<field name="sit.preTaxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.preTaxDomAmt]]></fieldDescription>
+	</field>
+	<field name="sit.hId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.hId]]></fieldDescription>
+	</field>
+	<field name="mainsi.i18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.i18nField]]></fieldDescription>
+	</field>
+	<field name="mainsi.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.id]]></fieldDescription>
+	</field>
+	<field name="sit.perCtn" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.perCtn]]></fieldDescription>
+	</field>
+	<field name="mainsi.batchNo" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.batchNo]]></fieldDescription>
+	</field>
+	<field name="mainsi.locked" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.locked]]></fieldDescription>
+	</field>
+	<field name="sit.preTaxUp" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.preTaxUp]]></fieldDescription>
+	</field>
+	<field name="sit.asbSourceType" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.asbSourceType]]></fieldDescription>
+	</field>
+	<field name="mainsi.siId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.siId]]></fieldDescription>
+	</field>
+	<field name="mainsi.locId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.locId]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlDisc" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlDisc]]></fieldDescription>
+	</field>
+	<field name="sit.up" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.up]]></fieldDescription>
+	</field>
+	<field name="sit.reDeliveryType" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.reDeliveryType]]></fieldDescription>
+	</field>
+	<field name="mainsi.rev" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.rev]]></fieldDescription>
+	</field>
+	<field name="mainsi.useAccessBl" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.useAccessBl]]></fieldDescription>
+	</field>
+	<field name="sit.height" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.height]]></fieldDescription>
+	</field>
+	<field name="sit.innerUnitId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.innerUnitId]]></fieldDescription>
+	</field>
+	<field name="sit.disc" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.disc]]></fieldDescription>
+	</field>
+	<field name="mainsi.deliveryRequire" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[mainsi.deliveryRequire]]></fieldDescription>
+	</field>
+	<field name="sit.amt" class="java.lang.Double">
+		<fieldDescription><![CDATA[sit.amt]]></fieldDescription>
+	</field>
+	<field name="mainsi.comRate" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.comRate]]></fieldDescription>
+	</field>
+	<field name="sit.i18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.i18nField]]></fieldDescription>
+	</field>
+	<field name="sit.reDeliveryLot" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.reDeliveryLot]]></fieldDescription>
+	</field>
+	<field name="mainsi.taxDomAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.taxDomAmt]]></fieldDescription>
+	</field>
+	<field name="mainsi.ce01Module" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ce01Module]]></fieldDescription>
+	</field>
+	<field name="mainsi.measUnit" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.measUnit]]></fieldDescription>
+	</field>
+	<field name="mainsi.domAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.domAmt]]></fieldDescription>
+	</field>
+	<field name="sit.sourceCliId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.sourceCliId]]></fieldDescription>
+	</field>
+	<field name="sit.iRev" class="java.lang.Integer">
+		<fieldDescription><![CDATA[sit.iRev]]></fieldDescription>
+	</field>
+	<field name="mainsi.cusId" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.cusId]]></fieldDescription>
+	</field>
+	<field name="sit.asnId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.asnId]]></fieldDescription>
+	</field>
+	<field name="mainsi.manI18nField" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.manI18nField]]></fieldDescription>
+	</field>
+	<field name="mainsi.ttlCharge" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.ttlCharge]]></fieldDescription>
+	</field>
+	<field name="mainsi.acCompletedDate" class="java.util.Date">
+		<fieldDescription><![CDATA[mainsi.acCompletedDate]]></fieldDescription>
+	</field>
+	<field name="mainsi.@sub@WFLOGINFO" class="java.lang.Object">
+		<fieldDescription><![CDATA[mainsi.@sub@WFLOGINFO]]></fieldDescription>
+	</field>
+	<field name="sit.sourceId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.sourceId]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI9" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI9]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI7" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI7]]></fieldDescription>
+	</field>
+	<field name="mainsi.vatPer" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.vatPer]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI8" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI8]]></fieldDescription>
+	</field>
+	<field name="mainsi.accDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.accDesc]]></fieldDescription>
+	</field>
+	<field name="mainsi.fax" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.fax]]></fieldDescription>
+	</field>
+	<field name="mainsi.ocfTerms" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.ocfTerms]]></fieldDescription>
+	</field>
+	<field name="mainsi.preTaxTtlDisc" class="java.lang.Double">
+		<fieldDescription><![CDATA[mainsi.preTaxTtlDisc]]></fieldDescription>
+	</field>
+	<field name="sit.dnCode" class="java.lang.String">
+		<fieldDescription><![CDATA[sit.dnCode]]></fieldDescription>
+	</field>
+	<field name="mainsi.hpSetting" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.hpSetting]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI5" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI5]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI6" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI6]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI3" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI3]]></fieldDescription>
+	</field>
+	<field name="sit.lotNoId" class="java.lang.Long">
+		<fieldDescription><![CDATA[sit.lotNoId]]></fieldDescription>
+	</field>
+	<field name="mainsi.code" class="java.lang.String">
+		<fieldDescription><![CDATA[mainsi.code]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI4" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI4]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI1" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI1]]></fieldDescription>
+	</field>
+	<field name="mainsi.AI2" class="java.lang.Long">
+		<fieldDescription><![CDATA[mainsi.AI2]]></fieldDescription>
+	</field>
+	<variable name="m.itemno" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlamt" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sit.amt}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlgw" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sit.gw} * $F{sit.ctn}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlnw" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sit.nw} * $F{sit.ctn}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlvol" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sit.volume} * $F{sit.ctn}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="m.ttlctn" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sit.ctn}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField>
+				<reportElement x="523" y="0" width="61" height="14" uuid="b6cb4631-e5eb-4a2a-b0c5-707a501827e6">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{macvar}.rep_amt_format($F{sit.preTaxAmt})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="0" width="64" height="14" uuid="ae72b304-2f59-407a-8084-b924ed8f4a63">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{macvar}.rep_amt_format($F{sit.preTaxUp})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="0" width="47" height="14" uuid="88fcca10-3175-4d97-8d32-e9c6ab0f14a7">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{macvar}.rep_amt_format($F{sit.discAmt})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="0" width="220" height="14" uuid="e7679e29-5c13-48a8-9d3f-dde14617577b">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sit.bDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="0" width="35" height="14" uuid="6a3a315b-16f0-4196-9bb9-fdcd1e4748c7">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sit.qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="77" height="14" uuid="32d86129-b3d2-4ca5-be04-fd52d002735f">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sit.proCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="0" width="65" height="14" uuid="1aa13dc8-a653-495f-a1b1-fad795c79a88">
+					<property name="com.jaspersoft.studio.unit.x" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="cm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sit.dnCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <app xmlns="http://www.multiable.com/app">
 	<name>ce01_ocf</name>
-	<version>1.1.9</version>
+	<version>1.2.6</version>
 	<description>OCF</description>
 	<dependences>
 		<dependence id="caw" versions="1.0" />
@@ -13,25 +13,25 @@
 	<ejb>ce01_ocf_ejb</ejb>
 	<extension>
 		<view code="pro" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/ocfProExtension.xhtml</page>
+			<page>/view/ocf/extension/ocfProExtension.xhtml</page>
 		</view>
 		<view code="dn" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/ocfDnExtension.xhtml</page>
-			<listener>com.multiable.opcq.bean.view.listener.OcfDnListener</listener>
+			<page>/view/ocf/extension/ocfDnExtension.xhtml</page>
+			<listener>com.multiable.erp.ocf.bean.view.listener.OcfDnListener</listener>
 		</view>
 		<view code="account" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/opcqChaccExtension.xhtml</page>
+			<page>/view/ocf/extension/opcqChaccExtension.xhtml</page>
 		</view>
 		<view code="cus" app="ce01_core" filter="" type="frame">
-			<page>/view/opcq/extension/ocfCusExtension.xhtml</page>
-			<listener>com.multiable.opcq.bean.view.listener.OpcqRemcusListener</listener>
+			<page>/view/ocf/extension/ocfCusExtension.xhtml</page>
+			<listener>com.multiable.erp.ocf.bean.view.listener.OpcqRemcusListener</listener>
 		</view>
 		<view code="siso" app="ce01_trdg" filter="" type="frame">
-			<page>/view/opcq/extension/ocfSiExtension.xhtml</page>
-			<listener>com.multiable.opcq.bean.view.listener.OcfSiListener</listener>
+			<page>/view/ocf/extension/ocfSiExtension.xhtml</page>
+			<listener>com.multiable.erp.ocf.bean.view.listener.OcfSiListener</listener>
 		</view>
 		<view code="recReg" app="ce01_trdg" filter="" type="frame">
-			<listener>com.multiable.opcq.bean.view.listener.OpcqReceiptRegisterListener</listener>
+			<listener>com.multiable.erp.ocf.bean.view.listener.OpcqReceiptRegisterListener</listener>
 		</view>
 	</extension>	
 </app>

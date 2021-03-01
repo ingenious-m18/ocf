@@ -16,13 +16,13 @@
 		<table name="ocfremcust" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<table name="ocfrccus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<table name="ocfrcdcus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
-		<checker class="com.multiable.erp.opcq.checker.OpcqocfcusChecker"/>
+		<checker class="com.multiable.erp.ocf.ejb.checker.OcfCusChecker"/>
 	</module>	
 	<module name="siso" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OcfSiChecker"/>
+		<checker class="com.multiable.erp.ocf.ejb.checker.OcfSiChecker"/>
 	</module>	
 	<module name="recReg" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OcfReceiptRegisterChecker"/>
+		<checker class="com.multiable.erp.ocf.ejb.checker.OcfReceiptRegisterChecker"/>
 	</module>
 
 	<module name="ocfpostalcodedeliverycharge" mess="ocf.postalCodeDeliveryCharge" extend="false" mainTable="ocfpostalcodedeliverycharge" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
@@ -36,12 +36,12 @@
 	</module>
 	
 	<module name="account" extend="true">
-		<checker class="com.multiable.erp.opcq.checker.OcfAccountChecker"/>
+		<checker class="com.multiable.erp.ocf.ejb.checker.OcfAccountChecker"/>
 	</module>
 	
 	<module name="ocfTerms" mess="ocf.terms" extend="false" mainTable="ocfterms" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="TER">
 		<table name="ocfterms" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		
-		<checker class="com.multiable.erp.opcq.checker.OcfTermsChecker"/>
+		<checker class="com.multiable.erp.ocf.ejb.checker.OcfTermsChecker"/>
 	</module>
 </md>
