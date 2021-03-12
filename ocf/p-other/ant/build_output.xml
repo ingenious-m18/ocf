@@ -1,14 +1,39 @@
 <project name="build_output" default="runtime">
 	
+	<tstamp>
+    	<format property="build_time" pattern="yyyyMMdd_HHmm" />
+	</tstamp>
+
 	<property name="base.dir" location="..\.."/>
 	<property name="output.dir" location="${base.dir}\p-other\jar"/>
 	<property name="temp.dir" location="${base.dir}\p-other\ant\temp"/>
+	<property name="mapp.dir" location="${base.dir}\p-other\"/>
 
 	<target name="runtime">
 		
 		<!--**** begin -->
 		<property name="share.dir" location="${base.dir}\p-share"/>
 		<echo message="build jar: ce01_ocf_share" />
+
+		<xmlproperty file="${share.dir}\src\main\resources\META-INF\app.xml" />
+		<script language="javascript">
+			var version = project.getProperty("app.version");
+			var version_main = version.substring(0, version.indexOf(".")) ;
+			var version_build = version.substring(version.indexOf(".") + 1) ;
+			version_build++ ;
+			project.setProperty("app.version", version_main + "." + version_build);
+			
+			var dependences = project.getProperty("app.dependences.dependence(id)");
+			project.setProperty("app.dependencesStr", dependences.replace(/,/g, ";") + ";");				
+		</script>
+		<replaceregexp>
+			<regexp pattern="&lt;version&gt;.*&lt;/version&gt;"/>
+			<substitution expression="&lt;version&gt;${app.version}&lt;/version&gt;" />
+			<fileset dir="${share.dir}\src\main\resources\META-INF">
+				<include name="app.xml"/>
+			</fileset>
+		</replaceregexp>
+
 		<!--javac share-->
 		<ant antfile="${share.dir}\build.xml" dir="${share.dir}" inheritall="true" inheritrefs="true" />
 		
@@ -127,6 +152,22 @@
 		
 		<!-- **** end -->
 		<echo message="output path: ${output.dir}" />
+
+		<echo file="${mapp.dir}\app.properties">
+		#app for ce01_ocf
+		code=ce01_ocf
+		desc=ce01_ocf
+		date=${build_time}
+		version=${app.version}
+		</echo>
+		<zip destfile="${mapp.dir}\ce01_ocf_${app.version}.mapp">
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear" includes="ce01_ocf_ejb.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\lib" includes="ce01_ocf_share.jar" />
+			<zipfileset dir="${base.dir}\p-other\jar" prefix="caw_ear.ear\jsf.war\WEB-INF\lib" includes="ce01_ocf_jsf.jar" />
+			<zipfileset dir="${mapp.dir}" includes="app.properties" />
+			<zipfileset dir="${base.dir}\gen_app" includes="flag.toml" />
+			<zipfileset dir="${base.dir}\gen_app" includes="app.png" />
+		</zip>
 	</target>
 
 </project>

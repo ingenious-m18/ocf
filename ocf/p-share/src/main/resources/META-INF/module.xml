@@ -4,10 +4,17 @@
 		<table name="opcqsender" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
 	</module>
+	
+	<module name="opcqrecipient" mess="ocf.dnRecipient" extend="false" mainTable="opcqrecipient" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
+		<table name="opcqrecipient" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
+		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
+	</module>
+	
 	<module name="opcqmessagecontent" mess="ocf.messagecontent" extend="false" mainTable="opcqmessagecontent" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
 		<table name="opcqmessagecontent" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
-	</module>		
+	</module>
+	
 	<module name="opcqredemptioncoupon" mess="ocf.redemptionCoupon" extend="false" mainTable="opcqredemptioncoupon" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
 		<table name="opcqredemptioncoupon" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
 		<table name="opcqredemptioncoupont" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
@@ -30,10 +37,7 @@
 		<table name="ocfpostalcodedeliverycharget" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 	</module>
 	
-	<module name="opcqrecipient" mess="ocf.dnRecipient" extend="false" mainTable="opcqrecipient" recType="" useAccess="true" useAttach="true" useBeShare="true" useApv="true" useChangenote="true" fmShare="Y" importThreadMode="false" genCode_Type="MEM">
-		<table name="opcqrecipient" key="id" c="true" r="true" d="true" u="true" initRow="1" hpk="" fKey="" order=""/>
-		<checker class="com.multiable.erp.core.ejb.checker.RemarksChecker"/>
-	</module>
+	
 	
 	<module name="account" extend="true">
 		<checker class="com.multiable.erp.ocf.ejb.checker.OcfAccountChecker"/>

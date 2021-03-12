@@ -7,6 +7,7 @@ CREATE PROCEDURE ocf_prtDn(
 )
 BEGIN
 	DROP TEMPORARY TABLE IF EXISTS t_prtdn_mod;
+	DROP TEMPORARY TABLE IF EXISTS t_prtdnt;
 
 	CREATE TEMPORARY TABLE t_prtdn_mod
 	SELECT a.id, a.beId, a.cusId, a.curId, a.staffId, a.cnDeptId, a.virDeptId, a.locId, a.manId, a.code, a.status, a.createUid, a.lastApproveUid as apvUid
@@ -18,12 +19,22 @@ BEGIN
 	from maindn a
 	where a.id IN (SELECT x.id FROM t_prtdn_mod x);
 	
+	set @row_number := 0;
+	
 	-- Query 1 dnt
+	CREATE TEMPORARY TABLE t_prtdnt
 	select b.hId as dnId, b.*, c.code AS proCode
+		, @row_number := CASE WHEN @dnId = b.hId THEN @row_number + 1
+			ELSE 1 END AS dntGpNum
+		, @dnId := b.hId dntDnId
 	from dnt b
 		, pro AS c
 	where b.hId IN (SELECT x.id FROM t_prtdn_mod x)
 		and b.proId = c.id;
+	
+	select * from t_prtdnt
+	where dntGpNum <= 12
+	order by dnId, itemNo;
 
 	-- Query 2: remdn
 	select a.hId as dnId, a.*

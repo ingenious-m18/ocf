@@ -6,10 +6,26 @@ CREATE PROCEDURE ocf_prtCardSizeSmall(
 	IN dnid longtext
 )
 BEGIN
-	select a.id, a.code, b.ocfrecipient, b.ocfsender, b.msgcontent
-	from maindn a, remdn b
-	where a.id = b.hId
-		and a.id = dnid;
+		
+	DROP TEMPORARY TABLE if exists t_prtdn_mod;
+	
+	CREATE TEMPORARY TABLE t_prtdn_mod
+	SELECT a.id
+	FROM maindn AS a
+	WHERE find_in_set(a.id, dnid);
+
+	-- Query 0 maindn
+	select a.id as dnId, a.id, a.code
+	from maindn a
+	where a.id IN (SELECT id FROM t_prtdn_mod);
+		
+	-- Query 1 remdn
+	select b.hId as dnId, b.id, b.ocfrecipient, b.ocfsender, b.msgcontent
+	from remdn b
+	where b.hId IN (SELECT id FROM t_prtdn_mod);
+	
+	DROP TEMPORARY TABLE if exists t_prtdn_mod;
+		
 END$$
 
 DELIMITER ;

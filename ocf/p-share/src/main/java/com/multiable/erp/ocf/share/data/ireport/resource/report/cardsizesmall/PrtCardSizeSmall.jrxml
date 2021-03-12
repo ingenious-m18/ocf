@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2021-01-28T11:02:07 -->
+<!-- 2021-03-12T15:52:39 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="354" pageHeight="495" columnWidth="314" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\cardsizesmall\cardsizesmall.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\cardsizesmall\cardsizesmall.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="cm"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
 	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
@@ -17,20 +17,95 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<field name="maindn.msgcontent" class="java.lang.String">
-		<fieldDescription><![CDATA[maindn.msgcontent]]></fieldDescription>
+	<field name="WFLOGINFO.logTime" class="java.util.Date">
+		<fieldDescription><![CDATA[WFLOGINFO.logTime]]></fieldDescription>
 	</field>
-	<field name="maindn.ocfrecipient" class="java.lang.String">
-		<fieldDescription><![CDATA[maindn.ocfrecipient]]></fieldDescription>
+	<field name="WFLOGINFO.userId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFLOGINFO.userId]]></fieldDescription>
 	</field>
-	<field name="maindn.ocfsender" class="java.lang.String">
-		<fieldDescription><![CDATA[maindn.ocfsender]]></fieldDescription>
+	<field name="remdn.msgcontent" class="java.lang.String">
+		<fieldDescription><![CDATA[remdn.msgcontent]]></fieldDescription>
+	</field>
+	<field name="maindn.@sub@WFLOGINFO" class="java.lang.Object">
+		<fieldDescription><![CDATA[maindn.@sub@WFLOGINFO]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.empDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.empDesc]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.deptCode" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.deptCode]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.infoMess" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.infoMess]]></fieldDescription>
+	</field>
+	<field name="remdn.ocfrecipient" class="java.lang.String">
+		<fieldDescription><![CDATA[remdn.ocfrecipient]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.deptDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.deptDesc]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.infoType" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.infoType]]></fieldDescription>
 	</field>
 	<field name="maindn.code" class="java.lang.String">
 		<fieldDescription><![CDATA[maindn.code]]></fieldDescription>
 	</field>
+	<field name="WFLOGINFO.posDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.posDesc]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.userCode" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.userCode]]></fieldDescription>
+	</field>
+	<field name="WFTPLTATVTY.atvtyKey" class="java.lang.String">
+		<fieldDescription><![CDATA[WFTPLTATVTY.atvtyKey]]></fieldDescription>
+	</field>
+	<field name="remdn.dnId" class="java.lang.Long">
+		<fieldDescription><![CDATA[remdn.dnId]]></fieldDescription>
+	</field>
+	<field name="WFTPLTATVTY.atvtyName" class="java.lang.String">
+		<fieldDescription><![CDATA[WFTPLTATVTY.atvtyName]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.empCode" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.empCode]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.info" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.info]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.atvtyKey" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.atvtyKey]]></fieldDescription>
+	</field>
 	<field name="maindn.id" class="java.lang.Long">
 		<fieldDescription><![CDATA[maindn.id]]></fieldDescription>
+	</field>
+	<field name="remdn.id" class="java.lang.Long">
+		<fieldDescription><![CDATA[remdn.id]]></fieldDescription>
+	</field>
+	<field name="remdn.ocfsender" class="java.lang.String">
+		<fieldDescription><![CDATA[remdn.ocfsender]]></fieldDescription>
+	</field>
+	<field name="WFTPLTATVTY.wfTpltId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFTPLTATVTY.wfTpltId]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.wfInstanceId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFLOGINFO.wfInstanceId]]></fieldDescription>
+	</field>
+	<field name="maindn.dnId" class="java.lang.Long">
+		<fieldDescription><![CDATA[maindn.dnId]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.posCode" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.posCode]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.userDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[WFLOGINFO.userDesc]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.apvRecordId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFLOGINFO.apvRecordId]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.wfTpltId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFLOGINFO.wfTpltId]]></fieldDescription>
+	</field>
+	<field name="WFLOGINFO.empId" class="java.lang.Long">
+		<fieldDescription><![CDATA[WFLOGINFO.empId]]></fieldDescription>
 	</field>
 	<group name="Group1">
 		<groupHeader>
@@ -57,7 +132,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 					</reportElement>
 					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="Clip" horizontalAlign="Center" verticalAlign="Top">
-						<hc:htmlContentExpression><![CDATA[$F{maindn.ocfrecipient}]]></hc:htmlContentExpression>
+						<hc:htmlContentExpression><![CDATA[$F{remdn.ocfrecipient}]]></hc:htmlContentExpression>
 					</hc:html>
 				</componentElement>
 				<componentElement>
@@ -66,7 +141,7 @@
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
 					</reportElement>
 					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="Clip" horizontalAlign="Center" verticalAlign="Top">
-						<hc:htmlContentExpression><![CDATA[$F{maindn.msgcontent}]]></hc:htmlContentExpression>
+						<hc:htmlContentExpression><![CDATA[$F{remdn.msgcontent}]]></hc:htmlContentExpression>
 					</hc:html>
 				</componentElement>
 				<componentElement>
@@ -75,7 +150,7 @@
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
 					</reportElement>
 					<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="Clip" horizontalAlign="Center" verticalAlign="Top">
-						<hc:htmlContentExpression><![CDATA[$F{maindn.ocfsender}]]></hc:htmlContentExpression>
+						<hc:htmlContentExpression><![CDATA[$F{remdn.ocfsender}]]></hc:htmlContentExpression>
 					</hc:html>
 				</componentElement>
 			</band>

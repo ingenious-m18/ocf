@@ -64,6 +64,8 @@ import com.multiable.web.WebMessage.MessageType;
 import com.multiable.web.WebUtil;
 import com.multiable.web.component.edittable.EditTableModel;
 import com.multiable.web.component.edittable.interfaces.TableActionListener;
+import com.multiable.web.config.CawDialog;
+import com.multiable.web.config.DialogObject.DialogStatus;
 import com.multiable.web.rfws.WsFactory;
 import com.multiable.web.util.MessageUtil;
 
@@ -512,6 +514,21 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 	}
 
 	@Override
+	public void dialogCallback(ViewActionEvent vae) {
+		super.dialogCallback(vae);
+		CawDialog dialog = (CawDialog) vae.getSource();
+		String dialogName = dialog.getDialogName();
+
+		if (dialogName.startsWith("ocf_remdn_")) {
+			if (dialog.getCloseStatus() == DialogStatus.OK) {
+				loadRemark(getEntity().getData("remdn"), dialog.getDialogName(), dialog.getReturn().getResult());
+
+			}
+
+		}
+	}
+
+	@Override
 	public void footerDefault(String tableName, int rowIndex) {
 		if (tableName.equals("dnt")) {
 			SqlTable dnt = getEntity().getData("dnt");
@@ -684,6 +701,105 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 		}
 
 		return response;
+	}
+
+	private void loadRemark(SqlTable entity, String dialogName, Object result) {
+		if (result == null) {
+			return;
+		}
+
+		String[] my_array = dialogName.split("_");
+
+		if (my_array == null) {
+			return;
+		}
+
+		// Check card size
+		String cardSize = entity.getString(1, "cardsize");
+		if (StringLib.isEmpty(cardSize)) {
+			return;
+		}
+
+		String tableName = my_array[1];
+		String colName = my_array[2];
+		String resultField = "bDesc";
+
+		// loadRemark(entity, result, resultField, colName);
+
+		// Set remarks prefix & suffix according to cardSize
+		String prefix = "";
+		String suffix = "";
+		int fontSize = 0;
+		if (cardSize.equals("Small")) {
+
+			switch (colName) {
+			case "ocfsender":
+				fontSize = 11;
+				break;
+			case "msgcontent":
+				fontSize = 10;
+				break;
+			case "ocfrecipient":
+				fontSize = 11;
+				break;
+			}
+
+		} else if (cardSize.equals("Large")) {
+
+			switch (colName) {
+			case "ocfsender":
+				fontSize = 30;
+				break;
+			case "msgcontent":
+				fontSize = 26;
+				break;
+			case "ocfrecipient":
+				fontSize = 30;
+				break;
+			}
+
+		}
+		prefix = "<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: " + fontSize
+				+ "px;\">";
+		suffix = "</span></font></p>";
+
+		StringBuffer sb = new StringBuffer();
+
+		if (result instanceof JSONArray) {
+			JSONArray remArray = (JSONArray) result;
+			for (int j = 0; j < remArray.size(); j++) {
+				if (remArray.getJSONObject(j).containsKey(resultField))
+					sb.append(remArray.getJSONObject(j).get(resultField)).append("<br>");
+			}
+		} else {
+			JSONObject remObj = (JSONObject) result;
+			if (remObj.containsKey(resultField))
+				sb.append(remObj.get(resultField));
+		}
+
+		if (!sb.toString().isEmpty()) {
+
+			entity.setValue(1, colName, entity.getString(1, colName) + prefix + sb.toString() + suffix);
+		}
+
+		WebUtil.update(tableName + "_" + colName);
+		FacesAssistant.getCurrentInstance().execute("if(myFrame) {myFrame.setModified(true);}");
+
+		// Update the display box
+		String[] htmlFields = new String[] { "ocfrecipient", "msgcontent", "ocfsender" };
+		StringBuilder ocfDisplay = new StringBuilder();
+		for (int i = 0; i < htmlFields.length; i++) {
+			String field = htmlFields[i];
+
+			ocfDisplay.append(entity.getString(1, field));
+
+			if (i != htmlFields.length - 1) {
+				ocfDisplay.append("<br>");
+			}
+		}
+
+		setVariable("ocfDisplay", ocfDisplay.toString());
+		WebUtil.update("ocfDisplayBox");
 	}
 
 	// @Override

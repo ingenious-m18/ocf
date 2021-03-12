@@ -6,4 +6,9 @@ public class CardSizeJrDto extends MacModuleReportDto {
 
 	private static final long serialVersionUID = 8142728286130044585L;
 
+	// Always print HTML
+	@Override
+	public String getPrtTextFormat() {
+		return "html";
+	}
 }

@@ -42,7 +42,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 		handleHtmlField(remdn, new String[] { "ocfsender", "msgcontent", "ocfrecipient" }, false);
 
 		// Check word limit and show '......as per card.'
-		checkWordLimit(remdn, 1, 40, 5, "ocfsender");
+		checkWordLimit(remdn, 1, 40, 2, "ocfsender");
 		checkWordLimit(remdn, 1, 40, 5, "msgcontent");
 		checkWordLimit(remdn, 1, 40, 3, "ocfrecipient");
 
@@ -51,6 +51,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 		if (!maindn.isFieldExist("udfRemark")) {
 			maindn.addField(new SqlTableField("udfRemark", String.class));
 		}
+
 	}
 
 	@Override
@@ -176,4 +177,5 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 			table.setString(row, fieldName, sb.toString());
 		}
 	}
+
 }

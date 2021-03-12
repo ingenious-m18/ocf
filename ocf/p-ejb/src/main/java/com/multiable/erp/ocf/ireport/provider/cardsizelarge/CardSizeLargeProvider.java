@@ -12,11 +12,15 @@ public class CardSizeLargeProvider extends MacModuleProvider {
 		reData.setQuery(0);
 		int i = -1;
 		i = MacReportUtil.setAlias(reData, i, "maindn", "maindn");
+		i = MacReportUtil.setAlias(reData, i, "remdn", "remdn");
 	}
 
 	@Override
 	public void adjustData(CawReportDataSet reData) {
 		super.adjustData(reData);
+
+		reData.setRelationTo("maindn", "dnId", "remdn");
+
 		CardSizeJrDto jrDto = (CardSizeJrDto) getReportDto();
 		handleHtmlField(reData, jrDto);
 

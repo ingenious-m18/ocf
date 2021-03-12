@@ -21,11 +21,13 @@
 						<caw:fluidPanel id="bookPanel" column="3">	
 							<caw:inputText tableName="opcqsender" columnName="code" />
 							<caw:inputText tableName="opcqsender" columnName="bDesc" style="width:100%" style-input="width:75%">
-								<caw:constraints colSpan="2" newLine="true"/>
-							</caw:inputText>		
-							<caw:richTextEditor tableName="opcqsender" columnName="desc" rows="4" style="width:67%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;">
-								<caw:constraints rowHold="true" colSpan="2" rowSpan="7"/>
-							</caw:richTextEditor>					
+								<caw:constraints colSpan="3" newLine="true"/>
+							</caw:inputText>
+							
+							<!-- Hide desc field -->	
+<!-- 							<caw:richTextEditor tableName="opcqsender" columnName="desc" rows="4" style="width:67%;" style-ig="width:75%" style-input="width:100%" style-editor="max-width:680px;"> -->
+<!-- 								<caw:constraints rowHold="true" colSpan="2" rowSpan="7"/> -->
+<!-- 							</caw:richTextEditor>					 -->
 						</caw:fluidPanel>
 					</caw:tab>											
 					<ui:include src="/view/share/recordCtInfo.xhtml" />

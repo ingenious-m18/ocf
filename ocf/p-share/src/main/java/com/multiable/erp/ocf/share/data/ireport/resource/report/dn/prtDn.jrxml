@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2021-02-22T17:45:55 -->
+<!-- 2021-03-11T18:50:57 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="572" pageHeight="498" columnWidth="504" leftMargin="34" rightMargin="34" topMargin="0" bottomMargin="0" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\dn\dn.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="cm"/>
@@ -492,6 +492,7 @@
 	<group name="Group1">
 		<groupHeader>
 			<band height="426">
+				<printWhenExpression><![CDATA[$V{MASTER_CURRENT_PAGE} == 1]]></printWhenExpression>
 				<frame>
 					<reportElement x="6" y="68" width="269" height="93" uuid="b65e864a-6274-4410-9a54-b02fd08f723e">
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
