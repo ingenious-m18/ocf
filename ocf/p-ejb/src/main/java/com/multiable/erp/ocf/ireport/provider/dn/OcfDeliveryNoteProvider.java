@@ -131,11 +131,14 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 				}
 			}
 
+			// Trim left & right
+			String str_fieldValue = m_fieldValue.toString().trim();
+
 			// Count 40 chars per row
 			int c_wordCnt = 0;
 			int c_rowCnt = 1;
 			int c_ttlWordCnt = 0;
-			int length = m_fieldValue.length();
+			int length = str_fieldValue.length();
 			StringBuilder sb = new StringBuilder();
 
 			while (true) {
@@ -148,7 +151,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 				}
 
 				if (c_wordCnt < wordLimit) {
-					sb.append(m_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+					sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
 
 					c_wordCnt++;
 				} else {
@@ -160,7 +163,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 					}
 
 					sb.append("\n");
-					sb.append(m_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+					sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
 
 					c_wordCnt++;
 				}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2021-03-12T15:52:39 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="354" pageHeight="495" columnWidth="314" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
+<!-- 2021-03-15T14:24:44 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeSmall" pageWidth="354" pageHeight="495" columnWidth="314" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\cardsizesmall\cardsizesmall.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="cm"/>
 	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
@@ -109,7 +109,8 @@
 	</field>
 	<group name="Group1">
 		<groupHeader>
-			<band height="426">
+			<band height="494">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 				<textField>
 					<reportElement x="0" y="155" width="100" height="15" uuid="f2d5c046-365d-4264-b830-0b0a40d52f8f">
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
@@ -145,7 +146,7 @@
 					</hc:html>
 				</componentElement>
 				<componentElement>
-					<reportElement positionType="Float" x="0" y="332" width="314" height="73" uuid="30f42789-c1ec-424e-b5b1-b2ef34ad5c34">
+					<reportElement positionType="Float" x="0" y="332" width="314" height="161" uuid="30f42789-c1ec-424e-b5b1-b2ef34ad5c34">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="cm"/>
 					</reportElement>

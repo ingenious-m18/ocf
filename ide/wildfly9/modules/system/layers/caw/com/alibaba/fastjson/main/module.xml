@@ -25,7 +25,7 @@
 <module xmlns="urn:jboss:module:1.3" name="com.alibaba.fastjson">
 
     <resources>
-        <resource-root path="fastjson-1.2.221.jar"/>
+        <resource-root path="fastjson-1.2.222.jar"/>
     </resources>
 	
 	 <dependencies>

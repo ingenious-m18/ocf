@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2021-03-12T15:44:40 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeLarge" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
+<!-- 2021-03-15T14:25:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PrtCardSizeLarge" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="b515160a-db7b-4e6b-a433-b3d493b43516">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ocf\ocf\p-share\src\main\java\com\multiable\erp\ocf\share\data\ireport\resource\ds\cardsizelarge\cardsizelarge.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageHeight" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.pageWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnWidth" value="cm"/>
-	<property name="com.jaspersoft.studio.unit.columnSpacing" value="cm"/>
 	<parameter name="macvar" class="com.multiable.core.share.util.ireport.CawJrVar" isForPrompting="false"/>
 	<parameter name="macparam" class="com.multiable.erp.ocf.share.data.ireport.cardsize.CardSizeJrDto" isForPrompting="false"/>
 	<queryString language="JSON">
@@ -106,7 +98,8 @@
 	</field>
 	<group name="Group1">
 		<groupHeader>
-			<band height="538">
+			<band height="594">
+				<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 				<textField>
 					<reportElement x="0" y="0" width="100" height="30" uuid="f2d5c046-365d-4264-b830-0b0a40d52f8f">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -136,7 +129,7 @@
 					</hc:html>
 				</componentElement>
 				<componentElement>
-					<reportElement positionType="Float" x="0" y="371" width="555" height="154" uuid="6fc3ee80-021e-4d6d-b1dc-8fb33d4faf51">
+					<reportElement positionType="Float" x="0" y="371" width="555" height="223" uuid="6fc3ee80-021e-4d6d-b1dc-8fb33d4faf51">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 					</reportElement>

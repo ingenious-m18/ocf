@@ -44,9 +44,6 @@
 		<module name="org.apache.commons.codec"/>
 		<module name="org.apache.commons.commons-compress"/>
 		<module name="org.tukaani.xz"/>
-		
-		<!-- Personal Test -->
-<!-- 		<module name="com.sun.media"/> -->
 	</dependencies>
 	
 	
@@ -84,9 +81,6 @@
 		<module name="mysql.mysql-connector-java8"/>
 		<!-- <module name="eu.agno3.jcifs"/> -->
 		<module name="com.hierynomus.smbj"/>
-		
-		<!-- Personal Test -->
-<!-- 		<module name="com.sun.media"/> -->
 	</dependencies>
 </sub-deployment>
 

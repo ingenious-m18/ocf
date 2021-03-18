@@ -374,6 +374,7 @@
                     <location name="/wc" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
+                    <filter-ref name="x-frame-options"/>
                     <filter-ref name="gzipFilter" predicate="regex[pattern='(?:application/javascript|text/css|text/html|text/xml)(;.*)?', value=%{o,Content-Type}, full-match=true]"/>
                 </host>
             </server>
@@ -388,6 +389,7 @@
             <filters>
                 <response-header name="server-header" header-name="Server" header-value="WildFly/9"/>
                 <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+                <response-header name="x-frame-options" header-name="X-Frame-Options" header-value="SAMEORIGIN"/>
                 <gzip name="gzipFilter"/>
             </filters>
         </subsystem>

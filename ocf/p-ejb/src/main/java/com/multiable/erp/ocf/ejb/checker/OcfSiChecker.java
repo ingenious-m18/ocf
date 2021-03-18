@@ -86,24 +86,20 @@ public class OcfSiChecker {
 
 		// Step 2: Get Sales Invoice Point Spent
 		SqlTable sipaym = siEntity.getData("sipaym");
+		SqlTable sidisc = siEntity.getData("sidisc");
 		double sipointspent = 0;
 
 		double redepmtionAmt = 0;
 
-		String idStr = "";
-		for (int i = 1; i <= sipaym.size(); i++) {
-			idStr = idStr + sipaym.getLong(i, "accId") + ",";
-		}
+		// Get BE CoaSetId
+		long coaSetId = MacUtil.getCoaSetId(mainTable.getLong(1, "beId"));
 
 		SqlTable accResult = null;
-		if (idStr.length() > 0) {
-			idStr = idStr.substring(0, idStr.length() - 1);
+		String sql = "select id, `coaSetId`, redemptioncreditaccount from chacc where coaSetId = " + coaSetId
+				+ " and redemptioncreditaccount = 1;";
+		accResult = CawDs.getResult(sql);
 
-			String sql = "select id, `coaSetId`, redemptioncreditaccount from chacc where id in (" + idStr
-					+ ") and redemptioncreditaccount = 1;";
-			accResult = CawDs.getResult(sql);
-		}
-
+		// Amt spent in sipaym & sidisc
 		if (accResult != null && accResult.size() > 0) {
 			TableStaticIndexAdapter accIndex = new TableStaticIndexAdapter(accResult) {
 				@Override
@@ -119,7 +115,16 @@ public class OcfSiChecker {
 					redepmtionAmt += sipaym.getDouble(i, "amt");
 				}
 			}
+
+			for (int i = 1; i <= sidisc.size(); i++) {
+				int seekRow = accIndex.seek(sidisc.getLong(i, "accId") + "");
+				if (seekRow > 0) {
+					redepmtionAmt += sidisc.getDouble(i, "amt");
+				}
+			}
 		}
+
+		// Amt spent in sidisc
 
 		sipointspent = redepmtionAmt * 2;
 
@@ -128,7 +133,7 @@ public class OcfSiChecker {
 		Long cusId = mainTable.getLong(1, "cusId");
 
 		if (cusId != 0) {
-			String sql = " select * from ocfremcust where hId = " + cusId
+			sql = " select * from ocfremcust where hId = " + cusId
 					+ " and concat(`sourceType`, '_',`sourceId`) != 'siso_" + siId + "';";
 			sql += " select * from ocfrccus where hId = " + cusId + ";";
 			sql += " select * from ocfrcdcus where hId = " + cusId
