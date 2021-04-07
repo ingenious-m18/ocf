@@ -48,6 +48,7 @@
 		<caw:extendComponent target="groupCoId" action="after">
 			<caw:inputNum tableName="cus" columnName="transportcharge"/>
 			<caw:inputNum tableName="cus" columnName="invoicediscount"/>
+			<caw:inputText tableName="cus" columnName="ocfCusPoNo"></caw:inputText>
 			<caw:inputCombo tableName="cus" columnName="ocfTerms" dataOption="#{var.ocfTermsList}">
 			</caw:inputCombo>
 		</caw:extendComponent>	

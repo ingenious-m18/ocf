@@ -24,10 +24,12 @@
 		<table name="ocfrccus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<table name="ocfrcdcus" key="id" c="true" r="true" d="true" u="true" initRow="0" hpk="hId" fKey="" order="" cpnType="table"/>
 		<checker class="com.multiable.erp.ocf.ejb.checker.OcfCusChecker"/>
-	</module>	
+	</module>
+	
 	<module name="siso" extend="true">
 		<checker class="com.multiable.erp.ocf.ejb.checker.OcfSiChecker"/>
-	</module>	
+	</module>
+	
 	<module name="recReg" extend="true">
 		<checker class="com.multiable.erp.ocf.ejb.checker.OcfReceiptRegisterChecker"/>
 	</module>

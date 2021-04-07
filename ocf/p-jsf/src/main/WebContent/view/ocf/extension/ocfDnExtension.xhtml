@@ -16,6 +16,18 @@
 			<caw:inputText tableName="maindn" columnName="ocfCusPoNo"></caw:inputText>
 			<caw:inputCombo tableName="maindn" columnName="ocfTerms" dataOption="#{var.ocfTermsList}">
 			</caw:inputCombo>
+			
+			<caw:inputNum tableName="maindn" columnName="ocfProTtl" disabled="true" Decimal="#{var.amtDecimal}">
+				<caw:facet name="prefixAddon" style="width:4rem;">#{var.curSym}</caw:facet>
+			</caw:inputNum>
+			<caw:inputNum tableName="maindn" columnName="ocfProDisc" disabled="true" Decimal="#{var.amtDecimal}">
+				<caw:facet name="prefixAddon" style="width:4rem;">#{var.curSym}</caw:facet>
+			</caw:inputNum>
+		</caw:extendComponent>
+		
+		<caw:extendComponent target="mainFooter" action="append">
+			<caw:tableColumn columnName="ocfProTtl" afterColumn="amt" edittype="cawNum" Decimal="#{var.amtDecimal}" width="110" editable="false" />
+			<caw:tableColumn columnName="ocfProDisc" afterColumn="amt" edittype="cawNum" Decimal="#{var.amtDecimal}" width="110" editable="false" />
 		</caw:extendComponent>
 		
 		<caw:extendComponent target="fp_remdn_remarks" action="after">

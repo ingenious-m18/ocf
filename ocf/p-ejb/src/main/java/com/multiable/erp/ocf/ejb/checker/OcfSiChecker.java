@@ -17,6 +17,7 @@ import com.multiable.core.share.data.SqlTable;
 import com.multiable.core.share.dto.SeCurdKey;
 import com.multiable.core.share.entity.SqlEntity;
 import com.multiable.core.share.lib.ConvertLib;
+import com.multiable.core.share.lib.ListLib;
 import com.multiable.core.share.lib.MathLib;
 import com.multiable.core.share.lib.StringLib;
 import com.multiable.core.share.message.CheckMsg;
@@ -174,6 +175,91 @@ public class OcfSiChecker {
 						CawGlobal.getMess(OcfSiError.FAIL_INSUF_BALANCE.getMess()));
 				return msg;
 			}
+
+		}
+
+		return null;
+	}
+
+	@EntityCheck(type = CheckType.SAVE, range = CheckRange.BEFORE, checkOrder = 70)
+	public CheckMsg checkDoUpload(SeSaveParam param) {
+
+		SqlEntity entity = param.getSqlEntity();
+		SqlTable mainTable = entity.getMainData();
+		SqlTable art = entity.getData("art");
+		SqlTable maintar_attach = entity.getData("maintar_attach");
+
+		if (art != null && art.size() > 0) {
+			boolean needCheck = false;
+			StringBuilder idStr = new StringBuilder();
+			// Reset
+			for (int i : art) {
+				// See if need to check
+				if (art.getString(i, "sourceType").equals("dn")) {
+					needCheck = true;
+
+					if (idStr.length() > 0) {
+						idStr.append(",");
+					}
+					idStr.append(art.getLong(i, "sourceId"));
+				}
+				art.setBoolean(i, "ocfDoUpload", false);
+			}
+
+			if (!needCheck || idStr.length() == 0) {
+				return null;
+			}
+
+			// Check uploaded attachment
+			List<String> keyList = ListLib.newList();
+			for (int i : maintar_attach) {
+				String code = maintar_attach.getString(i, "code");
+				// Format ??????yyyyMMddHHmmss.pdf
+				// Total 18 words
+				if (code.length() > 18) {
+					int t_len = code.length() - 18;
+					String key = code.substring(0, t_len);
+					keyList.add(key);
+				}
+			}
+
+			// Check keyList with corresponding row in art
+			String sql = "select id, code from maindn where id != 0 and id in (" + idStr.toString() + ")";
+			SqlTable srResult = CawDs.getResult(sql);
+			if (srResult != null && srResult.size() > 0) {
+				TableStaticIndexAdapter srIndex = new TableStaticIndexAdapter(srResult) {
+					@Override
+					public String getIndexKey() {
+						return src.getValueStr(srcRow, "id");
+					}
+				};
+				srIndex.action();
+
+				for (int i : art) {
+					if (art.getString(i, "sourceType").equals("dn")) {
+						int seekRow = srIndex.seek(art.getLong(i, "sourceId") + "");
+						if (seekRow > 0) {
+							String t_code = srResult.getString(seekRow, "code");
+
+							if (keyList.contains(t_code)) {
+								art.setBoolean(i, "ocfDoUpload", true);
+							}
+						}
+					}
+				}
+			}
+
+			// Check if all DN has been uploaded
+			boolean allUpload = true;
+			for (int i : art) {
+				if (art.getString(i, "sourceType").equals("dn")) {
+					if (!art.getBoolean(i, "ocfDoUpload")) {
+						allUpload = false;
+						break;
+					}
+				}
+			}
+			mainTable.setBoolean(1, "ocfDoUpload", allUpload);
 
 		}
 

@@ -2,7 +2,9 @@ package com.multiable.erp.ocf.bean.view.listener;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.component.UIComponent;
 
@@ -11,23 +13,34 @@ import com.multiable.bean.view.ModuleAction.ActionParam;
 import com.multiable.bean.view.ViewController;
 import com.multiable.core.share.data.SqlTable;
 import com.multiable.core.share.lib.ConvertLib;
+import com.multiable.core.share.lib.DateFormatLib;
+import com.multiable.core.share.lib.DateLib;
 import com.multiable.core.share.lib.ListLib;
+import com.multiable.core.share.lib.MathLib;
 import com.multiable.core.share.meta.search.FormatCond;
 import com.multiable.core.share.meta.search.StParameter;
+import com.multiable.erp.core.bean.decorator.BatchGenDataDecorator;
 import com.multiable.erp.core.bean.listener.MacModuleRecordViewListener;
 import com.multiable.erp.core.bean.query.ErpQueryUtil;
 import com.multiable.erp.core.share.util.MacUtil;
 import com.multiable.erp.ocf.share.util.OcfUtil;
+import com.multiable.erp.trdg.bean.decorator.ITradingCalcDecorator;
+import com.multiable.erp.trdg.bean.view.IMacCalcDelegate;
+import com.multiable.erp.trdg.bean.view.IMacCalculateHelper;
+import com.multiable.erp.vat.bean.util.MacVatUtil;
+import com.multiable.erp.ztrdgvat.share.util.VatTrdgUtil;
 import com.multiable.ui.component.form.inputcombo.ComboOption;
 import com.multiable.web.LookupDecorateEvent;
 import com.multiable.web.ValueChangeEvent;
 import com.multiable.web.ViewActionEvent;
 import com.multiable.web.WebUtil;
+import com.multiable.web.component.edittable.EditTable;
 import com.multiable.web.component.edittable.EditTableModel;
 import com.multiable.web.component.edittable.interfaces.TableActionListener;
 import com.multiable.web.config.CawDialog;
 
-public class OcfSiListener extends MacModuleRecordViewListener {
+public class OcfSiListener extends MacModuleRecordViewListener implements BatchGenDataDecorator, ITradingCalcDecorator {
+
 	private String lastLookupType = "";
 
 	@Override
@@ -101,25 +114,44 @@ public class OcfSiListener extends MacModuleRecordViewListener {
 		UIComponent component = vce.getComponent();
 
 		SqlTable mainData = getEntity().getMainData();
+		SqlTable art = getEntity().getData("art");
 
-		if (("maintar_cusId").equals(component.getId())) {
-			Long newCusId = ConvertLib.toLong(vce.getNewValue());
+		if (component instanceof EditTable) {
+			if (component.getId().equals("mainFooter")) {
+				EditTable eTable = (EditTable) vce.getComponent();
+				String tableName = eTable.getTableName();
+				String columnName = eTable.getCellColumnName();
+				EditTableModel tableModel = getTableModel(tableName);
+				int rowIndex = tableModel.getRowIndex(eTable.getCellRowid());
 
-			// Assign ocfTerms
-			StringBuffer condStr = new StringBuffer();
-			condStr.append("#cus#.id = " + newCusId);
-			List<FormatCond> conds = ListLib.newList();
-			conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
-			List<String> extraFieldList = ListLib.newList();
-			extraFieldList.add("ocfTerms");
-			SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+				Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
+				MacVatUtil.triggerVatFormula(getBeId(), tableName, art, rowIndex, columnName, true, decimapMapping);
 
-			if (srCusInfo != null && srCusInfo.size() > 0) {
-				mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
-			} else {
-				mainData.setString(1, "ocfTerms", "");
+				after_a_mainfooter_up(getCalcHelper(), rowIndex);
 			}
-			WebUtil.update("maintar_ocfTerms");
+		} else {
+			if (("maintar_cusId").equals(component.getId())) {
+				Long newCusId = ConvertLib.toLong(vce.getNewValue());
+
+				// Assign ocfCusPoNo, ocfTerms
+				StringBuffer condStr = new StringBuffer();
+				condStr.append("#cus#.id = " + newCusId);
+				List<FormatCond> conds = ListLib.newList();
+				conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+				List<String> extraFieldList = ListLib.newList();
+				extraFieldList.add("ocfCusPoNo");
+				extraFieldList.add("ocfTerms");
+				SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+
+				if (srCusInfo != null && srCusInfo.size() > 0) {
+					mainData.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+					mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+				} else {
+					mainData.setString(1, "ocfCusPoNo", "");
+					mainData.setString(1, "ocfTerms", "");
+				}
+				WebUtil.update("maindn_ocfCusPoNo", "maindn_ocfTerms");
+			}
 		}
 	}
 
@@ -128,6 +160,37 @@ public class OcfSiListener extends MacModuleRecordViewListener {
 		super.dialogCallback(vae);
 		CawDialog dialog = (CawDialog) vae.getSource();
 		String dialogName = dialog.getDialogName();
+	}
+
+	@Override
+	public void after_a_mainfooter_up(IMacCalculateHelper calcHelper, int rec) {
+		SqlTable mainTable = getEntity().getMainData();
+		SqlTable art = getEntity().getData("art");
+
+		Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
+		MacVatUtil.triggerVatFormula(getBeId(), getFTName(), getMainFooter(), rec, "up", true, decimapMapping);
+
+		// Set values for footer ocfProTtl, ocfProDisc
+		double ttlProTtl = 0d;
+		double ttlProDisc = 0d;
+		for (int i : art) {
+			double preTaxUp = art.getDouble(i, "preTaxUp");
+			double qty = art.getDouble(i, "qty");
+			double disc = art.getDouble(i, "disc");
+
+			double proTtl = MathLib.round(preTaxUp * qty, MacUtil.getAmtDecimal(getBeId()));
+			double proDisc = MathLib.round(preTaxUp * qty * disc / 100, MacUtil.getAmtDecimal(getBeId()));
+
+			ttlProTtl += proTtl;
+			ttlProDisc += proDisc;
+			art.setValue(i, "ocfProTtl", proTtl);
+			art.setValue(i, "ocfProDisc", proDisc);
+		}
+
+		mainTable.setValue(1, "ocfProTtl", ttlProTtl);
+		mainTable.setValue(1, "ocfProDisc", ttlProDisc);
+
+		WebUtil.update("maintar_ocfProTtl", "maintar_ocfProDisc");
 	}
 
 	private void prepareData(ModuleAction action) {
@@ -153,6 +216,49 @@ public class OcfSiListener extends MacModuleRecordViewListener {
 			}
 		}
 		setVariable("ocfTermsList", ocfTermsList);
+
+		Date ocfLastUploadTime = (Date) getMainData().getObject(1, "ocfLastUploadTime");
+		if (DateLib.isEmptyDate(ocfLastUploadTime)) {
+			setVariable("ocfLastUploadTimeStr", "");
+		} else {
+			setVariable("ocfLastUploadTimeStr",
+					DateFormatLib.date2Str(ocfLastUploadTime, DateFormatLib.DEF_DATETIME_MILLISECOND_PATTERN));
+		}
+	}
+
+	// Load from batchGenSetting
+	@Override
+	public void afterLoadData(SqlTable sourceTable) {
+		SqlTable mainTable = getEntity().getMainData();
+		long cusId = mainTable.getLong(1, "cusId");
+
+		// Assign ocfCusPoNo, ocfTerms
+		StringBuffer condStr = new StringBuffer();
+		condStr.append("#cus#.id = " + cusId);
+		List<FormatCond> conds = ListLib.newList();
+		conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+		List<String> extraFieldList = ListLib.newList();
+		extraFieldList.add("ocfCusPoNo");
+		extraFieldList.add("ocfTerms");
+		SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+
+		if (srCusInfo != null && srCusInfo.size() > 0) {
+			mainTable.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+			mainTable.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+		} else {
+			mainTable.setString(1, "ocfCusPoNo", "");
+			mainTable.setString(1, "ocfTerms", "");
+		}
+	}
+
+	public IMacCalculateHelper getCalcHelper() {
+		IMacCalculateHelper calcHelper = null;
+		if (controller.getVariable("calcDelegate") != null) {
+			IMacCalcDelegate delegate = (IMacCalcDelegate) controller.getVariable("calcDelegate");
+			calcHelper = delegate.getCalcHelper();
+		}
+
+		return calcHelper;
 	}
 
 	protected class OcfFooterTableListener implements TableActionListener, Serializable {

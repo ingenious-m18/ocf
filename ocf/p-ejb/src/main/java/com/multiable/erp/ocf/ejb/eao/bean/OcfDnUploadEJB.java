@@ -122,11 +122,15 @@ public class OcfDnUploadEJB implements OcfDnUploadLocal {
 						key = key.substring(0, dotIndex);
 					}
 
-					// Check if DN exists
-					String sql = "select id from maindn where code = '" + key + "';";
-					SqlTable dnResult = CawDs.getResult(sql);
+					// 20210331 Save to SI
+					// Check if SI exists
+					StringBuilder sql = new StringBuilder();
+					sql.append(" select a.hId, b.id as dnId from art a, maindn b");
+					sql.append(" where a.sourceType = 'dn' and a.sourceId = b.id");
+					sql.append(" and b.code = '" + key + "';");
+					SqlTable siResult = CawDs.getResult(sql.toString());
 
-					if (dnResult != null && dnResult.size() > 0) {
+					if (siResult != null && siResult.size() > 0) {
 						// Write file to temp dir
 						File newFile = newFile(destDir, zipEntry);
 						FileOutputStream fos = new FileOutputStream(newFile);
@@ -140,42 +144,74 @@ public class OcfDnUploadEJB implements OcfDnUploadLocal {
 						Date uploadTime = DateLib.getCurTime();
 						String fileName = key + DateFormatLib.date2Str(uploadTime, "yyyyMMddHHmmss");
 
-						// Attach to DN
-						SeReadParam readParam = new SeReadParam("dn");
-						readParam.setEntityId(dnResult.getLong(1, "id"));
-						SqlEntity dnEntity = entityEao.loadEntity(readParam);
+						// Attach to SI
+						SeReadParam readParam = new SeReadParam("siso");
+						readParam.setEntityId(siResult.getLong(1, "hId"));
+						SqlEntity siEntity = entityEao.loadEntity(readParam);
 
-						SqlTable maindn = dnEntity.getMainData();
-						SqlTable maindn_attach = dnEntity.getData("maindn_attach");
+						if (siEntity == null) {
+							int retRow = retTable.addRow();
+							retTable.setValue(retRow, "code", key);
+							retTable.setValue(retRow, "result", "N");
+							retTable.setValue(retRow, "remarks",
+									"Cannot find corresponding Sales Invoice records");
+							continue;
+						}
+
+						SqlTable maintar = siEntity.getMainData();
+						SqlTable maintar_attach = siEntity.getData("maintar_attach");
+						SqlTable art = siEntity.getData("art");
 
 						// Save file to get merged pdf fileId
 						Long m_fileId = fileEao.saveFile(".pdf", destPath + File.separator + zipEntry.getName(),
 								fileName);
 						FileInfoDto info = fileEao.getFileInfo(m_fileId);
 						if (info != null) {
-							maindn.setValue(1, "lastUploadTime", DateLib.dateTimeToString(uploadTime));
-							maindn.setValue(1, "sendViaEmail", true);
-							maindn.setValue(1, "iRev", maindn.getInteger(1, "iRev") + 1);
+							maintar.setValue(1, "ocfLastUploadTime", uploadTime);
+							maintar.setValue(1, "iRev", maintar.getInteger(1, "iRev") + 1);
+							maintar.setValue(1, "lastModifyDate", uploadTime);
 
-							int rec = maindn_attach.addRow();
-							maindn_attach.setValue(rec, "iRev", 1);
-							maindn_attach.setValue(rec, "hId", dnResult.getLong(1, "id"));
-							maindn_attach.setValue(rec, "filedataId", m_fileId);
-							maindn_attach.setValue(rec, "code", fileName + ".pdf");
-							maindn_attach.setValue(rec, "desc", fileName);
-							maindn_attach.setValue(rec, "fileSize", info.getSize());
-							maindn_attach.setValue(rec, "createUid", (CawContext.getUser() == null
+							// Insert into attachment
+							int rec = maintar_attach.addRow();
+							maintar_attach.setValue(rec, "iRev", 1);
+							maintar_attach.setValue(rec, "hId", siResult.getLong(1, "hId"));
+							maintar_attach.setValue(rec, "filedataId", m_fileId);
+							maintar_attach.setValue(rec, "code", fileName + ".pdf");
+							maintar_attach.setValue(rec, "desc", fileName);
+							maintar_attach.setValue(rec, "fileSize", info.getSize());
+							maintar_attach.setValue(rec, "createUid", (CawContext.getUser() == null
 									? CawGlobal.getSysUser().getUid() : CawContext.getUser().getUid()));
-							maindn_attach.setValue(rec, "createDate", uploadTime);
-							maindn_attach
+							maintar_attach.setValue(rec, "createDate", uploadTime);
+							maintar_attach
 									.setValue(rec, "author",
 											(CawContext.getUser() == null
 													? CawGlobal.getSysUser().getUsercode()
 													: CawContext.getUser().getUsercode()));
-							maindn_attach.setValue(rec, "tags", "Upload via [Delivery Note Upload]");
+							maintar_attach.setValue(rec, "tags", "Upload via [Delivery Note Upload]");
 
-							SeSaveParam saveParam = new SeSaveParam("dn");
-							saveParam.setSqlEntity(dnEntity);
+							// Check ocfDnUpload for footer
+							for (int i : art) {
+								if (art.getString(i, "sourceType").equals("dn")
+										&& art.getLong(i, "sourceId") == siResult.getLong(1, "dnId")) {
+									art.setBoolean(i, "ocfDoUpload", true);
+								}
+							}
+
+							// Check if all DN has been uploaded
+							boolean allUpload = true;
+							for (int i : art) {
+								if (art.getString(i, "sourceType").equals("dn")) {
+									if (!art.getBoolean(i, "ocfDoUpload")) {
+										allUpload = false;
+										break;
+									}
+								}
+							}
+
+							maintar.setBoolean(1, "ocfDoUpload", allUpload);
+
+							SeSaveParam saveParam = new SeSaveParam("siso");
+							saveParam.setSqlEntity(siEntity);
 							entityEao.saveEntity(saveParam);
 
 							CawLog.info("Save success: " + key);
@@ -191,7 +227,7 @@ public class OcfDnUploadEJB implements OcfDnUploadLocal {
 						int retRow = retTable.addRow();
 						retTable.setValue(retRow, "code", key);
 						retTable.setValue(retRow, "result", "N");
-						retTable.setValue(retRow, "remarks", "Cannot find corresponding Delivery Note records");
+						retTable.setValue(retRow, "remarks", "Cannot find corresponding Sales Invoice records");
 					}
 
 					zipEntry = zis.getNextEntry();
@@ -717,6 +753,139 @@ public class OcfDnUploadEJB implements OcfDnUploadLocal {
 
 		return retTable;
 
+	}
+
+	// Backup old readDoc method which saves to DN
+	private void backupMethod3(Long fileId) {
+		SqlTable retTable = new SqlTable();
+		retTable.addField(new SqlTableField("code", String.class));
+		retTable.addField(new SqlTableField("result", String.class));
+		retTable.addField(new SqlTableField("remarks", String.class));
+
+		try {
+
+			FileInfoDto fileInfo = fileEJB.getFileInfoDto(fileId);
+
+			if (fileInfo != null) {
+
+				// Unzip file
+				String zipPath = fileEao.getFilePath(fileId);
+				String destPath = CawLib.getPath_Jboss() + File.separator + "ocfInput";
+
+				// Create destPath
+				if (!FileLib.exist(destPath)) {
+					FileLib.createFolder(destPath);
+				}
+
+				File destDir = new File(destPath);
+
+				byte[] buffer = new byte[1024];
+				ZipInputStream zis = new ZipInputStream(new FileInputStream(zipPath));
+				ZipEntry zipEntry = zis.getNextEntry();
+
+				// init using JNDI
+				SqlEntityEAOLocal entityEao = null;
+				try {
+					entityEao = JNDILocator.getInstance().lookupEJB("SqlEntityEAO", SqlEntityEAOLocal.class);
+				} catch (NamingException e) {
+					e.printStackTrace();
+				}
+
+				while (zipEntry != null) {
+					String key = zipEntry.getName();
+					int dotIndex = key.indexOf(".");
+					if (dotIndex > 0) {
+						key = key.substring(0, dotIndex);
+					}
+
+					// Check if DN exists
+					String sql = "select id from maindn where code = '" + key + "';";
+					SqlTable dnResult = CawDs.getResult(sql);
+
+					if (dnResult != null && dnResult.size() > 0) {
+						// Write file to temp dir
+						File newFile = newFile(destDir, zipEntry);
+						FileOutputStream fos = new FileOutputStream(newFile);
+						int len;
+						while ((len = zis.read(buffer)) > 0) {
+							fos.write(buffer, 0, len);
+						}
+						fos.close();
+
+						// Set file name
+						Date uploadTime = DateLib.getCurTime();
+						String fileName = key + DateFormatLib.date2Str(uploadTime, "yyyyMMddHHmmss");
+
+						// Attach to DN
+						SeReadParam readParam = new SeReadParam("dn");
+						readParam.setEntityId(dnResult.getLong(1, "id"));
+						SqlEntity dnEntity = entityEao.loadEntity(readParam);
+
+						SqlTable maindn = dnEntity.getMainData();
+						SqlTable maindn_attach = dnEntity.getData("maindn_attach");
+
+						// Save file to get merged pdf fileId
+						Long m_fileId = fileEao.saveFile(".pdf", destPath + File.separator + zipEntry.getName(),
+								fileName);
+						FileInfoDto info = fileEao.getFileInfo(m_fileId);
+						if (info != null) {
+							maindn.setValue(1, "lastUploadTime", DateLib.dateTimeToString(uploadTime));
+							maindn.setValue(1, "sendViaEmail", true);
+							maindn.setValue(1, "iRev", maindn.getInteger(1, "iRev") + 1);
+
+							int rec = maindn_attach.addRow();
+							maindn_attach.setValue(rec, "iRev", 1);
+							maindn_attach.setValue(rec, "hId", dnResult.getLong(1, "id"));
+							maindn_attach.setValue(rec, "filedataId", m_fileId);
+							maindn_attach.setValue(rec, "code", fileName + ".pdf");
+							maindn_attach.setValue(rec, "desc", fileName);
+							maindn_attach.setValue(rec, "fileSize", info.getSize());
+							maindn_attach.setValue(rec, "createUid", (CawContext.getUser() == null
+									? CawGlobal.getSysUser().getUid() : CawContext.getUser().getUid()));
+							maindn_attach.setValue(rec, "createDate", uploadTime);
+							maindn_attach
+									.setValue(rec, "author",
+											(CawContext.getUser() == null
+													? CawGlobal.getSysUser().getUsercode()
+													: CawContext.getUser().getUsercode()));
+							maindn_attach.setValue(rec, "tags", "Upload via [Delivery Note Upload]");
+
+							SeSaveParam saveParam = new SeSaveParam("dn");
+							saveParam.setSqlEntity(dnEntity);
+							entityEao.saveEntity(saveParam);
+
+							CawLog.info("Save success: " + key);
+
+							int retRow = retTable.addRow();
+							retTable.setValue(retRow, "code", key);
+							retTable.setValue(retRow, "result", "Y");
+
+						}
+
+					} else {
+						// Record the failed DN codes
+						int retRow = retTable.addRow();
+						retTable.setValue(retRow, "code", key);
+						retTable.setValue(retRow, "result", "N");
+						retTable.setValue(retRow, "remarks", "Cannot find corresponding Delivery Note records");
+					}
+
+					zipEntry = zis.getNextEntry();
+				}
+
+				zis.closeEntry();
+				zis.close();
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			int retRow = retTable.addRow();
+			retTable.setValue(retRow, "code", "");
+			retTable.setValue(retRow, "result", "N");
+			retTable.setValue(retRow, "remarks", e.toString());
+
+		}
 	}
 
 	public class PdfObj {

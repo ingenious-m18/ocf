@@ -62,6 +62,7 @@ import com.multiable.web.ValueChangeEvent;
 import com.multiable.web.ViewActionEvent;
 import com.multiable.web.WebMessage.MessageType;
 import com.multiable.web.WebUtil;
+import com.multiable.web.component.edittable.EditTable;
 import com.multiable.web.component.edittable.EditTableModel;
 import com.multiable.web.component.edittable.interfaces.TableActionListener;
 import com.multiable.web.config.CawDialog;
@@ -135,6 +136,8 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 				lastLookupType = "tranId";
 			}
 		} else if (event.getComponentId().equals("maindn_cusId")) {
+			// Seems not work. lookupResult is only available in eTable
+			param.addExtraField("ocfCusPoNo");
 			param.addExtraField("ocfTerms");
 		}
 	}
@@ -148,244 +151,215 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 		SqlTable dndisc = getEntity().getData("dndisc");
 		SqlTable remdn = getEntity().getData("remdn");
 
-		if (("remdn_cardsize").equals(component.getId())) {
-			if (ConvertLib.toString(vce.getNewValue()).equals("Small")) {
-				remdn.setString(1, "ocfsender",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
-				remdn.setString(1, "msgcontent",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
-				remdn.setString(1, "ocfrecipient",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
+		if (component instanceof EditTable) {
+			if (component.getId().equals("mainFooter")) {
+				EditTable eTable = (EditTable) vce.getComponent();
+				String tableName = eTable.getTableName();
+				String columnName = eTable.getCellColumnName();
+				EditTableModel tableModel = getTableModel(tableName);
+				int rowIndex = tableModel.getRowIndex(eTable.getCellRowid());
 
-				WebUtil.update("remdn_ocfsender", "remdn_msgcontent", "remdn_ocfrecipient");
-			} else if (ConvertLib.toString(vce.getNewValue()).equals("Large")) {
-				remdn.setString(1, "ocfsender",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
-				remdn.setString(1, "msgcontent",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
-				remdn.setString(1, "ocfrecipient",
-						"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
+				Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
+				MacVatUtil.triggerVatFormula(getBeId(), tableName, dnt, rowIndex, columnName, true, decimapMapping);
 
-				WebUtil.update("remdn_ocfsender", "remdn_msgcontent", "remdn_ocfrecipient");
+				after_a_mainfooter_up(getCalcHelper(), rowIndex);
 			}
-		} else if (MacUtil.isIn(component.getId(), "remdn_ocfrecipient", "remdn_ocfsender", "remdn_msgcontent")) {
+		} else {
+			if (("remdn_cardsize").equals(component.getId())) {
+				if (ConvertLib.toString(vce.getNewValue()).equals("Small")) {
+					remdn.setString(1, "ocfsender",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
+					remdn.setString(1, "msgcontent",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 10px;\">&nbsp;</span></font></p>");
+					remdn.setString(1, "ocfrecipient",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 11px;\">&nbsp;</span></font></p>");
 
-			String sel_fieldName = component.getId().split("_")[1];
-			String[] htmlFields = new String[] { "ocfrecipient", "msgcontent", "ocfsender" };
-			StringBuilder ocfDisplay = new StringBuilder();
-			for (int i = 0; i < htmlFields.length; i++) {
-				String field = htmlFields[i];
+					WebUtil.update("remdn_ocfsender", "remdn_msgcontent", "remdn_ocfrecipient");
+				} else if (ConvertLib.toString(vce.getNewValue()).equals("Large")) {
+					remdn.setString(1, "ocfsender",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
+					remdn.setString(1, "msgcontent",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 26px;\">&nbsp;</span></font></p>");
+					remdn.setString(1, "ocfrecipient",
+							"<p style=\"text-align: center; \"><font face=\"Arial Black\"><span style=\"font-size: 30px;\">&nbsp;</span></font></p>");
 
-				if (field.equals(sel_fieldName)) {
-					ocfDisplay.append(ConvertLib.toString(vce.getNewValue()));
-				} else {
-					ocfDisplay.append(remdn.getString(1, field));
+					WebUtil.update("remdn_ocfsender", "remdn_msgcontent", "remdn_ocfrecipient");
 				}
+			} else
+				if (MacUtil.isIn(component.getId(), "remdn_ocfrecipient", "remdn_ocfsender", "remdn_msgcontent")) {
 
-				if (i != htmlFields.length - 1) {
-					ocfDisplay.append("<br>");
-				}
-			}
+				String sel_fieldName = component.getId().split("_")[1];
+				String[] htmlFields = new String[] { "ocfrecipient", "msgcontent", "ocfsender" };
+				StringBuilder ocfDisplay = new StringBuilder();
+				for (int i = 0; i < htmlFields.length; i++) {
+					String field = htmlFields[i];
 
-			setVariable("ocfDisplay", ocfDisplay.toString());
-			WebUtil.update("ocfDisplayBox");
+					if (field.equals(sel_fieldName)) {
+						ocfDisplay.append(ConvertLib.toString(vce.getNewValue()));
+					} else {
+						ocfDisplay.append(remdn.getString(1, field));
+					}
 
-		} else if (("maindn_cusId").equals(component.getId())) {
-			Long newCusId = ConvertLib.toLong(vce.getNewValue());
-
-			// Assign ocfTerms
-			StringBuffer condStr = new StringBuffer();
-			condStr.append("#cus#.id = " + newCusId);
-			List<FormatCond> conds = ListLib.newList();
-			conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
-			List<String> extraFieldList = ListLib.newList();
-			extraFieldList.add("ocfTerms");
-			SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
-
-			if (srCusInfo != null && srCusInfo.size() > 0) {
-				mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
-			} else {
-				mainData.setString(1, "ocfTerms", "");
-			}
-			WebUtil.update("maindn_ocfTerms");
-
-			// Copy dnt
-			SqlTable copy_dnt = dnt.genEmptyTable();
-
-			ITableAppend append = new TableAppendAuto(copy_dnt, dnt) {
-				@Override
-				public boolean condition() {
-					return dnt.getLong(incRow, "proId") != 0;
-				}
-			};
-			append.action();
-
-			// Read Customer's Transport Change and insert record
-
-			// Step 1: To remove existing transport charge acc from dndisc table
-			conds = ListLib.newList();
-			FormatCond cond = new FormatCond();
-			cond.setCondString("transportchargeaccount = 1");
-			conds.add(cond);
-			SqlTable transAccTable = ErpQueryUtil.searchWsData("account", null, conds);
-			Long transAccId = 0L;
-
-			if (transAccTable != null && transAccTable.size() > 0) {
-				transAccId = transAccTable.getLong(1, "id");
-
-				// Find if dndisc has transAccId, if yes, remove
-				for (int i = dndisc.size(); i > 0; i--) {
-					if (transAccId == dndisc.getLong(i, "accId")) {
-						dndisc.deleteRow(i);
+					if (i != htmlFields.length - 1) {
+						ocfDisplay.append("<br>");
 					}
 				}
 
-			}
+				setVariable("ocfDisplay", ocfDisplay.toString());
+				WebUtil.update("ocfDisplayBox");
 
-			// Step 2: Get cusTomer Info, Add. Disc table info
-			Date tDate = (Date) mainData.getObject(1, "tDate");
-			String zipcode = remdn.getString(1, "zipcode");
-			cusDiscRate = 0;
+			} else if (("maindn_cusId").equals(component.getId())) {
+				Long newCusId = ConvertLib.toLong(vce.getNewValue());
 
-			List<SqlTable> myResults = dnEJB.calcCusDiscount(getBeId(), newCusId, transAccId, tDate, zipcode,
-					copy_dnt);
+				// Assign ocfCusPoNo, ocfTerms
+				StringBuffer condStr = new StringBuffer();
+				condStr.append("#cus#.id = " + newCusId);
+				List<FormatCond> conds = ListLib.newList();
+				conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+				List<String> extraFieldList = ListLib.newList();
+				extraFieldList.add("ocfCusPoNo");
+				extraFieldList.add("ocfTerms");
+				SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
 
-			SqlTable cusInfo = myResults.get(0);
-			SqlTable zipCodeInfo = myResults.get(2);
-			SqlTable chargeInfo = myResults.get(3);
-			double transCharge = 0;
-			int beDecimal = MacUtil.getAmtDecimal(getBeId());
+				if (srCusInfo != null && srCusInfo.size() > 0) {
+					mainData.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+					mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+				} else {
+					mainData.setString(1, "ocfCusPoNo", "");
+					mainData.setString(1, "ocfTerms", "");
+				}
+				WebUtil.update("maindn_ocfCusPoNo", "maindn_ocfTerms");
 
-			IMacCalcDelegate delegate = (IMacCalcDelegate) controller.getVariable("calcDelegate");
-			DeliveryNoteBean curBean = (DeliveryNoteBean) MacBeanUtil.getCurrentBeanInstance("trdgDeliveryNote");
+				// Copy dnt
+				SqlTable copy_dnt = dnt.genEmptyTable();
 
-			// Step 3: Assign invoice discount
-			if (cusInfo != null && cusInfo.size() > 0) {
-				cusDiscRate = cusInfo.getDouble(1, "invoicediscount");
-				transCharge = cusInfo.getDouble(1, "transportcharge");
-
-				// Step 4: Assgin discount to footer table
-				SqlTable proFooter = myResults.get(1);
-				TableStaticIndexAdapter proIndex = new TableStaticIndexAdapter(proFooter) {
+				ITableAppend append = new TableAppendAuto(copy_dnt, dnt) {
 					@Override
-					public String getIndexKey() {
-						return src.getValueStr(srcRow, "proId") + "~^~" + src.getValueStr(srcRow, "unitId")
-								+ "~^~" + src.getValueStr(srcRow, "qty");
+					public boolean condition() {
+						return dnt.getLong(incRow, "proId") != 0;
 					}
 				};
-				proIndex.action();
+				append.action();
 
-				for (int i : dnt) {
-					double oldDisc = dnt.getDouble(i, "disc");
-					int seekRow = proIndex.seek(dnt.getValueStr(i, "proId") + "~^~" + dnt.getValueStr(i, "unitId")
-							+ "~^~" + dnt.getValueStr(i, "qty"));
-					if (seekRow > 0 && !proFooter.getBoolean(seekRow, "ocfAddOnItem")) {
-						dnt.setValue(i, "disc", cusDiscRate);
-					} else {
-						dnt.setValue(i, "disc", 0);
+				// Read Customer's Transport Change and insert record
+
+				// Step 1: To remove existing transport charge acc from dndisc table
+				conds = ListLib.newList();
+				FormatCond cond = new FormatCond();
+				cond.setCondString("transportchargeaccount = 1");
+				conds.add(cond);
+				SqlTable transAccTable = ErpQueryUtil.searchWsData("account", null, conds);
+				Long transAccId = 0L;
+
+				if (transAccTable != null && transAccTable.size() > 0) {
+					transAccId = transAccTable.getLong(1, "id");
+
+					// Find if dndisc has transAccId, if yes, remove
+					for (int i = dndisc.size(); i > 0; i--) {
+						if (transAccId == dndisc.getLong(i, "accId")) {
+							dndisc.deleteRow(i);
+						}
 					}
 
-					delegate.calc_a_mainfooter_disc(i, oldDisc);
-					curBean.calc_invamt();
 				}
-			}
 
-			// Get the row number for transport charge
-			int cr_row = 0;
-			if (chargeInfo != null && chargeInfo.size() > 0) {
-				for (int i : chargeInfo) {
-					if (chargeInfo.getLong(i, "accId") == transAccId) {
-						cr_row = i;
-						break;
-					}
-				}
-			}
+				// Step 2: Get cusTomer Info, Add. Disc table info
+				Date tDate = (Date) mainData.getObject(1, "tDate");
+				String zipcode = remdn.getString(1, "zipcode");
+				cusDiscRate = 0;
 
-			// Step 5: Transport Charge
-			if (transCharge != 0 && cr_row > 0) {
+				List<SqlTable> myResults = dnEJB.calcCusDiscount(getBeId(), newCusId, transAccId, tDate, zipcode,
+						copy_dnt);
 
-				int rec = dndisc.addRow(1);
-				dndisc.setString(rec, "accDesc", chargeInfo.getString(cr_row, "desc"));
-				dndisc.setLong(rec, "accId", transAccId);
-				dndisc.setString(rec, "aDesc", chargeInfo.getString(cr_row, "desc"));
-				dndisc.setString(rec, "c_d", "charge");
-				dndisc.setDouble(rec, "discRate", 0);
-				dndisc.setDouble(rec, "preTaxAmt", transCharge);
-				dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
-				dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
+				SqlTable cusInfo = myResults.get(0);
+				SqlTable zipCodeInfo = myResults.get(2);
+				SqlTable chargeInfo = myResults.get(3);
+				double transCharge = 0;
+				int beDecimal = MacUtil.getAmtDecimal(getBeId());
 
-				double taxAmt = MathLib.round(transCharge * chargeInfo.getDouble(cr_row, "taxRate") / 100,
-						beDecimal);
-				double amt = MathLib.round(taxAmt + transCharge, beDecimal);
-				dndisc.setDouble(rec, "taxAmt", taxAmt);
-				dndisc.setDouble(rec, "amt", amt);
-			}
+				IMacCalcDelegate delegate = (IMacCalcDelegate) controller.getVariable("calcDelegate");
+				DeliveryNoteBean curBean = (DeliveryNoteBean) MacBeanUtil
+						.getCurrentBeanInstance("trdgDeliveryNote");
 
-			// Step 6: Zip code
-			if (zipCodeInfo != null && zipCodeInfo.size() > 0) {
-				double deliCharge = zipCodeInfo.getDouble(1, "deliverychargeperdistance");
+				// Step 3: Assign invoice discount
+				if (cusInfo != null && cusInfo.size() > 0) {
+					cusDiscRate = cusInfo.getDouble(1, "invoicediscount");
+					transCharge = cusInfo.getDouble(1, "transportcharge");
 
-				int rec = dndisc.addRow(1);
-				dndisc.setString(rec, "accDesc", D_ZipCodeCharge);
-				dndisc.setLong(rec, "accId", transAccId);
-				dndisc.setString(rec, "aDesc", chargeInfo.getString(cr_row, "desc"));
-				dndisc.setString(rec, "c_d", "charge");
-				dndisc.setDouble(rec, "discRate", 0);
-				dndisc.setDouble(rec, "preTaxAmt", deliCharge);
-				dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
-				dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
+					// Step 4: Assgin discount to footer table
+					SqlTable proFooter = myResults.get(1);
+					TableStaticIndexAdapter proIndex = new TableStaticIndexAdapter(proFooter) {
+						@Override
+						public String getIndexKey() {
+							return src.getValueStr(srcRow, "proId") + "~^~" + src.getValueStr(srcRow, "unitId")
+									+ "~^~" + src.getValueStr(srcRow, "qty");
+						}
+					};
+					proIndex.action();
 
-				double taxAmt = MathLib.round(deliCharge * chargeInfo.getDouble(cr_row, "taxRate") / 100,
-						beDecimal);
-				double amt = MathLib.round(taxAmt + deliCharge, beDecimal);
-				dndisc.setDouble(rec, "taxAmt", taxAmt);
-				dndisc.setDouble(rec, "amt", amt);
-			}
+					for (int i : dnt) {
+						double oldDisc = dnt.getDouble(i, "disc");
+						int seekRow = proIndex.seek(dnt.getValueStr(i, "proId") + "~^~"
+								+ dnt.getValueStr(i, "unitId") + "~^~" + dnt.getValueStr(i, "qty"));
+						if (seekRow > 0 && !proFooter.getBoolean(seekRow, "ocfAddOnItem")) {
+							dnt.setValue(i, "disc", cusDiscRate);
+						} else {
+							dnt.setValue(i, "disc", 0);
+						}
 
-			curBean.calc_adisc();
-
-			MacWebUtil.reloadEditTable("discFooter");
-		} else if (("remdn_zipcode").equals(component.getId())) {
-			int beDecimal = MacUtil.getAmtDecimal(getBeId());
-			Date tDate = (Date) mainData.getObject(1, "tDate");
-
-			DeliveryNoteBean curBean = (DeliveryNoteBean) MacBeanUtil.getCurrentBeanInstance("trdgDeliveryNote");
-
-			// Step 1: To remove existing transport charge acc from dndisc table
-			List<FormatCond> conds = ListLib.newList();
-			FormatCond cond = new FormatCond();
-			cond.setCondString("transportchargeaccount = 1");
-			conds.add(cond);
-			SqlTable transAccTable = ErpQueryUtil.searchWsData("account", null, conds);
-			Long transAccId = 0L;
-
-			if (transAccTable != null && transAccTable.size() > 0) {
-				transAccId = transAccTable.getLong(1, "id");
-
-				// Find if dndisc has transAccId, if yes, remove
-				for (int i = dndisc.size(); i > 0; i--) {
-					if (transAccId == dndisc.getLong(i, "accId")
-							&& dndisc.getString(i, "accDesc").equals(D_ZipCodeCharge)) {
-						dndisc.deleteRow(i);
+						delegate.calc_a_mainfooter_disc(i, oldDisc);
+						curBean.calc_invamt();
 					}
 				}
 
-				SqlTable zcCharge = dnEJB.getZipCodeCharge(getBeId(), transAccId, tDate,
-						ConvertLib.toString(vce.getNewValue()));
-				if (zcCharge != null && zcCharge.size() > 0) {
-					double chargeAmt = zcCharge.getDouble(1, "zcCharge");
-					int rec = dndisc.addRow();
-					dndisc.setString(rec, "accDesc", D_ZipCodeCharge);
+				// Get the row number for transport charge
+				int cr_row = 0;
+				if (chargeInfo != null && chargeInfo.size() > 0) {
+					for (int i : chargeInfo) {
+						if (chargeInfo.getLong(i, "accId") == transAccId) {
+							cr_row = i;
+							break;
+						}
+					}
+				}
+
+				// Step 5: Transport Charge
+				if (transCharge != 0 && cr_row > 0) {
+
+					int rec = dndisc.addRow(1);
+					dndisc.setString(rec, "accDesc", chargeInfo.getString(cr_row, "desc"));
 					dndisc.setLong(rec, "accId", transAccId);
-					dndisc.setString(rec, "aDesc", transAccTable.getString(1, "desc"));
+					dndisc.setString(rec, "aDesc", chargeInfo.getString(cr_row, "desc"));
 					dndisc.setString(rec, "c_d", "charge");
 					dndisc.setDouble(rec, "discRate", 0);
-					dndisc.setDouble(rec, "preTaxAmt", chargeAmt);
-					dndisc.setLong(rec, "taxCodeId", zcCharge.getLong(1, "taxCodeId"));
-					dndisc.setDouble(rec, "vatPer", zcCharge.getDouble(1, "taxRate"));
+					dndisc.setDouble(rec, "preTaxAmt", transCharge);
+					dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
+					dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
 
-					double taxAmt = MathLib.round(chargeAmt * zcCharge.getDouble(1, "taxRate") / 100, beDecimal);
-					double amt = MathLib.round(taxAmt + chargeAmt, beDecimal);
+					double taxAmt = MathLib.round(transCharge * chargeInfo.getDouble(cr_row, "taxRate") / 100,
+							beDecimal);
+					double amt = MathLib.round(taxAmt + transCharge, beDecimal);
+					dndisc.setDouble(rec, "taxAmt", taxAmt);
+					dndisc.setDouble(rec, "amt", amt);
+				}
+
+				// Step 6: Zip code
+				if (zipCodeInfo != null && zipCodeInfo.size() > 0) {
+					double deliCharge = zipCodeInfo.getDouble(1, "deliverychargeperdistance");
+
+					int rec = dndisc.addRow(1);
+					dndisc.setString(rec, "accDesc", D_ZipCodeCharge);
+					dndisc.setLong(rec, "accId", transAccId);
+					dndisc.setString(rec, "aDesc", chargeInfo.getString(cr_row, "desc"));
+					dndisc.setString(rec, "c_d", "charge");
+					dndisc.setDouble(rec, "discRate", 0);
+					dndisc.setDouble(rec, "preTaxAmt", deliCharge);
+					dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
+					dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
+
+					double taxAmt = MathLib.round(deliCharge * chargeInfo.getDouble(cr_row, "taxRate") / 100,
+							beDecimal);
+					double amt = MathLib.round(taxAmt + deliCharge, beDecimal);
 					dndisc.setDouble(rec, "taxAmt", taxAmt);
 					dndisc.setDouble(rec, "amt", amt);
 				}
@@ -393,6 +367,57 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 				curBean.calc_adisc();
 
 				MacWebUtil.reloadEditTable("discFooter");
+			} else if (("remdn_zipcode").equals(component.getId())) {
+				int beDecimal = MacUtil.getAmtDecimal(getBeId());
+				Date tDate = (Date) mainData.getObject(1, "tDate");
+
+				DeliveryNoteBean curBean = (DeliveryNoteBean) MacBeanUtil
+						.getCurrentBeanInstance("trdgDeliveryNote");
+
+				// Step 1: To remove existing transport charge acc from dndisc table
+				List<FormatCond> conds = ListLib.newList();
+				FormatCond cond = new FormatCond();
+				cond.setCondString("transportchargeaccount = 1");
+				conds.add(cond);
+				SqlTable transAccTable = ErpQueryUtil.searchWsData("account", null, conds);
+				Long transAccId = 0L;
+
+				if (transAccTable != null && transAccTable.size() > 0) {
+					transAccId = transAccTable.getLong(1, "id");
+
+					// Find if dndisc has transAccId, if yes, remove
+					for (int i = dndisc.size(); i > 0; i--) {
+						if (transAccId == dndisc.getLong(i, "accId")
+								&& dndisc.getString(i, "accDesc").equals(D_ZipCodeCharge)) {
+							dndisc.deleteRow(i);
+						}
+					}
+
+					SqlTable zcCharge = dnEJB.getZipCodeCharge(getBeId(), transAccId, tDate,
+							ConvertLib.toString(vce.getNewValue()));
+					if (zcCharge != null && zcCharge.size() > 0) {
+						double chargeAmt = zcCharge.getDouble(1, "zcCharge");
+						int rec = dndisc.addRow();
+						dndisc.setString(rec, "accDesc", D_ZipCodeCharge);
+						dndisc.setLong(rec, "accId", transAccId);
+						dndisc.setString(rec, "aDesc", transAccTable.getString(1, "desc"));
+						dndisc.setString(rec, "c_d", "charge");
+						dndisc.setDouble(rec, "discRate", 0);
+						dndisc.setDouble(rec, "preTaxAmt", chargeAmt);
+						dndisc.setLong(rec, "taxCodeId", zcCharge.getLong(1, "taxCodeId"));
+						dndisc.setDouble(rec, "vatPer", zcCharge.getDouble(1, "taxRate"));
+
+						double taxAmt = MathLib.round(chargeAmt * zcCharge.getDouble(1, "taxRate") / 100,
+								beDecimal);
+						double amt = MathLib.round(taxAmt + chargeAmt, beDecimal);
+						dndisc.setDouble(rec, "taxAmt", taxAmt);
+						dndisc.setDouble(rec, "amt", amt);
+					}
+
+					curBean.calc_adisc();
+
+					MacWebUtil.reloadEditTable("discFooter");
+				}
 			}
 		}
 	}
@@ -540,6 +565,7 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 	@Override
 	public void after_mainfooter_up(IMacCalculateHelper calcHelper, int rowIndex, SqlTable srcTable, boolean fromUc,
 			SqlTable tarTable) {
+		SqlTable mainTable = getEntity().getMainData();
 		SqlTable dnt = getEntity().getData("dnt");
 
 		// Cannot use srcTable; It is the table returned from ProPriceEJB
@@ -575,6 +601,38 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 				getCalcHelper().calc_invamt();
 			}
 		}
+
+	}
+
+	@Override
+	public void after_a_mainfooter_up(IMacCalculateHelper calcHelper, int rec) {
+		SqlTable mainTable = getEntity().getMainData();
+		SqlTable dnt = getEntity().getData("dnt");
+
+		Map<String, Integer> decimapMapping = VatTrdgUtil.getDefDeciMapping(getBeId());
+		MacVatUtil.triggerVatFormula(getBeId(), getFTName(), getMainFooter(), rec, "up", true, decimapMapping);
+
+		// Set values for footer ocfProTtl, ocfProDisc
+		double ttlProTtl = 0d;
+		double ttlProDisc = 0d;
+		for (int i : dnt) {
+			double preTaxUp = dnt.getDouble(i, "preTaxUp");
+			double qty = dnt.getDouble(i, "qty");
+			double disc = dnt.getDouble(i, "disc");
+
+			double proTtl = MathLib.round(preTaxUp * qty, MacUtil.getAmtDecimal(getBeId()));
+			double proDisc = MathLib.round(preTaxUp * qty * disc / 100, MacUtil.getAmtDecimal(getBeId()));
+
+			ttlProTtl += proTtl;
+			ttlProDisc += proDisc;
+			dnt.setValue(i, "ocfProTtl", proTtl);
+			dnt.setValue(i, "ocfProDisc", proDisc);
+		}
+
+		mainTable.setValue(1, "ocfProTtl", ttlProTtl);
+		mainTable.setValue(1, "ocfProDisc", ttlProDisc);
+
+		WebUtil.update("maindn_ocfProTtl", "maindn_ocfProDisc");
 	}
 
 	private void prepareData(ModuleAction action) {

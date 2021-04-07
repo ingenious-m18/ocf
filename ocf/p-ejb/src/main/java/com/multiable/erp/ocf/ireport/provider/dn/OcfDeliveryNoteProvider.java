@@ -42,9 +42,12 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 		handleHtmlField(remdn, new String[] { "ocfsender", "msgcontent", "ocfrecipient" }, false);
 
 		// Check word limit and show '......as per card.'
-		checkWordLimit(remdn, 1, 40, 2, "ocfsender");
+		checkWordLimit(remdn, 1, 40, 5, "ocfsender");
 		checkWordLimit(remdn, 1, 40, 5, "msgcontent");
 		checkWordLimit(remdn, 1, 40, 3, "ocfrecipient");
+
+		// Show at most 5 product footers
+		checkProFooterLimit(reData, 5);
 
 		// UDF Field Handling
 		CawReportSqlTable maindn = reData.getSqlResult("maindn");
@@ -141,35 +144,105 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 			int length = str_fieldValue.length();
 			StringBuilder sb = new StringBuilder();
 
-			while (true) {
-				if (c_ttlWordCnt == length) {
-					break;
-				}
+			// Original way to split content into rows
+			// while (true) {
+			// if (c_ttlWordCnt == length) {
+			// break;
+			// }
+			//
+			// if (c_rowCnt > rowLimit) {
+			// break;
+			// }
+			//
+			// if (c_wordCnt < wordLimit) {
+			// sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+			//
+			// c_wordCnt++;
+			// } else {
+			//
+			// c_wordCnt = 0;
+			// c_rowCnt++;
+			//
+			// if (c_rowCnt > rowLimit) {
+			// break;
+			// }
+			//
+			// sb.append("\n");
+			// sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+			//
+			// c_wordCnt++;
+			// }
+			//
+			// c_ttlWordCnt++;
+			// }
 
-				if (c_rowCnt > rowLimit) {
-					break;
-				}
+			// Split the str by space
+			String[] wordArray = str_fieldValue.split(" ");
+			boolean first = true;
+			if (wordArray != null) {
+				for (String word : wordArray) {
 
-				if (c_wordCnt < wordLimit) {
-					sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+					int w_len = word.length();
 
-					c_wordCnt++;
-				} else {
-					c_wordCnt = 0;
-					c_rowCnt++;
+					// Special case if w_len already > wordLimit
+					if (w_len > wordLimit) {
+						List<String> brkList = breakDownLongWord(word, wordLimit, rowLimit);
+						for (String brkWd : brkList) {
+							int brk_len = brkWd.length();
+							if (first) {
+								if (brk_len <= wordLimit) { // Append the word directly
+									sb.append(brkWd);
+									c_wordCnt += brk_len;
 
-					if (c_rowCnt > rowLimit) {
-						break;
+								} else { // Go to next line
+									sb.append("\n").append(brkWd);
+									c_rowCnt++;
+									c_wordCnt = brk_len;
+								}
+
+								first = false;
+							} else {
+
+								if (c_wordCnt + brk_len + 1 <= wordLimit) { // Append the word directly
+									sb.append(" ").append(brkWd);
+									c_wordCnt += (brk_len + 1);
+								} else { // Go to next line
+									sb.append("\n").append(brkWd);
+									c_rowCnt++;
+									c_wordCnt = brk_len;
+								}
+							}
+						}
+
+						// continue next word
+						continue;
 					}
 
-					sb.append("\n");
-					sb.append(str_fieldValue.substring(c_ttlWordCnt, c_ttlWordCnt + 1));
+					if (first) {
+						if (c_wordCnt + w_len <= wordLimit) { // Append the word directly
+							sb.append(word);
+							c_wordCnt += w_len;
+						} else { // Go to next line
+							sb.append("\n").append(word);
+							c_rowCnt++;
+							c_wordCnt = w_len;
+						}
 
-					c_wordCnt++;
+						first = false;
+
+					} else {
+						if (c_wordCnt + w_len + 1 <= wordLimit) { // Append the word directly
+							sb.append(" ").append(word);
+							c_wordCnt += (w_len + 1);
+
+						} else { // Go to next line
+							sb.append("\n").append(word);
+							c_rowCnt++;
+							c_wordCnt = w_len;
+						}
+
+					}
 				}
-
-				c_ttlWordCnt++;
-
 			}
 
 			if (c_rowCnt > rowLimit) {
@@ -181,4 +254,49 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 		}
 	}
 
+	private List<String> breakDownLongWord(String word, int wordLimit, int rowLimit) {
+		List<String> wdList = ListLib.newList();
+
+		String temp_word = word;
+		while (temp_word.length() > wordLimit) {
+			String trunc = word.substring(0, wordLimit);
+			wdList.add(trunc);
+			temp_word = word.substring(wordLimit);
+		}
+
+		if (temp_word.length() > 0) {
+			wdList.add(temp_word);
+		}
+
+		return wdList;
+	}
+
+	private void checkProFooterLimit(CawReportDataSet reData, int proFooterLimit) {
+		CawReportSqlTable maindn = reData.getSqlResult("maindn");
+		CawReportSqlTable dnt = reData.getSqlResult("dnt");
+
+		maindn.addField(new SqlTableField("overProFooterLimit", Boolean.class));
+		dnt.addField(new SqlTableField("prtProFooter", Boolean.class));
+
+		for (int i : maindn) {
+			long dnId = maindn.getLong(i, "dnId");
+
+			int counter = 0;
+			for (int j : dnt) {
+				if (dnt.getLong(j, "dnId") == dnId) {
+					if (++counter > proFooterLimit) {
+						dnt.setBoolean(j, "prtProFooter", false);
+					} else {
+						dnt.setBoolean(j, "prtProFooter", true);
+					}
+				}
+			}
+
+			if (counter > proFooterLimit) {
+				maindn.setBoolean(i, "overProFooterLimit", true);
+			} else {
+				maindn.setBoolean(i, "overProFooterLimit", false);
+			}
+		}
+	}
 }
