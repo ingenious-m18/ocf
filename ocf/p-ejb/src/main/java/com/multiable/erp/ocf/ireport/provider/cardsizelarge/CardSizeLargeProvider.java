@@ -34,6 +34,7 @@ public class CardSizeLargeProvider extends MacModuleProvider {
 		String sql = "{CALL ocf_prtCardSizeLarge('" + jrDto.getMainIdString() + "')}";
 		MacQuery query = new MacQuery();
 		query.setQuery(sql);
+
 		return fillAndAdjustData(query);
 	}
 }

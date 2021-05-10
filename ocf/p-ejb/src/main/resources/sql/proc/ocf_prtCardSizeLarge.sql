@@ -14,12 +14,12 @@ BEGIN
 	WHERE find_in_set(a.id, dnid);
 
 	-- Query 0 maindn
-	select a.id as dnId, a.id, a.code
+	select a.id as dnId, a.*
 	from maindn a
 	where a.id IN (SELECT id FROM t_prtdn_mod);
 		
 	-- Query 1 remdn
-	select b.hId as dnId, b.id, b.ocfrecipient, b.ocfsender, b.msgcontent
+	select b.hId as dnId, b.*
 	from remdn b
 	where b.hId IN (SELECT id FROM t_prtdn_mod);
 	

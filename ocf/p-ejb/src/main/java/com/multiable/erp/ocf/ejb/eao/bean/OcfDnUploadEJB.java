@@ -188,6 +188,7 @@ public class OcfDnUploadEJB implements OcfDnUploadLocal {
 													? CawGlobal.getSysUser().getUsercode()
 													: CawContext.getUser().getUsercode()));
 							maintar_attach.setValue(rec, "tags", "Upload via [Delivery Note Upload]");
+							maintar_attach.setValue(rec, "print", true);
 
 							// Check ocfDnUpload for footer
 							for (int i : art) {
