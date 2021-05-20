@@ -5,6 +5,7 @@ import com.multiable.core.share.data.ireport.CawReportDataSet;
 import com.multiable.erp.core.ejb.ireport.MacModuleProvider;
 import com.multiable.erp.core.share.util.MacReportUtil;
 import com.multiable.erp.ocf.share.data.ireport.cardsize.CardSizeJrDto;
+import com.multiable.erp.ocf.share.util.OcfJrVar;
 
 public class CardSizeSmallProvider extends MacModuleProvider {
 	@Override
@@ -24,6 +25,8 @@ public class CardSizeSmallProvider extends MacModuleProvider {
 		CardSizeJrDto jrDto = (CardSizeJrDto) getReportDto();
 		handleHtmlField(reData, jrDto);
 
+		OcfJrVar ocfvar = new OcfJrVar();
+		addParam("ocfvar", ocfvar);
 	}
 
 	@Override

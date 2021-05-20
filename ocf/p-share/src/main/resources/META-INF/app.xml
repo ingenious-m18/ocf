@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <app xmlns="http://www.multiable.com/app">
 	<name>ce01_ocf</name>
-	<version>1.15</version>
+	<version>1.17</version>
 	<description>OCF</description>
 	<dependences>
 		<dependence id="caw" versions="1.0" />
