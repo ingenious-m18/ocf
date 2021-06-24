@@ -22,6 +22,7 @@ import com.multiable.bean.view.ViewController;
 import com.multiable.core.share.data.ITableAppend;
 import com.multiable.core.share.data.SqlTable;
 import com.multiable.core.share.data.TableAppendAuto;
+import com.multiable.core.share.data.sort.SortField;
 import com.multiable.core.share.lib.ConvertLib;
 import com.multiable.core.share.lib.ListLib;
 import com.multiable.core.share.lib.MathLib;
@@ -64,6 +65,7 @@ import com.multiable.web.WebMessage.MessageType;
 import com.multiable.web.WebUtil;
 import com.multiable.web.component.edittable.EditTable;
 import com.multiable.web.component.edittable.EditTableModel;
+import com.multiable.web.component.edittable.entity.TableAction.ActionType;
 import com.multiable.web.component.edittable.interfaces.TableActionListener;
 import com.multiable.web.config.CawDialog;
 import com.multiable.web.config.DialogObject.DialogStatus;
@@ -73,6 +75,7 @@ import com.multiable.web.util.MessageUtil;
 public class OcfDnListener extends MacModuleRecordViewListener implements ITradingCalcDecorator {
 	private String lastLookupType = "";
 	private final static String D_ZipCodeCharge = "Zip Code Charge";
+	private final static String D_SunHolCharge = "Sunday/Holiday Charge";
 	private OcfDnLocal dnEJB = null;
 	private double cusDiscRate = 0;
 
@@ -336,11 +339,32 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 					dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
 					dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
 
-					double taxAmt = MathLib.round(transCharge * chargeInfo.getDouble(cr_row, "taxRate") / 100,
+					double taxAmt = MathLib.round((transCharge) * chargeInfo.getDouble(cr_row, "taxRate") / 100,
 							beDecimal);
 					double amt = MathLib.round(taxAmt + transCharge, beDecimal);
 					dndisc.setDouble(rec, "taxAmt", taxAmt);
 					dndisc.setDouble(rec, "amt", amt);
+
+					// Check if Sunday or Public Holiday
+					double holCharge = dnEJB.getHolidayCharge(getBeId(), tDate);
+
+					if (holCharge > 0) {
+						rec = dndisc.addRow(1);
+						dndisc.setString(rec, "accDesc", D_SunHolCharge);
+						dndisc.setLong(rec, "accId", transAccId);
+						dndisc.setString(rec, "aDesc", chargeInfo.getString(cr_row, "desc"));
+						dndisc.setString(rec, "c_d", "charge");
+						dndisc.setDouble(rec, "discRate", 0);
+						dndisc.setDouble(rec, "preTaxAmt", holCharge);
+						dndisc.setLong(rec, "taxCodeId", chargeInfo.getLong(cr_row, "taxCodeId"));
+						dndisc.setDouble(rec, "vatPer", chargeInfo.getDouble(cr_row, "taxRate"));
+
+						taxAmt = MathLib.round((holCharge) * chargeInfo.getDouble(cr_row, "taxRate") / 100,
+								beDecimal);
+						amt = MathLib.round(taxAmt + holCharge, beDecimal);
+						dndisc.setDouble(rec, "taxAmt", taxAmt);
+						dndisc.setDouble(rec, "amt", amt);
+					}
 				}
 
 				// Step 6: Zip code
@@ -367,6 +391,95 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 				curBean.calc_adisc();
 
 				MacWebUtil.reloadEditTable("discFooter");
+			} else if (("maindn_tDate").equals(component.getId())) {
+				Date tDate = (Date) mainData.getObject(1, "tDate");
+				DeliveryNoteBean curBean = (DeliveryNoteBean) MacBeanUtil
+						.getCurrentBeanInstance("trdgDeliveryNote");
+
+				// Find out transport charge account
+				List<FormatCond> conds = ListLib.newList();
+				FormatCond cond = new FormatCond();
+				cond.setCondString("transportchargeaccount = 1");
+				conds.add(cond);
+				SqlTable transAccTable = ErpQueryUtil.searchWsData("account", null, conds);
+				Long transAccId = 0L;
+				if (transAccTable != null && transAccTable.size() > 0) {
+					transAccId = transAccTable.getLong(1, "id");
+				}
+
+				if (transAccId != 0) {
+
+					// Check if Sunday or Public Holiday
+					double holCharge = dnEJB.getHolidayCharge(getBeId(), tDate);
+
+					// Remove row which has transAccId & accDesc == D_SunHolCharge
+					for (int i = dndisc.size(); i > 0; i--) {
+						if (transAccId == dndisc.getLong(i, "accId")
+								&& dndisc.getString(i, "accDesc").equals(D_SunHolCharge)) {
+							dndisc.deleteRow(i);
+						}
+					}
+
+					if (holCharge > 0) {
+						int seekRow = 0;
+						for (int i : dndisc) {
+							if (dndisc.getLong(i, "accId") == transAccId
+									&& !dndisc.getString(i, "accDesc").equals(D_ZipCodeCharge)
+									&& !dndisc.getString(i, "accDesc").equals(D_SunHolCharge)
+									&& dndisc.getDouble(i, "amt") > 0) {
+								seekRow = i;
+								break;
+							}
+						}
+
+						if (seekRow > 0) {
+							int beDecimal = MacUtil.getAmtDecimal(getBeId());
+							EditTable discEditTable = (EditTable) WebUtil.findComponent("discFooter");
+
+							// Because TrdgVatTradeMainFooterListener - resetFooterTableTaxInfo
+							// It has to use triggerTableEvent
+							// int rec = dndisc.addRow(1);
+							boolean flag = getTableModel("dndisc").triggerTableEvent(discEditTable,
+									ActionType.addRow);
+							int rec = 0;
+							if (flag) {
+								rec = discEditTable.getNewIndex();
+
+								dndisc.setString(rec, "accDesc", D_SunHolCharge);
+								dndisc.setLong(rec, "accId", transAccId);
+								dndisc.setString(rec, "aDesc", dndisc.getString(seekRow, "aDesc"));
+								dndisc.setString(rec, "c_d", "charge");
+								dndisc.setDouble(rec, "discRate", 0);
+								dndisc.setDouble(rec, "preTaxAmt", holCharge);
+								dndisc.setLong(rec, "taxCodeId", dndisc.getLong(seekRow, "taxCodeId"));
+								dndisc.setDouble(rec, "vatPer", dndisc.getDouble(seekRow, "vatPer"));
+
+								double taxAmt = MathLib.round(
+										(holCharge) * dndisc.getDouble(seekRow, "vatPer") / 100, beDecimal);
+								double amt = MathLib.round(taxAmt + holCharge, beDecimal);
+								dndisc.setDouble(rec, "taxAmt", taxAmt);
+								dndisc.setDouble(rec, "amt", amt);
+
+								discEditTable.fireTableRowUpdate(
+										((EditTableModel) discEditTable.getModel()).getRowId(rec));
+							}
+
+						}
+
+						List<SortField> sortFields = ListLib.newList();
+						SortField s1 = new SortField();
+						s1.setFieldName("accId");
+						s1.setAscending(false);
+						sortFields.add(s1);
+
+						SqlTableLib.sort(sortFields, dndisc);
+
+						curBean.calc_adisc();
+
+					}
+
+					MacWebUtil.reloadEditTable("discFooter");
+				}
 			} else if (("remdn_zipcode").equals(component.getId())) {
 				int beDecimal = MacUtil.getAmtDecimal(getBeId());
 				Date tDate = (Date) mainData.getObject(1, "tDate");
@@ -397,6 +510,10 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 							ConvertLib.toString(vce.getNewValue()));
 					if (zcCharge != null && zcCharge.size() > 0) {
 						double chargeAmt = zcCharge.getDouble(1, "zcCharge");
+
+						// Check if Sunday or Public Holiday
+						// double holCharge = dnEJB.getHolidayCharge(getBeId(), tDate);
+
 						int rec = dndisc.addRow();
 						dndisc.setString(rec, "accDesc", D_ZipCodeCharge);
 						dndisc.setLong(rec, "accId", transAccId);
@@ -407,7 +524,7 @@ public class OcfDnListener extends MacModuleRecordViewListener implements ITradi
 						dndisc.setLong(rec, "taxCodeId", zcCharge.getLong(1, "taxCodeId"));
 						dndisc.setDouble(rec, "vatPer", zcCharge.getDouble(1, "taxRate"));
 
-						double taxAmt = MathLib.round(chargeAmt * zcCharge.getDouble(1, "taxRate") / 100,
+						double taxAmt = MathLib.round((chargeAmt) * zcCharge.getDouble(1, "taxRate") / 100,
 								beDecimal);
 						double amt = MathLib.round(taxAmt + chargeAmt, beDecimal);
 						dndisc.setDouble(rec, "taxAmt", taxAmt);

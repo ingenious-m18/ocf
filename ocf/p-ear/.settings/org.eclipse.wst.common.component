@@ -78,18 +78,11 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ce01_xsho_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_xsho_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="mac_rnbase_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/mac_rnbase_ejb.jar">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_vat_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_vat_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ce01_pjmac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_pjmac_ejb.jar">
-            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_ocf_ejb.jar" deploy-path="/" handle="module:/resource/ce01_ocf_ejb/ce01_ocf_ejb">
@@ -116,9 +109,6 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ce01_pjmac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ce01_ac_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_ac_share.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -134,10 +124,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_ztrdgvat_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ce01_xsho_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_xsho_ejb.jar">
-            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_cusrnp_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_cusrnp_ejb.jar">
@@ -160,17 +146,10 @@
         <dependent-module archiveName="mac_dms_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/mac_dms_share.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ce01_pjm_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_pjm_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ce01_venrnp_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_prq_share.jar" deploy-path="/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/lib/ce01_prq_share.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ce01_pjm_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_pjm_ejb.jar">
-            <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_ac_ejb.jar" deploy-path="/" handle="module:/classpath/lib/ce01/caw_ear.ear/ce01_ac_ejb.jar">

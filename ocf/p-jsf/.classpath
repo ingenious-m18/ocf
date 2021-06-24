@@ -28,8 +28,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_hkinit_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_mfc_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pexp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjm_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_prq_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_root_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_sggst_share.jar"/>
@@ -38,7 +36,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vehd_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_xsho_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_zacvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/core_share.jar"/>
@@ -57,8 +54,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_hkinit_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_mfc_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pexp_jsf.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjm_jsf.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjmac_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_prq_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_root_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_sggst_jsf.jar"/>
@@ -67,7 +62,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_vat_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_vehd_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_venrnp_jsf.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_xsho_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_zacvat_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_ztrdgvat_jsf.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/core_jsf.jar"/>

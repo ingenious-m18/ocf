@@ -28,8 +28,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_hkinit_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_mfc_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_pexp_ejb.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_pjm_ejb.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_pjmac_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_prq_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_root_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_sggst_ejb.jar"/>
@@ -38,7 +36,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_vat_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_vehd_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_venrnp_ejb.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_xsho_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_zacvat_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/ce01_ztrdgvat_ejb.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/core_ejb.jar"/>
@@ -57,8 +54,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_hkinit_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_mfc_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pexp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjm_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_prq_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_root_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_sggst_share.jar"/>
@@ -67,7 +62,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vehd_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_xsho_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_zacvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/core_share.jar"/>

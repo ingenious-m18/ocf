@@ -31,6 +31,8 @@
 		<column name="ocfTerms" type="varchar" mess="ocf.terms" length="10" defValue="" />
 		<column name="ocfProTtl" type="decimal" mess="ce01_ocf.proTtl" length="18" decimal="4" defPattern="n_number14_2"/>
 		<column name="ocfProDisc" type="decimal" mess="ce01_ocf.proDisc" length="18" decimal="4" defPattern="n_number14_2"/>
+		
+		<column name="ocfSiId" type="int_unsigned" mess="ce01_ocf.salesInvoice" defValue="0" defPattern="siso"/>
 	</table>
 	
 	<table name="remdn" extend="true"> 

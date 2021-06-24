@@ -1,5 +1,6 @@
 package com.multiable.erp.ocf.ejb.checker;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -120,7 +121,8 @@ public class OcfSiChecker {
 			for (int i = 1; i <= sidisc.size(); i++) {
 				int seekRow = accIndex.seek(sidisc.getLong(i, "accId") + "");
 				if (seekRow > 0) {
-					redepmtionAmt += sidisc.getDouble(i, "amt");
+					// 20210611 We use preTaxAmt instead of amt
+					redepmtionAmt += sidisc.getDouble(i, "preTaxAmt");
 				}
 			}
 		}
@@ -444,7 +446,8 @@ public class OcfSiChecker {
 				int seekRow = accIndex.seek(sidisc.getLong(i, "accId") + "");
 				if (seekRow > 0) {
 					use = true;
-					redepmtionAmt += sidisc.getDouble(i, "amt");
+					// 20210611 We use preTaxAmt instead of amt
+					redepmtionAmt += sidisc.getDouble(i, "preTaxAmt");
 				}
 			}
 		}
@@ -524,6 +527,66 @@ public class OcfSiChecker {
 		return msg;
 	}
 
+	// Set ocfSiId in DN
+	@EntityCheck(type = CheckType.SAVE, range = CheckRange.AFTER, checkOrder = 202)
+	public CheckMsg setDn(SeSaveParam param) {
+		if (param.getEntityId() == 0) {
+			return null;
+		}
+
+		// Remove existing DN ocfSiId
+		StringBuilder sb = new StringBuilder();
+		sb.append(" update maindn a, dnt b");
+		sb.append(" set a.ocfSiId = 0, a.iRev = a.iRev + 1");
+		sb.append(" where a.id = b.hId");
+		sb.append(" and a.ocfSiId != 0 and a.ocfSiId = " + param.getEntityId());
+		sb.append(";");
+
+		try {
+			CawDs.runUpdate(sb.toString());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		// Check if DN exists
+		SqlEntity entity = param.getSqlEntity();
+		SqlTable art = entity.getData("art");
+
+		long dnId = 0L;
+		if (art != null && art.size() > 0) {
+			for (int i : art) {
+				if (art.getString(i, "sourceType").equals("dn") && art.getLong(i, "sourceId") != 0) {
+					dnId = art.getLong(i, "sourceId");
+					break;
+				}
+			}
+		}
+
+		if (dnId != 0) {
+			// Set ocfSiId and save
+			SqlEntityEAOLocal entityEao = null;
+			try {
+				entityEao = JNDILocator.getInstance().lookupEJB("SqlEntityEAO", SqlEntityEAOLocal.class);
+			} catch (NamingException e) {
+				e.printStackTrace();
+			}
+
+			SeReadParam readParam = new SeReadParam("dn");
+			readParam.setEntityId(dnId);
+			SqlEntity dnEntity = entityEao.loadEntity(readParam);
+
+			if (dnEntity != null) {
+				dnEntity.getMainData().setLong(1, "ocfSiId", param.getEntityId());
+
+				SeSaveParam saveParam = new SeSaveParam("dn");
+				saveParam.setSqlEntity(dnEntity);
+				entityEao.saveEntity(saveParam);
+			}
+		}
+		return null;
+	}
+
 	@EntityCheck(type = CheckType.DELETE, range = CheckRange.AFTER, checkOrder = 200)
 	public CheckMsg deletePointEarnedSpent(SeDeleteParam param) {
 		CheckMsg msg = null;
@@ -589,6 +652,30 @@ public class OcfSiChecker {
 
 		return msg;
 
+	}
+
+	@EntityCheck(type = CheckType.DELETE, range = CheckRange.AFTER, checkOrder = 202)
+	public CheckMsg setDnAfterDelete(SeDeleteParam param) {
+		if (param.getEntityId() == 0) {
+			return null;
+		}
+
+		// Remove existing DN ocfSiId
+		StringBuilder sb = new StringBuilder();
+		sb.append(" update maindn a, dnt b");
+		sb.append(" set a.ocfSiId = 0, a.iRev = a.iRev + 1");
+		sb.append(" where a.id = b.hId");
+		sb.append(" and a.ocfSiId != 0 and a.ocfSiId = " + param.getEntityId());
+		sb.append(";");
+
+		try {
+			CawDs.runUpdate(sb.toString());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		return null;
 	}
 
 	public void calculateTotalPoint(SqlEntity cusEntity) {

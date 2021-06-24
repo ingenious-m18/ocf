@@ -1,7 +1,7 @@
 caw.ap.debug = 1
-caw.ap.skip.sycnB=1
-caw.ebi.skipXMLSync=1
-caw.report.skipUploadFormat=1
+caw.ap.skip.sycnB=0
+caw.ebi.skipXMLSync=0
+caw.report.skipUploadFormat=0
 
 caw.jboss.cluster=
 

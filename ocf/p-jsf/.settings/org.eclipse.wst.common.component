@@ -45,9 +45,6 @@
         <dependent-module archiveName="ce01_consignac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_consignac_jsf.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ce01_pjmac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjmac_jsf.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ce01_ztrdgvat_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_ztrdgvat_jsf.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -63,16 +60,10 @@
         <dependent-module archiveName="ce01_cusrnp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_cusrnp_jsf.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ce01_pjm_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pjm_jsf.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ce01_pexp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_pexp_jsf.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_ac_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_ac_jsf.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ce01_xsho_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_xsho_jsf.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ce01_venrnp_jsf.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/ce01/caw_ear.ear/jsf.war/WEB-INF/lib/ce01_venrnp_jsf.jar">

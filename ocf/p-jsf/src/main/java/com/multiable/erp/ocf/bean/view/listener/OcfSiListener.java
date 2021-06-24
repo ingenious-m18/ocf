@@ -133,24 +133,34 @@ public class OcfSiListener extends MacModuleRecordViewListener implements BatchG
 			if (("maintar_cusId").equals(component.getId())) {
 				Long newCusId = ConvertLib.toLong(vce.getNewValue());
 
-				// Assign ocfCusPoNo, ocfTerms
-				StringBuffer condStr = new StringBuffer();
-				condStr.append("#cus#.id = " + newCusId);
-				List<FormatCond> conds = ListLib.newList();
-				conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
-				List<String> extraFieldList = ListLib.newList();
-				extraFieldList.add("ocfCusPoNo");
-				extraFieldList.add("ocfTerms");
-				SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
-
-				if (srCusInfo != null && srCusInfo.size() > 0) {
-					mainData.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
-					mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
-				} else {
-					mainData.setString(1, "ocfCusPoNo", "");
-					mainData.setString(1, "ocfTerms", "");
+				// Check if art has dn as source in the first row
+				boolean dnSrc = false;
+				if (art != null && art.size() > 0) {
+					if (art.getString(1, "sourceType").equals("dn") && art.getLong(1, "sourceId") != 0) {
+						dnSrc = true;
+					}
 				}
-				WebUtil.update("maindn_ocfCusPoNo", "maindn_ocfTerms");
+
+				if (!dnSrc) {
+					// Assign ocfCusPoNo, ocfTerms
+					StringBuffer condStr = new StringBuffer();
+					condStr.append("#cus#.id = " + newCusId);
+					List<FormatCond> conds = ListLib.newList();
+					conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+					List<String> extraFieldList = ListLib.newList();
+					extraFieldList.add("ocfCusPoNo");
+					extraFieldList.add("ocfTerms");
+					SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+
+					if (srCusInfo != null && srCusInfo.size() > 0) {
+						mainData.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+						mainData.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+					} else {
+						mainData.setString(1, "ocfCusPoNo", "");
+						mainData.setString(1, "ocfTerms", "");
+					}
+					WebUtil.update("maindn_ocfCusPoNo", "maindn_ocfTerms");
+				}
 			}
 		}
 	}
@@ -230,24 +240,53 @@ public class OcfSiListener extends MacModuleRecordViewListener implements BatchG
 	@Override
 	public void afterLoadData(SqlTable sourceTable) {
 		SqlTable mainTable = getEntity().getMainData();
+		SqlTable art = getEntity().getData("art");
 		long cusId = mainTable.getLong(1, "cusId");
 
-		// Assign ocfCusPoNo, ocfTerms
-		StringBuffer condStr = new StringBuffer();
-		condStr.append("#cus#.id = " + cusId);
-		List<FormatCond> conds = ListLib.newList();
-		conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
-		List<String> extraFieldList = ListLib.newList();
-		extraFieldList.add("ocfCusPoNo");
-		extraFieldList.add("ocfTerms");
-		SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+		// Check if art has dn as source in the first row
+		boolean dnSrc = false;
+		if (art != null && art.size() > 0) {
+			if (art.getString(1, "sourceType").equals("dn") && art.getLong(1, "sourceId") != 0) {
+				dnSrc = true;
+			}
+		}
 
-		if (srCusInfo != null && srCusInfo.size() > 0) {
-			mainTable.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
-			mainTable.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+		if (!dnSrc) {
+			// Assign ocfCusPoNo, ocfTerms
+			StringBuffer condStr = new StringBuffer();
+			condStr.append("#cus#.id = " + cusId);
+			List<FormatCond> conds = ListLib.newList();
+			conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+			List<String> extraFieldList = ListLib.newList();
+			extraFieldList.add("ocfCusPoNo");
+			extraFieldList.add("ocfTerms");
+			SqlTable srCusInfo = ErpQueryUtil.searchWsData("cus", extraFieldList, conds);
+
+			if (srCusInfo != null && srCusInfo.size() > 0) {
+				mainTable.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+				mainTable.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+			} else {
+				mainTable.setString(1, "ocfCusPoNo", "");
+				mainTable.setString(1, "ocfTerms", "");
+			}
 		} else {
-			mainTable.setString(1, "ocfCusPoNo", "");
-			mainTable.setString(1, "ocfTerms", "");
+			// Assign from DN's <Terms>
+			StringBuffer condStr = new StringBuffer();
+			condStr.append("#maindn#.id = " + art.getLong(1, "sourceId"));
+			List<FormatCond> conds = ListLib.newList();
+			conds.add(ErpQueryUtil.simpleCond(condStr.toString()));
+			List<String> extraFieldList = ListLib.newList();
+			extraFieldList.add("ocfCusPoNo");
+			extraFieldList.add("ocfTerms");
+			SqlTable srCusInfo = ErpQueryUtil.searchWsData("dn", extraFieldList, conds);
+
+			if (srCusInfo != null && srCusInfo.size() > 0) {
+				mainTable.setString(1, "ocfCusPoNo", srCusInfo.getString(1, "ocfCusPoNo"));
+				mainTable.setString(1, "ocfTerms", srCusInfo.getString(1, "ocfTerms"));
+			} else {
+				mainTable.setString(1, "ocfCusPoNo", "");
+				mainTable.setString(1, "ocfTerms", "");
+			}
 		}
 	}
 

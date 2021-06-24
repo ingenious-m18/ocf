@@ -1,7 +1,10 @@
 package com.multiable.erp.ocf.ejb.eao.bean;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -12,10 +15,14 @@ import com.multiable.core.share.data.SqlTableField;
 import com.multiable.core.share.lib.DateLib;
 import com.multiable.core.share.lib.MathLib;
 import com.multiable.core.share.lib.StringLib;
+import com.multiable.core.share.meta.dd.DdColumn;
+import com.multiable.core.share.meta.dd.DdTable;
+import com.multiable.core.share.server.CawGlobal;
 import com.multiable.erp.core.share.util.MacUtil;
 import com.multiable.erp.core.share.util.MacXMLUtil;
 import com.multiable.erp.ocf.share.OcfStaticVar.OcfEJB;
 import com.multiable.erp.ocf.share.interfaces.local.OcfDnLocal;
+import com.multiable.logging.CawLog;
 
 @Stateless(name = OcfEJB.OcfDnEJB)
 @Local({ OcfDnLocal.class })
@@ -267,6 +274,7 @@ public class OcfDnEJB implements OcfDnLocal {
 
 	}
 
+	@Override
 	public SqlTable getDefaultPrintSetting(String providerCode) {
 
 		StringBuilder sb = new StringBuilder();
@@ -282,5 +290,74 @@ public class OcfDnEJB implements OcfDnLocal {
 		sb.append(";");
 
 		return CawDs.getResult(sb.toString());
+	}
+
+	@Override
+	public double getHolidayCharge(long beId, Date tDate) {
+		if (DateLib.isEmptyDate(tDate)) {
+			return 0d;
+		}
+
+		LocalDate locDate = tDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+		// Check if it is Sunday
+		boolean isSun = locDate.getDayOfWeek().getValue() == 7;
+		boolean isPub = false;
+
+		// Check whether the UDF field exists
+		boolean udfExist = false;
+		DdTable ddTable = CawGlobal.getDDTable("dept");
+		Map<String, DdColumn> colMap = ddTable.getColumn();
+		if (colMap != null) {
+			udfExist = colMap.containsKey("udfSunDeliveryCharge") && colMap.containsKey("udfPHDeliveryCharge");
+		}
+
+		if (!udfExist) {
+			CawLog.info("Does not have udfSunDeliveryCharge & udfPHDeliveryCharge.");
+			return 0d;
+		}
+
+		DdTable ddTable2 = CawGlobal.getDDTable("udfphdate");
+		if (ddTable2 == null) {
+			CawLog.info("Does not have table udfphdate.");
+			return 0d;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(" select id, udfSunDeliveryCharge, udfPHDeliveryCharge");
+		sb.append(" from dept where id != 0 and id = " + beId);
+		sb.append(";");
+
+		sb.append(" select * from udfphdate where hId = " + beId);
+		sb.append(";");
+
+		List<SqlTable> tab_results = CawDs.getResults(sb.toString());
+
+		SqlTable dept = tab_results.get(0);
+		SqlTable udfphdate = tab_results.get(1);
+
+		if (!isSun) {
+			if (udfphdate != null && udfphdate.size() > 0) {
+				for (int i : udfphdate) {
+					Date m_date = (Date) udfphdate.getObject(i, "udfPHDate");
+					if (m_date != null && m_date.compareTo(tDate) == 0) {
+						isPub = true;
+						break;
+					}
+				}
+			}
+		}
+
+		if (isSun) {
+			if (dept != null && dept.size() > 0) {
+				return dept.getDouble(1, "udfSunDeliveryCharge");
+			}
+		} else if (isPub) {
+			if (dept != null && dept.size() > 0) {
+				return dept.getDouble(1, "udfPHDeliveryCharge");
+			}
+		}
+
+		return 0d;
 	}
 }

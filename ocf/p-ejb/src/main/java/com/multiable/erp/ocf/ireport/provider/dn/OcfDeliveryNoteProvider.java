@@ -180,7 +180,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 			String[] wordArray = str_fieldValue.split(" ");
 			boolean first = true;
 			if (wordArray != null) {
-				for (String word : wordArray) {
+				WORD_LOOP: for (String word : wordArray) {
 
 					int w_len = word.length();
 
@@ -188,6 +188,7 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 					if (w_len > wordLimit) {
 						List<String> brkList = breakDownLongWord(word, wordLimit, rowLimit);
 						for (String brkWd : brkList) {
+
 							int brk_len = brkWd.length();
 							if (first) {
 								if (brk_len <= wordLimit) { // Append the word directly
@@ -195,6 +196,12 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 									c_wordCnt += brk_len;
 
 								} else { // Go to next line
+									if (c_rowCnt >= rowLimit) {
+										sb.append("\n");
+										sb.append("......as per card.");
+										break WORD_LOOP;
+									}
+
 									sb.append("\n").append(brkWd);
 									c_rowCnt++;
 									c_wordCnt = brk_len;
@@ -207,6 +214,12 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 									sb.append(" ").append(brkWd);
 									c_wordCnt += (brk_len + 1);
 								} else { // Go to next line
+									if (c_rowCnt >= rowLimit) {
+										sb.append("\n");
+										sb.append("......as per card.");
+										break WORD_LOOP;
+									}
+
 									sb.append("\n").append(brkWd);
 									c_rowCnt++;
 									c_wordCnt = brk_len;
@@ -223,6 +236,12 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 							sb.append(word);
 							c_wordCnt += w_len;
 						} else { // Go to next line
+							if (c_rowCnt >= rowLimit) {
+								sb.append("\n");
+								sb.append("......as per card.");
+								break WORD_LOOP;
+							}
+
 							sb.append("\n").append(word);
 							c_rowCnt++;
 							c_wordCnt = w_len;
@@ -236,6 +255,12 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 							c_wordCnt += (w_len + 1);
 
 						} else { // Go to next line
+							if (c_rowCnt >= rowLimit) {
+								sb.append("\n");
+								sb.append("......as per card.");
+								break WORD_LOOP;
+							}
+
 							sb.append("\n").append(word);
 							c_rowCnt++;
 							c_wordCnt = w_len;
@@ -245,23 +270,20 @@ public class OcfDeliveryNoteProvider extends MacModuleProvider {
 				}
 			}
 
-			if (c_rowCnt > rowLimit) {
-				sb.append("\n");
-				sb.append("......as per card.");
-			}
-
 			table.setString(row, fieldName, sb.toString());
 		}
 	}
 
+	// If the word itself is longer than the word limit
+	// Break it into parts, each part max size = wordLimit
 	private List<String> breakDownLongWord(String word, int wordLimit, int rowLimit) {
 		List<String> wdList = ListLib.newList();
 
 		String temp_word = word;
 		while (temp_word.length() > wordLimit) {
-			String trunc = word.substring(0, wordLimit);
+			String trunc = temp_word.substring(0, wordLimit);
 			wdList.add(trunc);
-			temp_word = word.substring(wordLimit);
+			temp_word = temp_word.substring(wordLimit);
 		}
 
 		if (temp_word.length() > 0) {

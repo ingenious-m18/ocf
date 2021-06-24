@@ -27,8 +27,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_hkinit_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_mfc_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pexp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjm_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_pjmac_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_prq_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_root_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_sggst_share.jar"/>
@@ -37,7 +35,6 @@
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_vehd_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_venrnp_share.jar"/>
-	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_xsho_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_zacvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/ce01_ztrdgvat_share.jar"/>
 	<classpathentry kind="lib" path="/ce01/caw_ear.ear/lib/core_share.jar"/>

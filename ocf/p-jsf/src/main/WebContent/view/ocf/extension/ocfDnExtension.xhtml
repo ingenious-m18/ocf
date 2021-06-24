@@ -23,6 +23,8 @@
 			<caw:inputNum tableName="maindn" columnName="ocfProDisc" disabled="true" Decimal="#{var.amtDecimal}">
 				<caw:facet name="prefixAddon" style="width:4rem;">#{var.curSym}</caw:facet>
 			</caw:inputNum>
+			
+			<caw:lookup tableName="maindn" columnName="ocfSiId" disabled="true"></caw:lookup>
 		</caw:extendComponent>
 		
 		<caw:extendComponent target="mainFooter" action="append">

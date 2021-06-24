@@ -17,4 +17,6 @@ public interface OcfDnLocal {
 	public SqlTable getZipCodeCharge(Long beId, Long transAccId, Date tDate, String zipcode);
 
 	public SqlTable getDefaultPrintSetting(String providerCode);
+
+	public double getHolidayCharge(long beId, Date tDate);
 }
